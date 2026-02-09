@@ -93,6 +93,26 @@
     "handoff_to_next_milestone": {
       "milestone_1_2": "CLI Framework will build on Repomap Core to create reusable patterns",
       "milestone_1_3": "Testing Infrastructure will test Repomap Core and CLI Framework"
-    }
+    },
+    "tasks": [
+      {
+        "id": "1.1.1",
+        "title": "Project Setup & Go Module Initialization",
+        "passes": true
+      }
+    ],
+    "affected_files": [
+      "repomap/go.mod",
+      "repomap/.gitignore",
+      "repomap/repomap.go",
+      "repomap/cmd/repomap/main.go",
+      "repomap/internal/discovery/doc.go",
+      "repomap/internal/parsing/doc.go",
+      "repomap/internal/graph/doc.go",
+      "repomap/internal/ranking/doc.go",
+      "repomap/internal/output/doc.go",
+      "repomap/doc/README.md"
+    ],
+    "affected_dependencies": []
   }
 }

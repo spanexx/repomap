@@ -1,0 +1,8 @@
+# Binaries
+/repomap
+
+# Test binary
+*.test
+
+# Profiling
+*.prof

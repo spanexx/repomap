@@ -10,11 +10,11 @@
 ## Phase A: Discovery & Filtering
 
 ### Task 1.1.1: Project Setup & Go Module Initialization
-- [ ] Create `repomap/` directory structure
-- [ ] Initialize `go.mod` with module path `github.com/spanexx/agents-cli/repomap`
-- [ ] Create `cmd/repomap/main.go` with basic CLI skeleton
-- [ ] Create `internal/discovery/`, `internal/parsing/`, etc. package directories
-- [ ] Verify project builds: `go build -o repomap ./cmd/repomap`
+- [x] Create `repomap/` directory structure
+- [x] Initialize `go.mod` with module path `github.com/spanexx/agents-cli/repomap`
+- [x] Create `cmd/repomap/main.go` with basic CLI skeleton
+- [x] Create `internal/discovery/`, `internal/parsing/`, etc. package directories
+- [x] Verify project builds: `go build -o repomap ./cmd/repomap`
 
 **Acceptance Criteria:**
 - Go modules resolve without errors

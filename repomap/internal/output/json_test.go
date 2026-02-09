@@ -25,12 +25,12 @@ func TestRenderJSON(t *testing.T) {
 		},
 	}
 
-	jsonOutput, err := RenderJSON(nodes)
+	// Case 1: No limit
+	jsonOutput, err := RenderJSON(nodes, 0)
 	if err != nil {
 		t.Fatalf("RenderJSON failed: %v", err)
 	}
 
-	// Verify basic structure
 	expectedSubstrings := []string{
 		`"files": [`,
 		`"path": "main.go"`,
@@ -46,7 +46,25 @@ func TestRenderJSON(t *testing.T) {
 	for _, s := range expectedSubstrings {
 		if !strings.Contains(jsonOutput, s) {
 			t.Errorf("JSON output missing expected string: %s", s)
-			t.Logf("Got:\n%s", jsonOutput)
 		}
+	}
+
+	// Case 2: Budget limit
+	// Wrapper ~3 tokens. Node 1 cost 100. Total 103.
+	// We set limit 110. Node 2 cost 50. 103 + 50 = 153 > 110.
+
+	jsonOutputLimited, err := RenderJSON(nodes, 110)
+	if err != nil {
+		t.Fatalf("RenderJSON limited failed: %v", err)
+	}
+
+	if !strings.Contains(jsonOutputLimited, "main.go") {
+		t.Error("Limited JSON should contain main.go")
+	}
+	if strings.Contains(jsonOutputLimited, "pkg/utils.go") {
+		t.Error("Limited JSON should NOT contain pkg/utils.go")
+	}
+	if !strings.Contains(jsonOutputLimited, "Output truncated") {
+		t.Error("Limited JSON should contain truncation notice")
 	}
 }

@@ -25,12 +25,12 @@ func TestRenderXML(t *testing.T) {
 		},
 	}
 
-	xmlOutput, err := RenderXML(nodes)
+	// Case 1: No limit
+	xmlOutput, err := RenderXML(nodes, 0)
 	if err != nil {
 		t.Fatalf("RenderXML failed: %v", err)
 	}
 
-	// Verify basic structure
 	expectedSubstrings := []string{
 		`<?xml version="1.0" encoding="UTF-8"?>`,
 		`<repomap>`,
@@ -43,7 +43,26 @@ func TestRenderXML(t *testing.T) {
 	for _, s := range expectedSubstrings {
 		if !strings.Contains(xmlOutput, s) {
 			t.Errorf("XML output missing expected string: %s", s)
-			t.Logf("Got:\n%s", xmlOutput)
 		}
+	}
+
+	// Case 2: Budget limit (allow first node, truncates second)
+	// Header ~12 tokens. Node 1 cost 100. Total 112.
+	// We set maxTokens to 120. Node 2 cost 50. 112 + 50 = 162 > 120.
+	// So Node 2 should be truncated.
+
+	xmlOutputLimited, err := RenderXML(nodes, 120)
+	if err != nil {
+		t.Fatalf("RenderXML limited failed: %v", err)
+	}
+
+	if !strings.Contains(xmlOutputLimited, "main.go") {
+		t.Error("Limited XML should contain main.go")
+	}
+	if strings.Contains(xmlOutputLimited, "pkg/utils.go") {
+		t.Error("Limited XML should NOT contain pkg/utils.go")
+	}
+	if !strings.Contains(xmlOutputLimited, "Output truncated") {
+		t.Error("Limited XML should contain truncation notice")
 	}
 }

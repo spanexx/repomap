@@ -238,11 +238,11 @@ config.go
 ---
 
 ### Task 1.1.12: Token Counting
-- [ ] Implement simple token counter (MVP): `TokenCount(text) int`
+- [x] Implement simple token counter (MVP): `TokenCount(text) int`
   - **MVP Formula:** `len(text) / 4` (rough approximation)
-- [ ] Integrate with output rendering
-- [ ] Track cumulative tokens while building output
-- [ ] Write unit tests
+- [x] Integrate with output rendering
+- [x] Track cumulative tokens while building output
+- [x] Write unit tests
 
 **Acceptance Criteria:**
 - Token counts are reasonable approximations

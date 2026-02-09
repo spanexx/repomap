@@ -149,6 +149,11 @@
         "id": "1.1.11",
         "title": "JSON Output Rendering",
         "passes": true
+      },
+      {
+        "id": "1.1.12",
+        "title": "Token Counting",
+        "passes": true
       }
     ],
     "affected_files": [
@@ -179,7 +184,9 @@
       "repomap/internal/output/xml.go",
       "repomap/internal/output/xml_test.go",
       "repomap/internal/output/json.go",
-      "repomap/internal/output/json_test.go"
+      "repomap/internal/output/json_test.go",
+      "repomap/internal/output/token.go",
+      "repomap/internal/output/token_test.go"
     ],
     "affected_dependencies": []
   }

@@ -99,6 +99,11 @@
         "id": "1.1.1",
         "title": "Project Setup & Go Module Initialization",
         "passes": true
+      },
+      {
+        "id": "1.1.2",
+        "title": "Implement File Discovery (Walker)",
+        "passes": true
       }
     ],
     "affected_files": [
@@ -111,7 +116,9 @@
       "repomap/internal/graph/doc.go",
       "repomap/internal/ranking/doc.go",
       "repomap/internal/output/doc.go",
-      "repomap/doc/README.md"
+      "repomap/doc/README.md",
+      "repomap/internal/discovery/walker.go",
+      "repomap/internal/discovery/walker_test.go"
     ],
     "affected_dependencies": []
   }

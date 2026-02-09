@@ -23,11 +23,11 @@
 ---
 
 ### Task 1.1.2: Implement File Discovery (Walker)
-- [ ] Implement `discovery.Walk(root string) ([]string, error)` function
-- [ ] Use `filepath.WalkDir` or `filepath.Walk` to traverse directories
-- [ ] Filter out binary files (`.exe`, `.o`, `.a`, `.so`, `.dylib`)
-- [ ] Filter by file extension (Go files by default in MVP)
-- [ ] Write unit tests for Walk() with test fixtures
+- [x] Implement `discovery.Walk(root string) ([]string, error)` function
+- [x] Use `filepath.WalkDir` or `filepath.Walk` to traverse directories
+- [x] Filter out binary files (`.exe`, `.o`, `.a`, `.so`, `.dylib`)
+- [x] Filter by file extension (Go files by default in MVP)
+- [x] Write unit tests for Walk() with test fixtures
 
 **Acceptance Criteria:**
 - Correctly discovers all `.go` files in test repository

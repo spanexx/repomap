@@ -124,6 +124,11 @@
         "id": "1.1.6",
         "title": "Build Import Graph",
         "passes": true
+      },
+      {
+        "id": "1.1.7",
+        "title": "File Ranking Algorithm",
+        "passes": true
       }
     ],
     "affected_files": [
@@ -146,7 +151,9 @@
       "repomap/internal/parsing/imports.go",
       "repomap/internal/parsing/imports_test.go",
       "repomap/internal/graph/builder.go",
-      "repomap/internal/graph/builder_test.go"
+      "repomap/internal/graph/builder_test.go",
+      "repomap/internal/ranking/ranker.go",
+      "repomap/internal/ranking/ranker_test.go"
     ],
     "affected_dependencies": []
   }

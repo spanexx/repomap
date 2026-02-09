@@ -134,12 +134,12 @@ config.go
 ## Phase D: Ranking & Importance Scoring
 
 ### Task 1.1.7: File Ranking Algorithm
-- [ ] Implement `ranking.Rank(graph *Graph) map[string]float64`
-- [ ] Calculate in-degree for each node
-- [ ] Normalize to rank scores (0.0 - 1.0)
+- [x] Implement `ranking.Rank(graph *Graph) map[string]float64`
+- [x] Calculate in-degree for each node
+- [x] Normalize to rank scores (0.0 - 1.0)
   - Formula: `rank[file] = in_degree[file] / max_in_degree`
-- [ ] Sort files by rank descending
-- [ ] Write unit tests on mock graphs
+- [x] Sort files by rank descending
+- [x] Write unit tests on mock graphs
 
 **Acceptance Criteria:**
 - Ranking scores are normalized to [0.0, 1.0]

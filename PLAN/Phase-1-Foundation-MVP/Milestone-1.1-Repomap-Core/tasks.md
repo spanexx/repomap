@@ -86,12 +86,12 @@ type Config struct
 ---
 
 ### Task 1.1.5: Go AST Parser – Extract Imports
-- [ ] Implement `parsing.ExtractImports(filePath string) ([]string, error)`
-- [ ] Use `go/ast` to traverse import declarations
-- [ ] Collect all imported package paths
-- [ ] Normalize import paths to relative file paths
+- [x] Implement `parsing.ExtractImports(filePath string) ([]string, error)`
+- [x] Use `go/ast` to traverse import declarations
+- [x] Collect all imported package paths
+- [x] Normalize import paths to relative file paths
   - Example: `github.com/user/repo/pkg/utils` → `pkg/utils/...`
-- [ ] Write unit tests on files with various import patterns
+- [x] Write unit tests on files with various import patterns
 
 **Acceptance Criteria:**
 - Correctly extracts all imports from Go files

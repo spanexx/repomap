@@ -33,11 +33,11 @@
 - Last Updated: 2026-02-09
 
 ### Task 1.1.5: Go AST Parser – Extract Imports
-**Status:** ⬜ Not Started
+**Status:** ✅ Complete
 - Expected Start: Week 2, Day 1
 - Expected Duration: 1.5 days
 - Assigned To: TBD
-- Last Updated: TBD
+- Last Updated: 2026-02-09
 
 ## Phase C: Import Graph Construction
 

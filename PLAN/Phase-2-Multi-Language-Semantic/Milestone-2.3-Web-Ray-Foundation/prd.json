@@ -1,0 +1,66 @@
+{
+  "milestone": "2.3: Web-Ray Foundation",
+  "phase": 2,
+  "phase_name": "Multi-Language & Semantic",
+  "objective": "Web navigation and structured extraction tool",
+  "duration_weeks": 3,
+  "task_count": 25,
+  "start_date": "TBD",
+  "end_date": "TBD",
+  "dependencies": [
+    "Phase-1-Foundation-MVP"
+  ],
+  "deliverables": [
+    "pkg/browser/ with Playwright wrapper",
+    "pkg/accessibility/ with tree extraction",
+    "cmd/web-ray/ tool executable",
+    "Element detection and description",
+    "Screenshot with annotations",
+    "Query language for element selection",
+    ">80% code coverage",
+    "Documentation with examples"
+  ],
+  "success_metrics": {
+    "page_navigation_success": ">95%",
+    "element_detection_accuracy": ">90%",
+    "action_execution_success": ">95%",
+    "code_coverage": ">80%",
+    "page_load_time": "<5 seconds"
+  },
+  "browser_automation": {
+    "tool": "Playwright",
+    "browsers": ["chromium", "firefox", "webkit"],
+    "headless": true
+  },
+  "key_components": {
+    "browser_wrapper": "pkg/browser/browser.go",
+    "page_navigation": "pkg/browser/nav.go",
+    "interactions": "pkg/browser/actions.go",
+    "dom_extraction": "pkg/accessibility/dom.go",
+    "tree_builder": "pkg/accessibility/tree.go",
+    "element_selector": "pkg/accessibility/selector.go",
+    "cli_tool": "cmd/web-ray/main.go"
+  },
+  "actions_supported": [
+    "navigate",
+    "click",
+    "fill",
+    "select",
+    "wait",
+    "screenshot",
+    "extract_tree",
+    "extract_dom"
+  ],
+  "output_formats": [
+    "JSON accessibility tree",
+    "JSON page state",
+    "PNG screenshots",
+    "Text descriptions"
+  ],
+  "risks": [
+    "JavaScript framework complexity",
+    "Dynamic content loading",
+    "Network reliability",
+    "Browser resource management"
+  ]
+}

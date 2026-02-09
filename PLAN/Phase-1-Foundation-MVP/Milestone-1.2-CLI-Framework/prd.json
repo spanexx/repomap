@@ -1,0 +1,98 @@
+{
+  "milestone": {
+    "number": "1.2",
+    "title": "CLI Framework & Integration",
+    "phase": "Phase-1-Foundation-MVP",
+    "objective": "Extract and generalize reusable CLI patterns from repomap into a shared framework for all agent tools",
+    "status": "not-started",
+    "timeline": {
+      "start_date": "TBD",
+      "end_date": "TBD",
+      "estimated_duration_weeks": 1,
+      "critical_path": [
+        "CLI Framework Base",
+        "Flag Parsing",
+        "Output Formatters",
+        "Configuration Management",
+        "Repomap Refactoring",
+        "Integration Testing"
+      ]
+    },
+    "deliverables": [
+      "CLI Framework Package (pkg/cli/)",
+      "Output Formatter Package (pkg/output/)",
+      "Configuration Manager Package (pkg/config/)",
+      "Error Handling Package (pkg/errors/)",
+      "Utilities Package (pkg/util/)",
+      "Framework Documentation (FRAMEWORK_GUIDE.md, EXAMPLES.md, BEST_PRACTICES.md)",
+      "Refactored Repomap using framework",
+      "Unit tests (>80% coverage)",
+      "Integration tests"
+    ],
+    "success_criteria": [
+      "CLI framework is reusable by 2+ future tools",
+      "All output formatters work with any tool's data structure",
+      "Configuration hierarchy works (defaults → env → config → flags)",
+      "Error handling is consistent across all tools",
+      "Framework documentation is clear and includes examples",
+      "Refactored repomap uses framework without losing functionality",
+      "No breaking changes to repomap CLI interface",
+      ">80% code coverage on framework packages",
+      "Framework adds <10% overhead to CLI startup time"
+    ],
+    "technical_details": {
+      "language": "Go",
+      "minimum_version": "1.19",
+      "packages": {
+        "pkg/cli": "CLI framework (app, flags, help)",
+        "pkg/output": "Output formatters (XML, JSON, text)",
+        "pkg/config": "Configuration management",
+        "pkg/errors": "Error types and codes",
+        "pkg/util": "Shared utilities (paths, tokens, filtering, logging)"
+      },
+      "dependencies": [
+        "Milestone 1.1: Repomap Core (for patterns)"
+      ]
+    },
+    "task_summary": {
+      "total_tasks": 22,
+      "framework_foundation": 3,
+      "output_formatting": 5,
+      "configuration": 3,
+      "error_handling": 2,
+      "utilities": 4,
+      "integration_refactoring": 2,
+      "testing_validation": 3
+    },
+    "dependencies": {
+      "external": [
+        "Go 1.19+ compiler",
+        "Standard library"
+      ],
+      "internal": [
+        "Milestone 1.1 (Repomap Core) - for reference patterns"
+      ],
+      "blocking": []
+    },
+    "risks": [
+      {
+        "risk": "Over-engineering the framework for all possible future needs",
+        "mitigation": "Keep it simple; only generalize what's actually needed; design for extensibility"
+      },
+      {
+        "risk": "Breaking repomap during refactoring",
+        "mitigation": "Use comprehensive testing; refactor incrementally with feature flags if needed"
+      },
+      {
+        "risk": "Framework doesn't fit future tools",
+        "mitigation": "Document patterns clearly; make framework extensible; test with stub implementations"
+      }
+    ],
+    "success_metrics": {
+      "framework_reusability": "Used by 2+ tools in Phase 2",
+      "code_coverage": ">80% on framework packages",
+      "performance_overhead": "<10% startup time increase",
+      "api_stability": "No breaking changes in Phase 2+"
+    }
+  }
+}

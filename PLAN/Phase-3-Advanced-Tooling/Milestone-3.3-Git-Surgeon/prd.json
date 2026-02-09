@@ -1,0 +1,51 @@
+{
+  "milestone": "3.3: Git-Surgeon",
+  "phase": 3,
+  "phase_name": "Advanced Tooling",
+  "objective": "Intelligent merge conflict resolution",
+  "duration_weeks": 4,
+  "task_count": 25,
+  "start_date": "TBD",
+  "end_date": "TBD",
+  "dependencies": [
+    "Phase-1-Foundation-MVP",
+    "Milestone-2.1-Tree-Sitter-Integration"
+  ],
+  "deliverables": [
+    "pkg/conflicts/ with conflict analysis",
+    "pkg/resolver/ with resolution engine",
+    "pkg/validator/ with validation",
+    "cmd/git-surgeon/ tool executable",
+    "Semantic and heuristic resolution",
+    "Integration with git workflow",
+    ">80% code coverage",
+    "Complete documentation"
+  ],
+  "success_metrics": {
+    "auto_resolution_rate": ">70%",
+    "resolution_accuracy": ">95%",
+    "code_coverage": ">80%",
+    "test_pass_rate": "100%"
+  },
+  "resolution_strategies": [
+    "Semantic (AST-based) merging",
+    "Import resolution",
+    "Function signature matching",
+    "Heuristic-based resolution",
+    "User override"
+  ],
+  "key_components": {
+    "conflict_parser": "pkg/conflicts/parser.go",
+    "context_analyzer": "pkg/conflicts/analyzer.go",
+    "semantic_merger": "pkg/resolver/semantic.go",
+    "heuristic_resolver": "pkg/resolver/heuristic.go",
+    "validator": "pkg/validator/validator.go",
+    "cli_tool": "cmd/git-surgeon/main.go"
+  },
+  "risks": [
+    "False positive resolutions",
+    "Code semantics not detected",
+    "Cross-file dependency issues",
+    "Performance with large files"
+  ]
+}

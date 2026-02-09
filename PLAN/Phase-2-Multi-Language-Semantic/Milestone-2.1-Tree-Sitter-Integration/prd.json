@@ -1,0 +1,56 @@
+{
+  "milestone": "2.1: Tree-Sitter Integration",
+  "phase": 2,
+  "phase_name": "Multi-Language & Semantic",
+  "objective": "Integrate Tree-sitter for multi-language parsing",
+  "duration_weeks": 3,
+  "task_count": 25,
+  "start_date": "TBD",
+  "end_date": "TBD",
+  "dependencies": [
+    "Phase-1-Foundation-MVP"
+  ],
+  "deliverables": [
+    "pkg/treesitter/ with parser wrapper",
+    "pkg/languages/ with 7 language extractors",
+    "pkg/extractor/ with generalized interface",
+    "Updated repomap with Tree-sitter backend",
+    "CLI with --include-lang and --exclude-lang flags",
+    ">80% code coverage",
+    "Documentation and language support guide"
+  ],
+  "success_metrics": {
+    "languages_supported": 7,
+    "definition_extraction_accuracy": "100%",
+    "code_coverage": ">80%",
+    "test_pass_rate": "100%",
+    "performance_no_regression": "No >5% slowdown"
+  },
+  "languages": [
+    "Go",
+    "Python",
+    "JavaScript",
+    "TypeScript",
+    "Rust",
+    "Java",
+    "C++"
+  ],
+  "key_components": {
+    "parser_wrapper": "pkg/treesitter/parser.go",
+    "language_registry": "pkg/treesitter/language.go",
+    "extractors": "pkg/languages/{lang}/extractor.go",
+    "generalized_interface": "pkg/extractor/extractor.go",
+    "ranking_update": "updates to Phase 1 ranking logic"
+  },
+  "risks": [
+    "Tree-sitter binding stability",
+    "Language definition accuracy",
+    "Performance with large codebases",
+    "Cross-language import resolution"
+  ],
+  "test_coverage": {
+    "unit_tests": "25+ test files",
+    "integration_tests": "5+ multi-language repos",
+    "benchmark_tests": "Performance regression detection"
+  }
+}

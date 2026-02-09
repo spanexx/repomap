@@ -1,0 +1,39 @@
+{
+  "milestone": "4.2: Authentication & Authorization",
+  "phase": 4,
+  "phase_name": "Integration & Deployment",
+  "objective": "Secure API access with auth and RBAC",
+  "duration_weeks": 3,
+  "task_count": 25,
+  "dependencies": [
+    "Milestone-4.1-Server-Mode-API"
+  ],
+  "deliverables": [
+    "pkg/auth/ with authentication",
+    "pkg/rbac/ with role-based access",
+    "pkg/policy/ with policy evaluation",
+    "pkg/audit/ with audit logging",
+    "Middleware for API gateway",
+    "Security documentation",
+    ">80% code coverage"
+  ],
+  "success_metrics": {
+    "auth_latency": "<100ms",
+    "code_coverage": ">80%",
+    "security_audit": "passed",
+    "test_pass_rate": "100%"
+  },
+  "auth_methods": [
+    "API Key",
+    "JWT Token",
+    "OAuth 2.0",
+    "Session-based"
+  ],
+  "key_components": {
+    "authenticator": "pkg/auth/authenticator.go",
+    "rbac": "pkg/rbac/rbac.go",
+    "policy_engine": "pkg/policy/engine.go",
+    "audit_logger": "pkg/audit/logger.go",
+    "middleware": "pkg/gateway/middleware.go"
+  }
+}

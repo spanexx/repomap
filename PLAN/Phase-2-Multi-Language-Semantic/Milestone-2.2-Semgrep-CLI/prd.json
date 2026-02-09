@@ -1,0 +1,59 @@
+{
+  "milestone": "2.2: Semgrep-CLI",
+  "phase": 2,
+  "phase_name": "Multi-Language & Semantic",
+  "objective": "Build semantic code search tool with embeddings",
+  "duration_weeks": 3,
+  "task_count": 25,
+  "start_date": "TBD",
+  "end_date": "TBD",
+  "dependencies": [
+    "Phase-1-Foundation-MVP",
+    "Milestone-2.1-Tree-Sitter-Integration"
+  ],
+  "deliverables": [
+    "pkg/embeddings/ with embedding service",
+    "pkg/search/ with vector index",
+    "cmd/semgrep-cli/ tool executable",
+    "Query expansion and ranking",
+    "JSON/text output formats",
+    ">85% code coverage",
+    "User guide with examples"
+  ],
+  "success_metrics": {
+    "query_response_time": "<500ms",
+    "result_relevance": ">90%",
+    "code_coverage": ">85%",
+    "test_pass_rate": "100%",
+    "index_query_latency": "<500ms"
+  },
+  "embedding_model": {
+    "name": "all-MiniLM-L6-v2 or equivalent",
+    "vector_dimension": 384,
+    "inference_backend": "local (no external API calls)"
+  },
+  "key_components": {
+    "model_loader": "pkg/embeddings/model.go",
+    "vectorizer": "pkg/embeddings/vectorizer.go",
+    "index": "pkg/search/index.go",
+    "ranker": "pkg/search/ranker.go",
+    "query_engine": "pkg/search/query.go",
+    "cli_tool": "cmd/semgrep-cli/main.go"
+  },
+  "output_formats": [
+    "JSON with similarity scores",
+    "Text with ranked results",
+    "CSV for analysis"
+  ],
+  "risks": [
+    "Embedding model accuracy on code",
+    "Index scalability for large repos",
+    "Query interpretation ambiguity",
+    "False positive results"
+  ],
+  "performance_targets": {
+    "index_build_time": "<5s per 10k LOC",
+    "query_latency": "<500ms",
+    "index_memory": "<100MB per 50k LOC"
+  }
+}

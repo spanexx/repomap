@@ -1,0 +1,48 @@
+{
+  "milestone": "4.3: Cloud Deployment & Scaling",
+  "phase": 4,
+  "phase_name": "Integration & Deployment",
+  "objective": "Cloud-native deployment with Kubernetes",
+  "duration_weeks": 4,
+  "task_count": 30,
+  "dependencies": [
+    "Milestone-4.1-Server-Mode-API",
+    "Milestone-4.2-Auth-Authorization"
+  ],
+  "deliverables": [
+    "Docker images for all components",
+    "Kubernetes manifests and Helm charts",
+    "Terraform modules for AWS/GCP",
+    "Prometheus and Grafana setup",
+    "ELK/Loki logging stack",
+    "CI/CD pipeline (GitHub Actions)",
+    "Operations runbooks",
+    "Disaster recovery procedures"
+  ],
+  "success_metrics": {
+    "deployment_time": "<2 minutes",
+    "startup_time": "<30 seconds",
+    "auto_scaling_response": "<2 minutes",
+    "uptime": "99.95%+",
+    "code_coverage": ">80%"
+  },
+  "cloud_providers": [
+    "AWS (primary)",
+    "GCP (secondary)",
+    "Azure (optional)"
+  ],
+  "key_components": {
+    "docker_images": "Dockerfile(s)",
+    "k8s_manifests": "deploy/kubernetes/",
+    "helm_charts": "deploy/helm/",
+    "terraform": "deploy/terraform/",
+    "monitoring": "deploy/monitoring/",
+    "ci_cd": ".github/workflows/"
+  },
+  "monitoring_stack": {
+    "metrics": "Prometheus",
+    "visualization": "Grafana",
+    "logging": "ELK or Loki",
+    "tracing": "Jaeger (optional)"
+  }
+}

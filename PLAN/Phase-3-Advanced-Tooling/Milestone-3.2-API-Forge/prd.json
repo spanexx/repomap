@@ -1,0 +1,55 @@
+{
+  "milestone": "3.2: API-Forge",
+  "phase": 3,
+  "phase_name": "Advanced Tooling",
+  "objective": "Auto-detect API schemas and generate SDKs",
+  "duration_weeks": 4,
+  "task_count": 25,
+  "start_date": "TBD",
+  "end_date": "TBD",
+  "dependencies": [
+    "Phase-1-Foundation-MVP",
+    "Milestone-2.1-Tree-Sitter-Integration"
+  ],
+  "deliverables": [
+    "pkg/apidetect/ with API detection engines",
+    "pkg/schema/ with schema generators",
+    "pkg/codegen/ with SDK generators",
+    "cmd/api-forge/ tool executable",
+    "Support for REST, gRPC, GraphQL",
+    "SDK generation for Go, Python, JavaScript",
+    ">80% code coverage",
+    "Complete documentation"
+  ],
+  "success_metrics": {
+    "api_types_supported": 3,
+    "sdk_languages": 3,
+    "detection_accuracy": ">90%",
+    "code_coverage": ">80%",
+    "test_pass_rate": "100%"
+  },
+  "api_types_supported": [
+    "REST (OpenAPI)",
+    "gRPC (protobuf)",
+    "GraphQL"
+  ],
+  "sdk_languages": [
+    "Go",
+    "Python",
+    "JavaScript/TypeScript"
+  ],
+  "key_components": {
+    "rest_detector": "pkg/apidetect/rest.go",
+    "grpc_detector": "pkg/apidetect/grpc.go",
+    "graphql_detector": "pkg/apidetect/graphql.go",
+    "openapi_generator": "pkg/schema/openapi.go",
+    "sdk_generators": "pkg/codegen/{lang}.go",
+    "cli_tool": "cmd/api-forge/main.go"
+  },
+  "risks": [
+    "Detection accuracy across frameworks",
+    "SDK generation correctness",
+    "Type mapping complexity",
+    "Framework diversity (Express, Fastify, etc.)"
+  ]
+}

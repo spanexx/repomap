@@ -1,0 +1,32 @@
+{
+  "milestone": "3.4: Mem-KV",
+  "phase": 3,
+  "phase_name": "Advanced Tooling",
+  "objective": "Long-term memory with semantic search",
+  "duration_weeks": 4,
+  "task_count": 25,
+  "dependencies": ["Phase-1-Foundation-MVP"],
+  "deliverables": [
+    "pkg/kv/ with storage engine",
+    "pkg/vector/ with vector indexing",
+    "pkg/search/ with semantic search",
+    "cmd/mem-kv/ tool and REST API",
+    "Document persistence",
+    "TTL and memory management",
+    ">80% code coverage"
+  ],
+  "success_metrics": {
+    "query_latency": "<100ms",
+    "vector_search_latency": "<500ms",
+    "code_coverage": ">80%",
+    "uptime": "99.9%"
+  },
+  "storage_backend": ["RocksDB", "SQLite"],
+  "key_components": {
+    "store": "pkg/kv/store.go",
+    "vector_index": "pkg/vector/index.go",
+    "semantic_search": "pkg/search/semantic.go",
+    "rest_api": "cmd/mem-kv/api.go",
+    "cli_tool": "cmd/mem-kv/main.go"
+  }
+}

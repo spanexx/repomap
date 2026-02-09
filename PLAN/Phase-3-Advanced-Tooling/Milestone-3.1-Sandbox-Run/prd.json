@@ -1,0 +1,61 @@
+{
+  "milestone": "3.1: Sandbox-Run",
+  "phase": 3,
+  "phase_name": "Advanced Tooling",
+  "objective": "Sandboxed code execution environment",
+  "duration_weeks": 4,
+  "task_count": 25,
+  "start_date": "TBD",
+  "end_date": "TBD",
+  "dependencies": [
+    "Phase-1-Foundation-MVP"
+  ],
+  "deliverables": [
+    "pkg/sandbox/ with container management",
+    "pkg/executor/ with multi-language execution",
+    "pkg/monitor/ with resource monitoring",
+    "cmd/sandbox-run/ tool executable",
+    "Support for 5 languages (Go, Python, JS, Rust, Java)",
+    "Resource limits and isolation",
+    ">80% code coverage",
+    "Complete documentation"
+  ],
+  "success_metrics": {
+    "supported_languages": 5,
+    "execution_success_rate": ">95%",
+    "resource_limit_enforcement": "100%",
+    "code_coverage": ">80%",
+    "startup_latency": "<2 seconds"
+  },
+  "languages_supported": [
+    "Go",
+    "Python",
+    "JavaScript",
+    "Rust",
+    "Java"
+  ],
+  "sandbox_technology": {
+    "primary": "Docker/OCI containers",
+    "fallback": "Process isolation with cgroups",
+    "runtimes": ["runc", "Podman"]
+  },
+  "resource_limits": {
+    "cpu_quota": "configurable",
+    "memory_limit": "configurable",
+    "disk_quota": "optional",
+    "timeout": "configurable",
+    "processes": "limited"
+  },
+  "key_components": {
+    "container_manager": "pkg/sandbox/container.go",
+    "executor": "pkg/executor/executor.go",
+    "monitor": "pkg/monitor/monitor.go",
+    "cli_tool": "cmd/sandbox-run/main.go"
+  },
+  "risks": [
+    "Container overhead",
+    "Language toolchain availability",
+    "Resource leaks",
+    "Network isolation complexity"
+  ]
+}

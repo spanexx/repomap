@@ -1,0 +1,47 @@
+{
+  "milestone": "4.1: Server Mode & API",
+  "phase": 4,
+  "phase_name": "Integration & Deployment",
+  "objective": "REST API server for all tools",
+  "duration_weeks": 3,
+  "task_count": 25,
+  "dependencies": [
+    "Phase-1-Foundation-MVP",
+    "Phase-2-Multi-Language-Semantic",
+    "Phase-3-Advanced-Tooling"
+  ],
+  "deliverables": [
+    "pkg/gateway/ with API gateway",
+    "pkg/adapters/ with tool adapters",
+    "pkg/queue/ with job queue",
+    "cmd/agents-server/ tool executable",
+    "OpenAPI 3.0 specification",
+    "Integration tests",
+    ">80% code coverage",
+    "Deployment documentation"
+  ],
+  "success_metrics": {
+    "response_latency": "<500ms",
+    "availability": ">99.9%",
+    "api_throughput": "100+ req/s",
+    "code_coverage": ">80%"
+  },
+  "api_endpoints": [
+    "POST /api/v1/repomap",
+    "POST /api/v1/semgrep",
+    "POST /api/v1/web-ray",
+    "POST /api/v1/sandbox-run",
+    "POST /api/v1/api-forge",
+    "POST /api/v1/git-surgeon",
+    "POST /api/v1/mem-kv",
+    "POST /api/v1/calc-bridge",
+    "GET /api/v1/health",
+    "GET /api/v1/jobs/{id}"
+  ],
+  "key_components": {
+    "gateway": "pkg/gateway/gateway.go",
+    "adapters": "pkg/adapters/{tool}.go",
+    "queue": "pkg/queue/queue.go",
+    "server": "cmd/agents-server/main.go"
+  }
+}

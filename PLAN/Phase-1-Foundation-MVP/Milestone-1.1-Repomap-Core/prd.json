@@ -1,0 +1,98 @@
+{
+  "milestone": {
+    "number": "1.1",
+    "title": "Repomap Core Implementation",
+    "phase": "Phase-1-Foundation-MVP",
+    "objective": "Implement the complete repomap tool with file discovery, AST parsing, import graph construction, ranking, and structured output (XML/JSON)",
+    "status": "not-started",
+    "timeline": {
+      "start_date": "TBD",
+      "end_date": "TBD",
+      "estimated_duration_weeks": 3,
+      "critical_path": [
+        "Discovery & Filtering (Phase A)",
+        "Parsing & Extraction (Phase B)",
+        "Import Graph (Phase C)",
+        "Ranking (Phase D)",
+        "Output & CLI (Phase E)"
+      ]
+    },
+    "deliverables": [
+      "repomap binary (single-file Go executable)",
+      "Complete source code in repomap/internal/ and repomap/cmd/",
+      "Unit tests (>85% coverage)",
+      "Integration tests on real Go repositories",
+      "Performance benchmarks",
+      "User documentation in repomap/doc/",
+      "Binary releases for Linux, macOS, Windows"
+    ],
+    "success_criteria": [
+      "repomap compiles without errors on Go 1.19+",
+      "Correctly discovers and filters Go files using .gitignore",
+      "Parses Go files and extracts all top-level definitions",
+      "Builds accurate import graphs from Go imports",
+      "Ranks files by in-degree and importance",
+      "Generates valid XML and JSON output",
+      "Respects --max-tokens budget and truncates gracefully",
+      "Processes 10K-file repositories in under 30 seconds",
+      "All functionality covered by unit tests",
+      "--help and --version flags work",
+      "Documentation is complete and accurate"
+    ],
+    "technical_details": {
+      "language": "Go",
+      "minimum_version": "1.19",
+      "dependencies": [
+        "Standard library: go/ast, flag, os, path/filepath, io/ioutil, encoding/json, encoding/xml"
+      ],
+      "architecture_packages": {
+        "cmd/repomap": "CLI entry point",
+        "internal/discovery": "File walking and .gitignore filtering",
+        "internal/parsing": "Go AST extraction",
+        "internal/graph": "Import graph construction",
+        "internal/ranking": "Importance scoring",
+        "internal/output": "XML/JSON rendering"
+      }
+    },
+    "task_summary": {
+      "total_tasks": 19,
+      "phases": {
+        "discovery_filtering": 3,
+        "parsing_extraction": 2,
+        "graph_construction": 1,
+        "ranking": 2,
+        "output_cli": 6,
+        "testing_quality": 3,
+        "documentation_release": 2
+      }
+    },
+    "dependencies": {
+      "external": [
+        "Go 1.19+ compiler",
+        "Standard library modules"
+      ],
+      "internal": [
+        "repomap/doc/ documentation"
+      ],
+      "blocking": []
+    },
+    "risks": [
+      {
+        "risk": "Large repositories (100K+ files) may timeout",
+        "mitigation": "Set Phase 1 limit to 100K files; optimize in Phase 2"
+      },
+      {
+        "risk": "Complex .gitignore patterns may not parse correctly",
+        "mitigation": "Start with simple patterns; use library if complexity grows"
+      },
+      {
+        "risk": "Token counting accuracy affects LLM integration",
+        "mitigation": "Use approximation in MVP; integrate tiktoken-go in Phase 2"
+      }
+    ],
+    "handoff_to_next_milestone": {
+      "milestone_1_2": "CLI Framework will build on Repomap Core to create reusable patterns",
+      "milestone_1_3": "Testing Infrastructure will test Repomap Core and CLI Framework"
+    }
+  }
+}

@@ -139,6 +139,16 @@
         "id": "1.1.9",
         "title": "Output Data Structures",
         "passes": true
+      },
+      {
+        "id": "1.1.10",
+        "title": "XML Output Rendering",
+        "passes": true
+      },
+      {
+        "id": "1.1.11",
+        "title": "JSON Output Rendering",
+        "passes": true
       }
     ],
     "affected_files": [
@@ -165,7 +175,11 @@
       "repomap/internal/ranking/ranker.go",
       "repomap/internal/ranking/ranker_test.go",
       "repomap/internal/output/types.go",
-      "repomap/internal/output/types_test.go"
+      "repomap/internal/output/types_test.go",
+      "repomap/internal/output/xml.go",
+      "repomap/internal/output/xml_test.go",
+      "repomap/internal/output/json.go",
+      "repomap/internal/output/json_test.go"
     ],
     "affected_dependencies": []
   }

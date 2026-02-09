@@ -17,6 +17,7 @@ type FileNode struct {
 // RepoMap represents the complete repository map output.
 type RepoMap struct {
 	Files []*FileNode `json:"files" xml:"file"`
+	XMLName struct{} `json:"-" xml:"repomap"`
 }
 
 // Validate checks if the FileNode is valid.

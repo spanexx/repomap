@@ -187,8 +187,8 @@ config.go
 ---
 
 ### Task 1.1.10: XML Output Rendering
-- [ ] Implement `output.RenderXML(nodes []*FileNode) (string, error)`
-- [ ] Generate XML with structure:
+- [x] Implement `output.RenderXML(nodes []*FileNode) (string, error)`
+- [x] Generate XML with structure:
   ```xml
   <repomap>
     <file path="..." importance="..." rank="...">
@@ -198,7 +198,7 @@ config.go
   ```
 - [ ] Respect token budget: stop adding files when budget exhausted
 - [ ] Include truncation notice if budget exceeded
-- [ ] Write unit tests
+- [x] Write unit tests
 
 **Acceptance Criteria:**
 - Valid XML output
@@ -209,8 +209,8 @@ config.go
 ---
 
 ### Task 1.1.11: JSON Output Rendering
-- [ ] Implement `output.RenderJSON(nodes []*FileNode) (string, error)`
-- [ ] Generate JSON with structure:
+- [x] Implement `output.RenderJSON(nodes []*FileNode) (string, error)`
+- [x] Generate JSON with structure:
   ```json
   {
     "repomap": {
@@ -227,7 +227,7 @@ config.go
   ```
 - [ ] Respect token budget (same as XML)
 - [ ] Include truncation notice
-- [ ] Write unit tests
+- [x] Write unit tests
 
 **Acceptance Criteria:**
 - Valid JSON output

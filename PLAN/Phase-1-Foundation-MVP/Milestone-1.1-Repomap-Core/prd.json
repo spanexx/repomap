@@ -129,6 +129,16 @@
         "id": "1.1.7",
         "title": "File Ranking Algorithm",
         "passes": true
+      },
+      {
+        "id": "1.1.8",
+        "title": "Importance Level Assignment",
+        "passes": true
+      },
+      {
+        "id": "1.1.9",
+        "title": "Output Data Structures",
+        "passes": true
       }
     ],
     "affected_files": [
@@ -153,7 +163,9 @@
       "repomap/internal/graph/builder.go",
       "repomap/internal/graph/builder_test.go",
       "repomap/internal/ranking/ranker.go",
-      "repomap/internal/ranking/ranker_test.go"
+      "repomap/internal/ranking/ranker_test.go",
+      "repomap/internal/output/types.go",
+      "repomap/internal/output/types_test.go"
     ],
     "affected_dependencies": []
   }

@@ -58,20 +58,20 @@
 - Last Updated: 2026-02-09
 
 ### Task 1.1.8: Importance Level Assignment
-**Status:** ⬜ Not Started
+**Status:** ✅ Complete
 - Expected Start: Week 3, Day 1
 - Expected Duration: 0.5 days
 - Assigned To: TBD
-- Last Updated: TBD
+- Last Updated: 2026-02-09
 
 ## Phase E: Output & CLI
 
 ### Task 1.1.9: Output Data Structures
-**Status:** ⬜ Not Started
+**Status:** ✅ Complete
 - Expected Start: Week 3, Day 1
 - Expected Duration: 0.5 days
 - Assigned To: TBD
-- Last Updated: TBD
+- Last Updated: 2026-02-09
 
 ### Task 1.1.10: XML Output Rendering
 **Status:** ⬜ Not Started

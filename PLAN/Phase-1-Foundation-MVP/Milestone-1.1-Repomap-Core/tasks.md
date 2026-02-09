@@ -153,9 +153,9 @@ config.go
 ---
 
 ### Task 1.1.8: Importance Level Assignment
-- [ ] Implement importance labeling: `high` (>0.7), `medium` (0.3-0.7), `low` (<0.3)
-- [ ] Assign to each FileNode
-- [ ] Write unit tests
+- [x] Implement importance labeling: `high` (>0.7), `medium` (0.3-0.7), `low` (<0.3)
+- [x] Assign to each FileNode
+- [x] Write unit tests
 
 **Acceptance Criteria:**
 - Importance levels assigned correctly based on rank
@@ -166,7 +166,7 @@ config.go
 ## Phase E: Output & CLI
 
 ### Task 1.1.9: Output Data Structures
-- [ ] Define `FileNode` struct:
+- [x] Define `FileNode` struct:
   ```go
   type FileNode struct {
     Path        string
@@ -177,8 +177,8 @@ config.go
     TokenCount  int
   }
   ```
-- [ ] Define `RepoMap` struct with file list and metadata
-- [ ] Write validation methods
+- [x] Define `RepoMap` struct with file list and metadata
+- [x] Write validation methods
 
 **Acceptance Criteria:**
 - Structs are well-defined and exported

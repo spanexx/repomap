@@ -29,3 +29,21 @@ func Rank(g *graph.Graph) map[string]float64 {
 
 	return scores
 }
+
+// AssignImportance maps normalized scores to importance levels.
+// > 0.7: high
+// 0.3 - 0.7: medium
+// < 0.3: low
+func AssignImportance(scores map[string]float64) map[string]string {
+	importance := make(map[string]string)
+	for path, score := range scores {
+		if score > 0.7 {
+			importance[path] = "high"
+		} else if score >= 0.3 {
+			importance[path] = "medium"
+		} else {
+			importance[path] = "low"
+		}
+	}
+	return importance
+}

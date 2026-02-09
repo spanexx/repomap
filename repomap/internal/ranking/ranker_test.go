@@ -87,3 +87,38 @@ func TestRank_ZeroEdges(t *testing.T) {
 		t.Errorf("Expected 0.0 scores for disconnected graph")
 	}
 }
+
+func TestAssignImportance(t *testing.T) {
+	scores := map[string]float64{
+		"high.go":   0.8,
+		"medium.go": 0.5,
+		"low.go":    0.1,
+		"edge_low.go": 0.29,
+		"edge_med_low.go": 0.3,
+		"edge_med_high.go": 0.7,
+		"edge_high.go": 0.71,
+	}
+
+	importance := AssignImportance(scores)
+
+	expected := map[string]string{
+		"high.go":   "high",
+		"medium.go": "medium",
+		"low.go":    "low",
+		"edge_low.go": "low",
+		"edge_med_low.go": "medium",
+		"edge_med_high.go": "medium",
+		"edge_high.go": "high",
+	}
+
+	for path, want := range expected {
+		got, ok := importance[path]
+		if !ok {
+			t.Errorf("Importance for %s missing", path)
+			continue
+		}
+		if got != want {
+			t.Errorf("Importance(%s) = %s, want %s", path, got, want)
+		}
+	}
+}

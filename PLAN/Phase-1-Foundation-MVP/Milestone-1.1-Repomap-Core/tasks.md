@@ -104,12 +104,12 @@ type Config struct
 ## Phase C: Import Graph Construction
 
 ### Task 1.1.6: Build Import Graph
-- [ ] Implement `graph.Builder` struct with methods:
+- [x] Implement `graph.Builder` struct with methods:
   - `AddFile(path string, imports []string)`
   - `Build() *Graph`
-- [ ] Represent graph as adjacency list or matrix
-- [ ] Validate graph integrity (no cycles, all imports resolved)
-- [ ] Write unit tests on mock file sets
+- [x] Represent graph as adjacency list or matrix
+- [x] Validate graph integrity (no cycles, all imports resolved)
+- [x] Write unit tests on mock file sets
 
 **Acceptance Criteria:**
 - Graph correctly represents import relationships

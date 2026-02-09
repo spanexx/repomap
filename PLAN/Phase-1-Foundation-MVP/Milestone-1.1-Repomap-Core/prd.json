@@ -119,6 +119,11 @@
         "id": "1.1.5",
         "title": "Go AST Parser – Extract Imports",
         "passes": true
+      },
+      {
+        "id": "1.1.6",
+        "title": "Build Import Graph",
+        "passes": true
       }
     ],
     "affected_files": [
@@ -139,7 +144,9 @@
       "repomap/internal/parsing/extractor.go",
       "repomap/internal/parsing/extractor_test.go",
       "repomap/internal/parsing/imports.go",
-      "repomap/internal/parsing/imports_test.go"
+      "repomap/internal/parsing/imports_test.go",
+      "repomap/internal/graph/builder.go",
+      "repomap/internal/graph/builder_test.go"
     ],
     "affected_dependencies": []
   }

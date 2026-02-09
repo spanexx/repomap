@@ -109,6 +109,11 @@
         "id": "1.1.3",
         "title": "Implement .gitignore Parsing & Filtering",
         "passes": true
+      },
+      {
+        "id": "1.1.4",
+        "title": "Go AST Parser – Extract Definitions",
+        "passes": true
       }
     ],
     "affected_files": [
@@ -125,7 +130,9 @@
       "repomap/internal/discovery/walker.go",
       "repomap/internal/discovery/walker_test.go",
       "repomap/internal/discovery/gitignore.go",
-      "repomap/internal/discovery/gitignore_test.go"
+      "repomap/internal/discovery/gitignore_test.go",
+      "repomap/internal/parsing/extractor.go",
+      "repomap/internal/parsing/extractor_test.go"
     ],
     "affected_dependencies": []
   }

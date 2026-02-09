@@ -26,11 +26,11 @@
 ## Phase B: Parsing & Extraction
 
 ### Task 1.1.4: Go AST Parser – Extract Definitions
-**Status:** ⬜ Not Started
+**Status:** ✅ Complete
 - Expected Start: Week 1, Day 4
 - Expected Duration: 2 days
 - Assigned To: TBD
-- Last Updated: TBD
+- Last Updated: 2026-02-09
 
 ### Task 1.1.5: Go AST Parser – Extract Imports
 **Status:** ⬜ Not Started

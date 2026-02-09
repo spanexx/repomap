@@ -59,14 +59,14 @@
 ## Phase B: Parsing & Extraction
 
 ### Task 1.1.4: Go AST Parser – Extract Definitions
-- [ ] Implement `parsing.ExtractDefinitions(filePath string) ([]string, error)`
-- [ ] Use `go/ast.Parse()` to parse Go source files
-- [ ] Extract function signatures: `func Name(params) return`
-- [ ] Extract method signatures: `func (receiver) Name(params)`
-- [ ] Extract type definitions: `type Name struct { ... }`
-- [ ] Extract interface definitions: `type Name interface { ... }`
-- [ ] Simplify signatures to remove unnecessary detail
-- [ ] Write unit tests on real Go code samples
+- [x] Implement `parsing.ExtractDefinitions(filePath string) ([]string, error)`
+- [x] Use `go/ast.Parse()` to parse Go source files
+- [x] Extract function signatures: `func Name(params) return`
+- [x] Extract method signatures: `func (receiver) Name(params)`
+- [x] Extract type definitions: `type Name struct { ... }`
+- [x] Extract interface definitions: `type Name interface { ... }`
+- [x] Simplify signatures to remove unnecessary detail
+- [x] Write unit tests on real Go code samples
 
 **Acceptance Criteria:**
 - Correctly extracts all top-level declarations

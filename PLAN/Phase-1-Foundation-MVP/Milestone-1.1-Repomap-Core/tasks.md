@@ -37,12 +37,12 @@
 ---
 
 ### Task 1.1.3: Implement .gitignore Parsing & Filtering
-- [ ] Implement `gitignore.Parse(root string) (*Gitignore, error)`
-- [ ] Read and parse `.gitignore` file from repository root
-- [ ] Implement pattern matching (at least basic glob support)
-- [ ] Integrate with `Walk()` to filter ignored files
-- [ ] Handle nested `.gitignore` files (optional for MVP)
-- [ ] Write unit tests for gitignore matching
+- [x] Implement `gitignore.Parse(root string) (*Gitignore, error)`
+- [x] Read and parse `.gitignore` file from repository root
+- [x] Implement pattern matching (at least basic glob support)
+- [x] Integrate with `Walk()` to filter ignored files
+- [x] Handle nested `.gitignore` files (optional for MVP)
+- [x] Write unit tests for gitignore matching
 
 **Acceptance Criteria:**
 - Correctly excludes files/dirs matching `.gitignore` patterns

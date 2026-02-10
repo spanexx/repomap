@@ -95,16 +95,16 @@
 - Assigned To: Jules
 
 ### Task 1.2.15: Token Counting Utilities
-**Status:** ⬜ Not Started
+**Status:** ✅ Complete
 - Expected Start: Week 5, Day 2
 - Expected Duration: 0.5 days
-- Assigned To: TBD
+- Assigned To: Jules
 
 ### Task 1.2.16: File Filtering Helpers
-**Status:** ⬜ Not Started
+**Status:** ✅ Complete
 - Expected Start: Week 5, Day 3
 - Expected Duration: 0.5 days
-- Assigned To: TBD
+- Assigned To: Jules
 
 ### Task 1.2.17: Logging Abstraction
 **Status:** ⬜ Not Started
@@ -152,10 +152,10 @@
 
 | Status | Count |
 |--------|-------|
-| ✅ Complete | 14 |
+| ✅ Complete | 16 |
 | 🟨 In Progress | 0 |
 | 🔴 Blocked | 0 |
-| ⬜ Not Started | 8 |
+| ⬜ Not Started | 6 |
 | **Total** | **22** |
 
 ---
@@ -170,7 +170,7 @@
 ## Burn Down Chart
 
 **Target Completion:** Week 5, End of Day 5
-**Current Progress:** 63.6% (14/22 tasks)
+**Current Progress:** 72.7% (16/22 tasks)
 
 ---
 

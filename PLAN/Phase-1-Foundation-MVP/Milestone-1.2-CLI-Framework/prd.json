@@ -198,15 +198,15 @@
       "id": "1.2.15",
       "title": "Token Counting Utilities",
       "description": "Create util/tokens.go with CountTokens",
-      "status": "todo",
-      "passes": false
+      "status": "completed",
+      "passes": true
     },
     {
       "id": "1.2.16",
       "title": "File Filtering Helpers",
       "description": "Create util/filter.go with FilterByExtension, ExcludeByPattern",
-      "status": "todo",
-      "passes": false
+      "status": "completed",
+      "passes": true
     },
     {
       "id": "1.2.17",
@@ -279,7 +279,11 @@
     "repomap/pkg/errors/messages_test.go",
     "repomap/pkg/errors/errors_test.go",
     "repomap/pkg/util/paths.go",
-    "repomap/pkg/util/paths_test.go"
+    "repomap/pkg/util/paths_test.go",
+    "repomap/pkg/util/tokens.go",
+    "repomap/pkg/util/tokens_test.go",
+    "repomap/pkg/util/filter.go",
+    "repomap/pkg/util/filter_test.go"
   ],
   "affected_dependencies": []
 }

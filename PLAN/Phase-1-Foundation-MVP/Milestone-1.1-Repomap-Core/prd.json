@@ -151,8 +151,43 @@
         "passes": true
       },
       {
+        "id": "1.1.15",
+        "title": "Essential Unit Tests",
+        "passes": true
+      },
+      {
         "id": "1.1.12",
         "title": "Token Counting",
+        "passes": true
+      },
+      {
+        "id": "1.1.13",
+        "title": "CLI Interface & Flags",
+        "passes": true
+      },
+      {
+        "id": "1.1.14",
+        "title": "Main CLI Integration",
+        "passes": true
+      },
+      {
+        "id": "1.1.16",
+        "title": "MVP Integration Tests",
+        "passes": true
+      },
+      {
+        "id": "1.1.17",
+        "title": "Performance Benchmarking",
+        "passes": true
+      },
+      {
+        "id": "1.1.18",
+        "title": "Code Documentation",
+        "passes": true
+      },
+      {
+        "id": "1.1.19",
+        "title": "Build & Release",
         "passes": true
       }
     ],

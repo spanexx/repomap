@@ -348,10 +348,10 @@ config.go
 ---
 
 ### Task 1.1.19: Build & Release
-- [ ] Create `Makefile` or build script
-- [ ] Generate releases for Linux, macOS, Windows
-- [ ] Create checksums
-- [ ] Document build process
+- [x] Create `Makefile` or build script
+- [x] Generate releases for Linux, macOS, Windows
+- [x] Create checksums
+- [x] Document build process
 
 **Acceptance Criteria:**
 - Binary builds without errors

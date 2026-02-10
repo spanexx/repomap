@@ -1,0 +1,443 @@
+{
+  "files": [
+    {
+      "path": "internal/graph/builder.go",
+      "language": "go",
+      "importance": "high",
+      "rank": 1,
+      "definitions": [
+        "type Graph struct",
+        "type Node struct",
+        "type Builder struct",
+        "func NewBuilder() *Builder",
+        "func (*Builder) AddFile(string, []string)",
+        "func (*Builder) Build(string) *Graph"
+      ],
+      "imports": [
+        "strings",
+        "sync"
+      ],
+      "token_count": 0
+    },
+    {
+      "path": "internal/graph/doc.go",
+      "language": "go",
+      "importance": "high",
+      "rank": 1,
+      "definitions": null,
+      "token_count": 0
+    },
+    {
+      "path": "internal/graph/builder_test.go",
+      "language": "go",
+      "importance": "high",
+      "rank": 1,
+      "definitions": [
+        "func TestGraphBuilder(*testing.T)"
+      ],
+      "imports": [
+        "testing"
+      ],
+      "token_count": 0
+    },
+    {
+      "path": "internal/output/types.go",
+      "language": "go",
+      "importance": "medium",
+      "rank": 0.3333333333333333,
+      "definitions": [
+        "type FileNode struct",
+        "type RepoMap struct",
+        "func (*FileNode) Validate() error"
+      ],
+      "imports": [
+        "errors"
+      ],
+      "token_count": 0
+    },
+    {
+      "path": "internal/output/xml.go",
+      "language": "go",
+      "importance": "medium",
+      "rank": 0.3333333333333333,
+      "definitions": [
+        "func RenderXML([]*FileNode, int) (string, error)"
+      ],
+      "imports": [
+        "encoding/xml"
+      ],
+      "token_count": 0
+    },
+    {
+      "path": "internal/discovery/walker_test.go",
+      "language": "go",
+      "importance": "medium",
+      "rank": 0.3333333333333333,
+      "definitions": [
+        "func TestWalk(*testing.T)"
+      ],
+      "imports": [
+        "os",
+        "path/filepath",
+        "testing"
+      ],
+      "token_count": 0
+    },
+    {
+      "path": "internal/discovery/gitignore_test.go",
+      "language": "go",
+      "importance": "medium",
+      "rank": 0.3333333333333333,
+      "definitions": [
+        "func TestGitignore(*testing.T)"
+      ],
+      "imports": [
+        "os",
+        "path/filepath",
+        "testing"
+      ],
+      "token_count": 0
+    },
+    {
+      "path": "internal/discovery/gitignore.go",
+      "language": "go",
+      "importance": "medium",
+      "rank": 0.3333333333333333,
+      "definitions": [
+        "type Gitignore struct",
+        "func ParseGitignore(string) (*Gitignore, error)",
+        "func (*Gitignore) Matches(string) bool"
+      ],
+      "imports": [
+        "bufio",
+        "os",
+        "path/filepath",
+        "strings"
+      ],
+      "token_count": 0
+    },
+    {
+      "path": "internal/discovery/doc.go",
+      "language": "go",
+      "importance": "medium",
+      "rank": 0.3333333333333333,
+      "definitions": null,
+      "token_count": 0
+    },
+    {
+      "path": "internal/output/doc.go",
+      "language": "go",
+      "importance": "medium",
+      "rank": 0.3333333333333333,
+      "definitions": null,
+      "token_count": 0
+    },
+    {
+      "path": "internal/output/json.go",
+      "language": "go",
+      "importance": "medium",
+      "rank": 0.3333333333333333,
+      "definitions": [
+        "func RenderJSON([]*FileNode, int) (string, error)"
+      ],
+      "imports": [
+        "encoding/json"
+      ],
+      "token_count": 0
+    },
+    {
+      "path": "internal/output/json_test.go",
+      "language": "go",
+      "importance": "medium",
+      "rank": 0.3333333333333333,
+      "definitions": [
+        "func TestRenderJSON(*testing.T)"
+      ],
+      "imports": [
+        "strings",
+        "testing"
+      ],
+      "token_count": 0
+    },
+    {
+      "path": "internal/output/token.go",
+      "language": "go",
+      "importance": "medium",
+      "rank": 0.3333333333333333,
+      "definitions": [
+        "func CountTokens(string) int"
+      ],
+      "token_count": 0
+    },
+    {
+      "path": "internal/output/token_test.go",
+      "language": "go",
+      "importance": "medium",
+      "rank": 0.3333333333333333,
+      "definitions": [
+        "func TestCountTokens(*testing.T)"
+      ],
+      "imports": [
+        "testing"
+      ],
+      "token_count": 0
+    },
+    {
+      "path": "internal/ranking/ranker_test.go",
+      "language": "go",
+      "importance": "medium",
+      "rank": 0.3333333333333333,
+      "definitions": [
+        "func TestRank(*testing.T)",
+        "func TestRank_Empty(*testing.T)",
+        "func TestRank_ZeroEdges(*testing.T)",
+        "func TestAssignImportance(*testing.T)"
+      ],
+      "imports": [
+        "testing",
+        "github.com/spanexx/agents-cli/repomap/internal/graph"
+      ],
+      "token_count": 0
+    },
+    {
+      "path": "internal/output/types_test.go",
+      "language": "go",
+      "importance": "medium",
+      "rank": 0.3333333333333333,
+      "definitions": [
+        "func TestFileNode_Validate(*testing.T)"
+      ],
+      "imports": [
+        "testing"
+      ],
+      "token_count": 0
+    },
+    {
+      "path": "internal/discovery/walker.go",
+      "language": "go",
+      "importance": "medium",
+      "rank": 0.3333333333333333,
+      "definitions": [
+        "func Walk(string) ([]string, error)"
+      ],
+      "imports": [
+        "os",
+        "path/filepath",
+        "strings"
+      ],
+      "token_count": 0
+    },
+    {
+      "path": "internal/output/xml_test.go",
+      "language": "go",
+      "importance": "medium",
+      "rank": 0.3333333333333333,
+      "definitions": [
+        "func TestRenderXML(*testing.T)"
+      ],
+      "imports": [
+        "strings",
+        "testing"
+      ],
+      "token_count": 0
+    },
+    {
+      "path": "internal/parsing/benchmark_test.go",
+      "language": "go",
+      "importance": "medium",
+      "rank": 0.3333333333333333,
+      "definitions": [
+        "func BenchmarkExtractDefinitions(*testing.B)",
+        "func BenchmarkExtractImports(*testing.B)"
+      ],
+      "imports": [
+        "os",
+        "path/filepath",
+        "testing"
+      ],
+      "token_count": 0
+    },
+    {
+      "path": "internal/parsing/doc.go",
+      "language": "go",
+      "importance": "medium",
+      "rank": 0.3333333333333333,
+      "definitions": null,
+      "token_count": 0
+    },
+    {
+      "path": "internal/parsing/extractor.go",
+      "language": "go",
+      "importance": "medium",
+      "rank": 0.3333333333333333,
+      "definitions": [
+        "func ExtractDefinitions(string) ([]string, error)",
+        "func formatFuncDecl(*ast.FuncDecl) string",
+        "func formatTypeSpec(*ast.TypeSpec) string",
+        "func formatFieldList(*ast.FieldList) string",
+        "func formatType(ast.Expr) string"
+      ],
+      "imports": [
+        "fmt",
+        "go/ast",
+        "go/parser",
+        "go/token",
+        "strings"
+      ],
+      "token_count": 0
+    },
+    {
+      "path": "internal/parsing/extractor_extended_test.go",
+      "language": "go",
+      "importance": "medium",
+      "rank": 0.3333333333333333,
+      "definitions": [
+        "func TestExtractDefinitionsComplexTypes(*testing.T)"
+      ],
+      "imports": [
+        "os",
+        "path/filepath",
+        "testing"
+      ],
+      "token_count": 0
+    },
+    {
+      "path": "internal/parsing/extractor_test.go",
+      "language": "go",
+      "importance": "medium",
+      "rank": 0.3333333333333333,
+      "definitions": [
+        "func TestExtractDefinitions(*testing.T)"
+      ],
+      "imports": [
+        "os",
+        "path/filepath",
+        "testing"
+      ],
+      "token_count": 0
+    },
+    {
+      "path": "internal/parsing/imports.go",
+      "language": "go",
+      "importance": "medium",
+      "rank": 0.3333333333333333,
+      "definitions": [
+        "func ExtractImports(string) ([]string, error)"
+      ],
+      "imports": [
+        "go/parser",
+        "go/token",
+        "strconv"
+      ],
+      "token_count": 0
+    },
+    {
+      "path": "internal/parsing/imports_test.go",
+      "language": "go",
+      "importance": "medium",
+      "rank": 0.3333333333333333,
+      "definitions": [
+        "func TestExtractImports(*testing.T)"
+      ],
+      "imports": [
+        "os",
+        "path/filepath",
+        "testing"
+      ],
+      "token_count": 0
+    },
+    {
+      "path": "internal/ranking/doc.go",
+      "language": "go",
+      "importance": "medium",
+      "rank": 0.3333333333333333,
+      "definitions": null,
+      "token_count": 0
+    },
+    {
+      "path": "internal/ranking/ranker.go",
+      "language": "go",
+      "importance": "medium",
+      "rank": 0.3333333333333333,
+      "definitions": [
+        "func Rank(*graph.Graph) map[string]float64",
+        "func AssignImportance(map[string]float64) map[string]string"
+      ],
+      "imports": [
+        "github.com/spanexx/agents-cli/repomap/internal/graph"
+      ],
+      "token_count": 0
+    },
+    {
+      "path": "cmd/repomap/main.go",
+      "language": "go",
+      "importance": "low",
+      "rank": 0,
+      "definitions": [
+        "func main()",
+        "func filterFiles([]string) []string",
+        "func splitExts(string) []string",
+        "func contains([]string, string) bool",
+        "func findModuleName(string) string",
+        "func log(string, ...interface{})",
+        "func fatalf(string, ...interface{})",
+        "func printHelp()"
+      ],
+      "imports": [
+        "flag",
+        "fmt",
+        "os",
+        "path/filepath",
+        "sort",
+        "strings",
+        "time",
+        "github.com/spanexx/agents-cli/repomap/internal/discovery",
+        "github.com/spanexx/agents-cli/repomap/internal/graph",
+        "github.com/spanexx/agents-cli/repomap/internal/output",
+        "github.com/spanexx/agents-cli/repomap/internal/parsing",
+        "github.com/spanexx/agents-cli/repomap/internal/ranking"
+      ],
+      "token_count": 0
+    },
+    {
+      "path": "repomap.go",
+      "language": "go",
+      "importance": "low",
+      "rank": 0,
+      "definitions": null,
+      "token_count": 0
+    },
+    {
+      "path": "tests/fixtures/simple/main.go",
+      "language": "go",
+      "importance": "low",
+      "rank": 0,
+      "definitions": [
+        "func main()"
+      ],
+      "imports": [
+        "fmt"
+      ],
+      "token_count": 0
+    },
+    {
+      "path": "tests/integration/integration_test.go",
+      "language": "go",
+      "importance": "low",
+      "rank": 0,
+      "definitions": [
+        "func TestIntegration_SimpleFixture(*testing.T)"
+      ],
+      "imports": [
+        "bytes",
+        "encoding/xml",
+        "os",
+        "os/exec",
+        "path/filepath",
+        "strings",
+        "testing"
+      ],
+      "token_count": 0
+    }
+  ]
+}

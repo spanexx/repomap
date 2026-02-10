@@ -74,6 +74,11 @@ Extract reusable patterns (CLI flags, output formats, config) from the Repomap M
 **Dependency:** Milestones 1.1 and 1.2 Code Complete
 Take the baseline tests from the previous milestones and scale them into an exhaustive test suite. Implement performance benchmarks and CI/CD automation to prepare for Phase 2 development.
 
+### [Milestone 1.4: Planning & Intent Analysis](Milestone-1.4-Planning-Tool/)
+**Status:** Advanced Planning Capability
+**Dependency:** Milestone 1.3 QA Complete
+Extend `repomap` to act as a proactive planning tool for AI agents. This includes features for architectural intent validation, static analysis for duplicate logic/DRY violations, and the ability to ingest/visualize planned architectural changes before implementation. It transforms `repomap` from a passive observer to an active planner.
+
 ---
 
 ## Success Criteria
@@ -85,11 +90,12 @@ Take the baseline tests from the previous milestones and scale them into an exha
 - ✅ All core functionality covered by exhaustive test suite (Milestone 1.3)
 - ✅ CI/CD pipeline automated for unit/integration/benchmarks
 - ✅ Reusable CLI framework (`pkg/`) validated by Refactored Repomap
+- ✅ `repomap` provides actionable planning insights (duplication, intent) (Milestone 1.4)
 
 ## Phase 1 Dependency Path
 
 ```text
-[M1.1: Core Logic] --> [M1.2: Library Extraction] --> [M1.3: Automation & QA]
+[M1.1] -> [M1.2] -> [M1.3] -> [M1.4: Planning]
 ```
 
 ## Timeline Estimate
@@ -113,3 +119,4 @@ Upon completion of Phase 1, Phase 2 will:
 - [Milestone 1.1: Repomap Core](Milestone-1.1-Repomap-Core/README.md)
 - [Milestone 1.2: CLI Framework](Milestone-1.2-CLI-Framework/README.md)
 - [Milestone 1.3: Testing Infrastructure](Milestone-1.3-Testing-Infrastructure/README.md)
+- [Milestone 1.4: Planning & Intent Analysis](Milestone-1.4-Planning-Tool/README.md)

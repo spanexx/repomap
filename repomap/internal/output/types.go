@@ -11,13 +11,14 @@ type FileNode struct {
 	Importance  string   `json:"importance" xml:"importance,attr"`
 	Rank        float64  `json:"rank" xml:"rank,attr"`
 	Definitions []string `json:"definitions" xml:"definition"`
+	Imports     []string `json:"imports,omitempty" xml:"import,omitempty"`
 	TokenCount  int      `json:"token_count" xml:"token_count,attr"`
 }
 
 // RepoMap represents the complete repository map output.
 type RepoMap struct {
-	Files []*FileNode `json:"files" xml:"file"`
-	XMLName struct{} `json:"-" xml:"repomap"`
+	Files   []*FileNode `json:"files" xml:"file"`
+	XMLName struct{}    `json:"-" xml:"repomap"`
 }
 
 // Validate checks if the FileNode is valid.

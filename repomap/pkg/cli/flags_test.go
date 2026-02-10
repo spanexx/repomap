@@ -70,6 +70,46 @@ func TestParse(t *testing.T) {
 	}
 }
 
+func TestSliceFlagDefaultReplacement(t *testing.T) {
+	app := NewApp("test-app", "1.0.0")
+
+	// Default value is ["foo", "bar"]
+	app.AddFlag("exclude", "extensions to exclude", []string{"foo", "bar"})
+
+	// User provides -exclude baz
+	args := []string{"-exclude", "baz"}
+
+	flags, err := app.Parse(args)
+	if err != nil {
+		t.Fatalf("Parse failed: %v", err)
+	}
+
+	// Expected result: ["baz"] (default should be gone)
+	expected := []string{"baz"}
+	val := flags.GetStringSlice("exclude")
+
+	if !reflect.DeepEqual(val, expected) {
+		t.Errorf("expected exclude to be %v, got %v. Default value was not replaced.", expected, val)
+	}
+
+	// Test appending (multiple flags)
+	app2 := NewApp("test-app-2", "1.0.0")
+	app2.AddFlag("include", "extensions to include", []string{".go"})
+
+	args2 := []string{"-include", ".py", "-include", ".js"}
+	flags2, err := app2.Parse(args2)
+	if err != nil {
+		t.Fatalf("Parse 2 failed: %v", err)
+	}
+
+	expected2 := []string{".py", ".js"}
+	val2 := flags2.GetStringSlice("include")
+
+	if !reflect.DeepEqual(val2, expected2) {
+		t.Errorf("expected include to be %v, got %v. Default value was not replaced correctly with multiple flags.", expected2, val2)
+	}
+}
+
 func TestUnknownFlag(t *testing.T) {
 	app := NewApp("test-app", "1.0.0")
 	// Since we use flag.ContinueOnError, Parse should return error

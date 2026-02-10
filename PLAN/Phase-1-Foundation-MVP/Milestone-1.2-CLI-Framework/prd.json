@@ -114,8 +114,8 @@
       "id": "1.2.3",
       "title": "Help Text Generation",
       "description": "Implement help.go with GenerateHelp; Format help text; Make help text customizable",
-      "status": "todo",
-      "passes": false
+      "status": "completed",
+      "passes": true
     },
     {
       "id": "1.2.4",
@@ -255,7 +255,9 @@
     "repomap/pkg/cli/cli.go",
     "repomap/pkg/cli/cli_test.go",
     "repomap/pkg/cli/flags.go",
-    "repomap/pkg/cli/flags_test.go"
+    "repomap/pkg/cli/flags_test.go",
+    "repomap/pkg/cli/help.go",
+    "repomap/pkg/cli/help_test.go"
   ],
   "affected_dependencies": []
 }

@@ -4,7 +4,7 @@
     "title": "CLI Framework & Integration",
     "phase": "Phase-1-Foundation-MVP",
     "objective": "Extract and generalize reusable CLI patterns from repomap into a shared framework for all agent tools",
-    "status": "not-started",
+    "status": "in-progress",
     "timeline": {
       "start_date": "TBD",
       "end_date": "TBD",
@@ -94,5 +94,166 @@
       "performance_overhead": "<10% startup time increase",
       "api_stability": "No breaking changes in Phase 2+"
     }
-  }
+  },
+  "tasks": [
+    {
+      "id": "1.2.1",
+      "title": "CLI Framework Base Package",
+      "description": "Create pkg/cli/ package structure; Define App struct; Implement NewApp; Write unit tests",
+      "status": "completed",
+      "passes": true
+    },
+    {
+      "id": "1.2.2",
+      "title": "Flag Parsing Abstraction",
+      "description": "Create flags.go with Flags struct; Implement AddFlag, Parse; Support common flag types; Generate help text",
+      "status": "todo",
+      "passes": false
+    },
+    {
+      "id": "1.2.3",
+      "title": "Help Text Generation",
+      "description": "Implement help.go with GenerateHelp; Format help text; Make help text customizable",
+      "status": "todo",
+      "passes": false
+    },
+    {
+      "id": "1.2.4",
+      "title": "Output Writer Interface",
+      "description": "Define Writer interface; Create output.go with factory NewWriter",
+      "status": "todo",
+      "passes": false
+    },
+    {
+      "id": "1.2.5",
+      "title": "Reusable XML Formatter",
+      "description": "Extract XML formatting logic; Create xml.go with XMLWriter; Generalize to handle any struct",
+      "status": "todo",
+      "passes": false
+    },
+    {
+      "id": "1.2.6",
+      "title": "Reusable JSON Formatter",
+      "description": "Extract JSON formatting logic; Create json.go with JSONWriter; Generalize to handle any struct",
+      "status": "todo",
+      "passes": false
+    },
+    {
+      "id": "1.2.7",
+      "title": "Text/Table Formatter",
+      "description": "Create text.go with TextWriter; Support table formatting; Support key-value output",
+      "status": "todo",
+      "passes": false
+    },
+    {
+      "id": "1.2.8",
+      "title": "Output Writer Factory",
+      "description": "Implement formatter.go with smart factory; Route to correct formatter; Handle unknown formats",
+      "status": "todo",
+      "passes": false
+    },
+    {
+      "id": "1.2.9",
+      "title": "Configuration Loader",
+      "description": "Create config/config.go with Config struct; Implement LoadConfig; Read .repomaprc etc.; Parse formats",
+      "status": "todo",
+      "passes": false
+    },
+    {
+      "id": "1.2.10",
+      "title": "Environment Variable Support",
+      "description": "Implement env.go with GetEnv; Support tool-specific prefixes",
+      "status": "todo",
+      "passes": false
+    },
+    {
+      "id": "1.2.11",
+      "title": "Configuration Hierarchy",
+      "description": "Implement hierarchy.go with merge logic; Apply defaults -> env -> config -> flags",
+      "status": "todo",
+      "passes": false
+    },
+    {
+      "id": "1.2.12",
+      "title": "Error Types & Codes",
+      "description": "Create errors/errors.go with custom error types; Create codes.go with standardized exit codes",
+      "status": "todo",
+      "passes": false
+    },
+    {
+      "id": "1.2.13",
+      "title": "Error Message Templates",
+      "description": "Create messages.go with standardized messages; Support templating",
+      "status": "todo",
+      "passes": false
+    },
+    {
+      "id": "1.2.14",
+      "title": "Path Utilities",
+      "description": "Create util/paths.go with NormalizePath, IsAbsolutePath, MakeRelative",
+      "status": "todo",
+      "passes": false
+    },
+    {
+      "id": "1.2.15",
+      "title": "Token Counting Utilities",
+      "description": "Create util/tokens.go with CountTokens",
+      "status": "todo",
+      "passes": false
+    },
+    {
+      "id": "1.2.16",
+      "title": "File Filtering Helpers",
+      "description": "Create util/filter.go with FilterByExtension, ExcludeByPattern",
+      "status": "todo",
+      "passes": false
+    },
+    {
+      "id": "1.2.17",
+      "title": "Logging Abstraction",
+      "description": "Create util/logging.go with logger interface; Implement stdout/stderr logging",
+      "status": "todo",
+      "passes": false
+    },
+    {
+      "id": "1.2.18",
+      "title": "Refactor Repomap to Use Framework",
+      "description": "Update cmd/repomap to use pkg/cli, pkg/output, pkg/config, pkg/errors; Verify tests",
+      "status": "todo",
+      "passes": false
+    },
+    {
+      "id": "1.2.19",
+      "title": "Framework Documentation",
+      "description": "Write FRAMEWORK_GUIDE.md, EXAMPLES.md, BEST_PRACTICES.md; Write godoc comments",
+      "status": "todo",
+      "passes": false
+    },
+    {
+      "id": "1.2.20",
+      "title": "Unit Tests (All Packages)",
+      "description": "Achieve >80% code coverage on pkg/",
+      "status": "todo",
+      "passes": false
+    },
+    {
+      "id": "1.2.21",
+      "title": "Integration Tests",
+      "description": "Test framework with repomap; Test with mock tools; Verify hierarchy",
+      "status": "todo",
+      "passes": false
+    },
+    {
+      "id": "1.2.22",
+      "title": "Framework Compatibility Tests",
+      "description": "Run repomap tests after refactoring; Verify CLI interface unchanged; Benchmarks",
+      "status": "todo",
+      "passes": false
+    }
+  ],
+  "affected_files": [
+    "repomap/pkg/cli/cli.go",
+    "repomap/pkg/cli/cli_test.go"
+  ],
+  "affected_dependencies": []
 }

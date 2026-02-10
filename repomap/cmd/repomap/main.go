@@ -19,6 +19,7 @@ import (
 	"github.com/spanexx/agents-cli/repomap/internal/output"
 	"github.com/spanexx/agents-cli/repomap/internal/parsing"
 	"github.com/spanexx/agents-cli/repomap/internal/ranking"
+	"github.com/spanexx/agents-cli/repomap/pkg/server"
 )
 
 var (
@@ -31,6 +32,11 @@ var (
 	ignoreTests = flag.Bool("ignore-tests", false, "Ignore test files (*_test.go)")
 	verbose     = flag.Bool("verbose", false, "Enable verbose logging")
 	showVersion = flag.Bool("version", false, "Show version information")
+
+	// Server Flags
+	serverMode = flag.Bool("serve", false, "Start Visualizer server and Agent API")
+	serverPort = flag.String("port", "8080", "Server port")
+	planPath   = flag.String("plan", "PLAN/plan.json", "Path to plan file for agent interaction")
 )
 
 const version = "0.1.0"
@@ -41,6 +47,14 @@ func main() {
 
 	if *showVersion {
 		fmt.Printf("repomap version %s\n", version)
+		os.Exit(0)
+	}
+
+	if *serverMode {
+		srv := server.New(*serverPort, *planPath)
+		if err := srv.Start(); err != nil {
+			fatalf("Server failed: %v", err)
+		}
 		os.Exit(0)
 	}
 

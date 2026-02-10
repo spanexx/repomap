@@ -121,8 +121,8 @@
       "id": "1.2.4",
       "title": "Output Writer Interface",
       "description": "Define Writer interface; Create output.go with factory NewWriter",
-      "status": "todo",
-      "passes": false
+      "status": "completed",
+      "passes": true
     },
     {
       "id": "1.2.5",
@@ -257,7 +257,10 @@
     "repomap/pkg/cli/flags.go",
     "repomap/pkg/cli/flags_test.go",
     "repomap/pkg/cli/help.go",
-    "repomap/pkg/cli/help_test.go"
+    "repomap/pkg/cli/help_test.go",
+    "repomap/pkg/output/writer.go",
+    "repomap/pkg/output/output.go",
+    "repomap/pkg/output/output_test.go"
   ],
   "affected_dependencies": []
 }

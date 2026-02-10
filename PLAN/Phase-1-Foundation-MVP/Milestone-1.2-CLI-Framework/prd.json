@@ -107,8 +107,8 @@
       "id": "1.2.2",
       "title": "Flag Parsing Abstraction",
       "description": "Create flags.go with Flags struct; Implement AddFlag, Parse; Support common flag types; Generate help text",
-      "status": "todo",
-      "passes": false
+      "status": "completed",
+      "passes": true
     },
     {
       "id": "1.2.3",
@@ -253,7 +253,9 @@
   ],
   "affected_files": [
     "repomap/pkg/cli/cli.go",
-    "repomap/pkg/cli/cli_test.go"
+    "repomap/pkg/cli/cli_test.go",
+    "repomap/pkg/cli/flags.go",
+    "repomap/pkg/cli/flags_test.go"
   ],
   "affected_dependencies": []
 }

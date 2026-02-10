@@ -156,15 +156,15 @@
       "id": "1.2.9",
       "title": "Configuration Loader",
       "description": "Create config/config.go with Config struct; Implement LoadConfig; Read .repomaprc etc.; Parse formats",
-      "status": "todo",
-      "passes": false
+      "status": "completed",
+      "passes": true
     },
     {
       "id": "1.2.10",
       "title": "Environment Variable Support",
       "description": "Implement env.go with GetEnv; Support tool-specific prefixes",
-      "status": "todo",
-      "passes": false
+      "status": "completed",
+      "passes": true
     },
     {
       "id": "1.2.11",
@@ -266,7 +266,11 @@
     "repomap/pkg/output/json.go",
     "repomap/pkg/output/json_test.go",
     "repomap/pkg/output/text.go",
-    "repomap/pkg/output/text_test.go"
+    "repomap/pkg/output/text_test.go",
+    "repomap/pkg/config/config.go",
+    "repomap/pkg/config/config_test.go",
+    "repomap/pkg/config/env.go",
+    "repomap/pkg/config/env_test.go"
   ],
   "affected_dependencies": []
 }

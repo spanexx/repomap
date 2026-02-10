@@ -142,15 +142,15 @@
       "id": "1.2.7",
       "title": "Text/Table Formatter",
       "description": "Create text.go with TextWriter; Support table formatting; Support key-value output",
-      "status": "todo",
-      "passes": false
+      "status": "completed",
+      "passes": true
     },
     {
       "id": "1.2.8",
       "title": "Output Writer Factory",
       "description": "Implement formatter.go with smart factory; Route to correct formatter; Handle unknown formats",
-      "status": "todo",
-      "passes": false
+      "status": "completed",
+      "passes": true
     },
     {
       "id": "1.2.9",
@@ -264,7 +264,9 @@
     "repomap/pkg/output/xml.go",
     "repomap/pkg/output/xml_test.go",
     "repomap/pkg/output/json.go",
-    "repomap/pkg/output/json_test.go"
+    "repomap/pkg/output/json_test.go",
+    "repomap/pkg/output/text.go",
+    "repomap/pkg/output/text_test.go"
   ],
   "affected_dependencies": []
 }

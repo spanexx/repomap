@@ -11,7 +11,7 @@ func TestNewWriter(t *testing.T) {
 	}{
 		{"xml", false},    // Implemented
 		{"json", false},   // Implemented
-		{"text", true},    // Not implemented yet
+		{"text", false},   // Implemented
 		{"unknown", true}, // Unknown format
 	}
 

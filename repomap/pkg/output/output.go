@@ -10,8 +10,9 @@ func NewWriter(format string) (Writer, error) {
 	switch format {
 	case "xml":
 		return NewXMLWriter(), nil
+	case "json":
+		return NewJSONWriter(), nil
 	// Future tasks will implement these cases:
-	// case "json": return NewJSONWriter(...)
 	// case "text": return NewTextWriter(...)
 	default:
 		return nil, fmt.Errorf("unsupported output format: %s", format)

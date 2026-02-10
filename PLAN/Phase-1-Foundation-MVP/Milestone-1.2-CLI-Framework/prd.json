@@ -135,8 +135,8 @@
       "id": "1.2.6",
       "title": "Reusable JSON Formatter",
       "description": "Extract JSON formatting logic; Create json.go with JSONWriter; Generalize to handle any struct",
-      "status": "todo",
-      "passes": false
+      "status": "completed",
+      "passes": true
     },
     {
       "id": "1.2.7",
@@ -262,7 +262,9 @@
     "repomap/pkg/output/output.go",
     "repomap/pkg/output/output_test.go",
     "repomap/pkg/output/xml.go",
-    "repomap/pkg/output/xml_test.go"
+    "repomap/pkg/output/xml_test.go",
+    "repomap/pkg/output/json.go",
+    "repomap/pkg/output/json_test.go"
   ],
   "affected_dependencies": []
 }

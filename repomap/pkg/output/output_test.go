@@ -10,7 +10,7 @@ func TestNewWriter(t *testing.T) {
 		expectErr bool
 	}{
 		{"xml", false},    // Implemented
-		{"json", true},    // Not implemented yet
+		{"json", false},   // Implemented
 		{"text", true},    // Not implemented yet
 		{"unknown", true}, // Unknown format
 	}

@@ -160,10 +160,10 @@
 ---
 
 ### Task 1.2.11: Configuration Hierarchy
-- [ ] Implement `hierarchy.go` with merge logic
-- [ ] Apply hierarchy: defaults → env → config file → CLI flags
-- [ ] Last-in-wins override strategy
-- [ ] Write unit tests on various scenarios
+- [x] Implement `hierarchy.go` with merge logic
+- [x] Apply hierarchy: defaults → env → config file → CLI flags
+- [x] Last-in-wins override strategy
+- [x] Write unit tests on various scenarios
 
 **Acceptance Criteria:**
 - Hierarchy is applied correctly
@@ -176,13 +176,13 @@
 ## Error Handling
 
 ### Task 1.2.12: Error Types & Codes
-- [ ] Create `errors/errors.go` with custom error types:
+- [x] Create `errors/errors.go` with custom error types:
   - `ConfigError`
   - `ParseError`
   - `ExecutionError`
   - `ValidationError`
-- [ ] Create `codes.go` with standardized exit codes
-- [ ] Write unit tests
+- [x] Create `codes.go` with standardized exit codes
+- [x] Write unit tests
 
 **Acceptance Criteria:**
 - Error types are clear and useful
@@ -192,10 +192,10 @@
 ---
 
 ### Task 1.2.13: Error Message Templates
-- [ ] Create `messages.go` with standardized error messages
-- [ ] Support message templating with context
-- [ ] Write user-friendly error messages
-- [ ] Write unit tests
+- [x] Create `messages.go` with standardized error messages
+- [x] Support message templating with context
+- [x] Write user-friendly error messages
+- [x] Write unit tests
 
 **Acceptance Criteria:**
 - Messages are clear and actionable
@@ -207,11 +207,11 @@
 ## Shared Utilities
 
 ### Task 1.2.14: Path Utilities
-- [ ] Create `util/paths.go` with functions:
+- [x] Create `util/paths.go` with functions:
   - `NormalizePath(path string) string`
   - `IsAbsolutePath(path string) bool`
   - `MakeRelative(basePath, targetPath string) string`
-- [ ] Write unit tests on various paths
+- [x] Write unit tests on various paths
 
 **Acceptance Criteria:**
 - Path operations work correctly

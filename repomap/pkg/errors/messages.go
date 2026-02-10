@@ -7,6 +7,9 @@ const (
 	MsgConfigLoadFailed = "failed to load configuration"
 	MsgParseFailed      = "failed to parse input"
 	MsgValidationFailed = "validation failed"
+	MsgFileNotFound     = "file not found: %s"
+	MsgInvalidFormat    = "invalid format: %s"
+	MsgExecutionFailed  = "execution failed: %s"
 )
 
 // FormatMessage formats a message with arguments.

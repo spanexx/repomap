@@ -184,15 +184,15 @@
       "id": "1.2.13",
       "title": "Error Message Templates",
       "description": "Create messages.go with standardized messages; Support templating",
-      "status": "todo",
-      "passes": false
+      "status": "completed",
+      "passes": true
     },
     {
       "id": "1.2.14",
       "title": "Path Utilities",
       "description": "Create util/paths.go with NormalizePath, IsAbsolutePath, MakeRelative",
-      "status": "todo",
-      "passes": false
+      "status": "completed",
+      "passes": true
     },
     {
       "id": "1.2.15",
@@ -276,7 +276,10 @@
     "repomap/pkg/errors/errors.go",
     "repomap/pkg/errors/codes.go",
     "repomap/pkg/errors/messages.go",
-    "repomap/pkg/errors/errors_test.go"
+    "repomap/pkg/errors/messages_test.go",
+    "repomap/pkg/errors/errors_test.go",
+    "repomap/pkg/util/paths.go",
+    "repomap/pkg/util/paths_test.go"
   ],
   "affected_dependencies": []
 }

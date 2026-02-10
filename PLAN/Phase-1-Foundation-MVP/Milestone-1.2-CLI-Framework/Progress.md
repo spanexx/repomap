@@ -81,18 +81,18 @@
 - Assigned To: Jules
 
 ### Task 1.2.13: Error Message Templates
-**Status:** ⬜ Not Started
+**Status:** ✅ Complete
 - Expected Start: Week 5, Day 2
 - Expected Duration: 0.5 days
-- Assigned To: TBD
+- Assigned To: Jules
 
 ## Shared Utilities
 
 ### Task 1.2.14: Path Utilities
-**Status:** ⬜ Not Started
+**Status:** ✅ Complete
 - Expected Start: Week 5, Day 2
 - Expected Duration: 0.5 days
-- Assigned To: TBD
+- Assigned To: Jules
 
 ### Task 1.2.15: Token Counting Utilities
 **Status:** ⬜ Not Started
@@ -152,10 +152,10 @@
 
 | Status | Count |
 |--------|-------|
-| ✅ Complete | 12 |
+| ✅ Complete | 14 |
 | 🟨 In Progress | 0 |
 | 🔴 Blocked | 0 |
-| ⬜ Not Started | 10 |
+| ⬜ Not Started | 8 |
 | **Total** | **22** |
 
 ---
@@ -170,7 +170,7 @@
 ## Burn Down Chart
 
 **Target Completion:** Week 5, End of Day 5
-**Current Progress:** 54.5% (12/22 tasks)
+**Current Progress:** 63.6% (14/22 tasks)
 
 ---
 

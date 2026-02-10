@@ -29,10 +29,10 @@
 - Assigned To: Jules
 
 ### Task 1.2.5: Reusable XML Formatter
-**Status:** ⬜ Not Started
+**Status:** ✅ Complete
 - Expected Start: Week 4, Day 3
 - Expected Duration: 1 day
-- Assigned To: TBD
+- Assigned To: Jules
 
 ### Task 1.2.6: Reusable JSON Formatter
 **Status:** ⬜ Not Started
@@ -152,10 +152,10 @@
 
 | Status | Count |
 |--------|-------|
-| ✅ Complete | 4 |
+| ✅ Complete | 5 |
 | 🟨 In Progress | 0 |
 | 🔴 Blocked | 0 |
-| ⬜ Not Started | 18 |
+| ⬜ Not Started | 17 |
 | **Total** | **22** |
 
 ---
@@ -170,7 +170,7 @@
 ## Burn Down Chart
 
 **Target Completion:** Week 5, End of Day 5
-**Current Progress:** 18.2% (4/22 tasks)
+**Current Progress:** 22.7% (5/22 tasks)
 
 ---
 

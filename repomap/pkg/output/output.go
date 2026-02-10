@@ -6,11 +6,11 @@ import (
 
 // NewWriter creates a new Writer implementation based on the format string.
 // Supported formats: xml, json, text.
-// Currently returns an error as no formatters are implemented yet.
 func NewWriter(format string) (Writer, error) {
 	switch format {
+	case "xml":
+		return NewXMLWriter(), nil
 	// Future tasks will implement these cases:
-	// case "xml": return NewXMLWriter(...)
 	// case "json": return NewJSONWriter(...)
 	// case "text": return NewTextWriter(...)
 	default:

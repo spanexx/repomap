@@ -170,15 +170,15 @@
       "id": "1.2.11",
       "title": "Configuration Hierarchy",
       "description": "Implement hierarchy.go with merge logic; Apply defaults -> env -> config -> flags",
-      "status": "todo",
-      "passes": false
+      "status": "completed",
+      "passes": true
     },
     {
       "id": "1.2.12",
       "title": "Error Types & Codes",
       "description": "Create errors/errors.go with custom error types; Create codes.go with standardized exit codes",
-      "status": "todo",
-      "passes": false
+      "status": "completed",
+      "passes": true
     },
     {
       "id": "1.2.13",
@@ -270,7 +270,13 @@
     "repomap/pkg/config/config.go",
     "repomap/pkg/config/config_test.go",
     "repomap/pkg/config/env.go",
-    "repomap/pkg/config/env_test.go"
+    "repomap/pkg/config/env_test.go",
+    "repomap/pkg/config/hierarchy.go",
+    "repomap/pkg/config/hierarchy_test.go",
+    "repomap/pkg/errors/errors.go",
+    "repomap/pkg/errors/codes.go",
+    "repomap/pkg/errors/messages.go",
+    "repomap/pkg/errors/errors_test.go"
   ],
   "affected_dependencies": []
 }

@@ -8,7 +8,24 @@ import (
 
 // Flags holds the parsed flag values.
 type Flags struct {
-	values map[string]interface{}
+	values  map[string]interface{}
+	visited map[string]bool
+}
+
+// GetValues returns the underlying map of flag values.
+func (f *Flags) GetValues() map[string]interface{} {
+	return f.values
+}
+
+// GetVisitedValues returns only the flags that were explicitly set by the user.
+func (f *Flags) GetVisitedValues() map[string]interface{} {
+	visited := make(map[string]interface{})
+	for k, v := range f.values {
+		if f.visited[k] {
+			visited[k] = v
+		}
+	}
+	return visited
 }
 
 // AddFlag adds a flag to the application.
@@ -46,8 +63,14 @@ func (a *App) Parse(args []string) (*Flags, error) {
 		return nil, err
 	}
 
+	visited := make(map[string]bool)
+	a.flagSet.Visit(func(f *flag.Flag) {
+		visited[f.Name] = true
+	})
+
 	return &Flags{
-		values: a.flagValues,
+		values:  a.flagValues,
+		visited: visited,
 	}, nil
 }
 

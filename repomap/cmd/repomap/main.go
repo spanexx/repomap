@@ -33,7 +33,7 @@ import (
 	"github.com/spanexx/agents-cli/repomap/pkg/util"
 )
 
-const version = "0.1.0"
+const version = "0.1.1"
 
 func main() {
 	app := cli.NewApp("repomap", version)

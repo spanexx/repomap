@@ -1,6 +1,6 @@
 {
     "name": "@spanexx/repomap",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "description": "Token-optimized repository mapper for AI agents",
     "bin": {
         "repomap": "bin/repomap.js"

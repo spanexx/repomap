@@ -74,3 +74,59 @@ func TestIntegration_SimpleFixture(t *testing.T) {
 		}
 	}
 }
+
+func TestFramework_Flags(t *testing.T) {
+	binPath := buildBinary(t)
+	defer os.Remove(binPath)
+
+	// Test --version
+	cmd := exec.Command(binPath, "--version")
+	out, err := cmd.CombinedOutput()
+	if err != nil {
+		t.Fatalf("Failed to run --version: %v", err)
+	}
+	if !strings.Contains(string(out), "repomap version") {
+		t.Errorf("Expected version output, got: %s", out)
+	}
+
+	// Test --help
+	cmd = exec.Command(binPath, "--help")
+	out, err = cmd.CombinedOutput()
+	if err != nil {
+		t.Fatalf("Failed to run --help: %v", err)
+	}
+	if !strings.Contains(string(out), "Usage:") {
+		t.Errorf("Expected help usage, got: %s", out)
+	}
+}
+
+func TestFramework_OutputFormats(t *testing.T) {
+	binPath := buildBinary(t)
+	defer os.Remove(binPath)
+
+	fixturePath, _ := filepath.Abs("../../tests/fixtures/simple")
+
+	// Test JSON output
+	cmd := exec.Command(binPath, "--root", fixturePath, "--output", "json")
+	out, err := cmd.CombinedOutput()
+	if err != nil {
+		t.Fatalf("Failed to run JSON output: %v", err)
+	}
+
+	if !strings.Contains(string(out), "\"files\":") {
+		t.Errorf("Expected JSON output containing 'files', got: %s", out)
+	}
+}
+
+func buildBinary(t *testing.T) string {
+	binName := filepath.Join(os.TempDir(), "repomap_test_"+t.Name())
+	if strings.Contains(t.Name(), "/") {
+		binName = filepath.Join(os.TempDir(), "repomap_test_bin")
+	}
+
+	cmd := exec.Command("go", "build", "-o", binName, "../../cmd/repomap")
+	if out, err := cmd.CombinedOutput(); err != nil {
+		t.Fatalf("Failed to build binary: %v\nOutput: %s", err, out)
+	}
+	return binName
+}

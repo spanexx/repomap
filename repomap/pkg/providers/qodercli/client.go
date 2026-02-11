@@ -93,7 +93,15 @@ func (p *Provider) Generate(prompt string, attachments []adapter.Attachment) (st
 	defer cancel()
 	start := time.Now()
 
-	cmd := exec.CommandContext(ctx, p.binaryPath, "-p", fullPrompt)
+	// Build command args
+	args := []string{"-p", fullPrompt}
+
+	// Enable Agentic Mode if requested
+	if os.Getenv("QODERCLI_AGENT_MODE") == "true" {
+		args = append(args, "--dangerously-skip-permissions")
+	}
+
+	cmd := exec.CommandContext(ctx, p.binaryPath, args...)
 	if strings.TrimSpace(p.workingDir) != "" {
 		cmd.Dir = p.workingDir
 	}

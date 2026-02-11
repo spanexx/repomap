@@ -1,0 +1,2335 @@
+Starting Repomap on /home/spanexx/Shared/Projects/agents-cli/repomap/repomap
+[DEBUG] Phase A: Discovering files...
+[DEBUG] Found 120 files
+[DEBUG] Phase B: Parsing 120 files...
+[DEBUG] Phase C: Building import graph...
+[DEBUG] Phase D: Ranking files...
+[DEBUG] Phase E: Rendering output...
+{
+  "files": [
+    {
+      "path": "pkg/adapter/fallback.go",
+      "language": "go",
+      "importance": "high",
+      "rank": 1,
+      "definitions": [
+        "type FallbackProvider struct",
+        "func NewFallbackProvider([]Provider, bool) *FallbackProvider",
+        "func (*FallbackProvider) Generate(string, []Attachment) (string, error)",
+        "func (*FallbackProvider) Name() string",
+        "func (*FallbackProvider) ActiveProviderName() string",
+        "func (*FallbackProvider) SetModel(string)",
+        "func (*FallbackProvider) SetSystemPrompt(string)",
+        "func (*FallbackProvider) GenerateStream(string, []Attachment, chan string) error"
+      ],
+      "imports": [
+        "fmt",
+        "strings"
+      ],
+      "token_count": 0
+    },
+    {
+      "path": "pkg/adapter/adapter.go",
+      "language": "go",
+      "importance": "high",
+      "rank": 1,
+      "definitions": [
+        "type AttachmentType string",
+        "type Attachment struct",
+        "type Provider interface"
+      ],
+      "token_count": 0
+    },
+    {
+      "path": "pkg/tools/tools.go",
+      "language": "go",
+      "importance": "medium",
+      "rank": 0.5,
+      "definitions": [
+        "type ToolDefinition map[string]interface{}",
+        "func RegisterTool(string, string, map[string]interface{}, func)",
+        "func GetToolDefinitionsForActiveSession() []ToolDefinition",
+        "func FormatToolCall(string, string, map[string]interface{}) string",
+        "func SafeExecute(string, map[string]interface{}) string",
+        "func init()"
+      ],
+      "imports": [
+        "encoding/json",
+        "fmt",
+        "os",
+        "path/filepath",
+        "strings"
+      ],
+      "token_count": 0
+    },
+    {
+      "path": "internal/output/types.go",
+      "language": "go",
+      "importance": "medium",
+      "rank": 0.3333333333333333,
+      "definitions": [
+        "type FileNode struct",
+        "type Issue struct",
+        "type Comment struct",
+        "type RepoMap struct",
+        "func (*FileNode) Validate() error"
+      ],
+      "imports": [
+        "errors"
+      ],
+      "token_count": 0
+    },
+    {
+      "path": "internal/output/xml.go",
+      "language": "go",
+      "importance": "medium",
+      "rank": 0.3333333333333333,
+      "definitions": [
+        "func RenderXML([]*FileNode, int) (string, error)"
+      ],
+      "imports": [
+        "encoding/xml"
+      ],
+      "token_count": 0
+    },
+    {
+      "path": "internal/output/types_test.go",
+      "language": "go",
+      "importance": "medium",
+      "rank": 0.3333333333333333,
+      "definitions": [
+        "func TestFileNode_Validate(*testing.T)"
+      ],
+      "imports": [
+        "testing"
+      ],
+      "token_count": 0
+    },
+    {
+      "path": "internal/output/token.go",
+      "language": "go",
+      "importance": "medium",
+      "rank": 0.3333333333333333,
+      "definitions": [
+        "func CountTokens(string) int"
+      ],
+      "token_count": 0
+    },
+    {
+      "path": "internal/output/token_test.go",
+      "language": "go",
+      "importance": "medium",
+      "rank": 0.3333333333333333,
+      "definitions": [
+        "func TestCountTokens(*testing.T)"
+      ],
+      "imports": [
+        "testing"
+      ],
+      "token_count": 0
+    },
+    {
+      "path": "internal/output/xml_test.go",
+      "language": "go",
+      "importance": "medium",
+      "rank": 0.3333333333333333,
+      "definitions": [
+        "func TestRenderXML(*testing.T)"
+      ],
+      "imports": [
+        "strings",
+        "testing"
+      ],
+      "token_count": 0
+    },
+    {
+      "path": "internal/output/doc.go",
+      "language": "go",
+      "importance": "medium",
+      "rank": 0.3333333333333333,
+      "definitions": null,
+      "token_count": 0
+    },
+    {
+      "path": "internal/output/json.go",
+      "language": "go",
+      "importance": "medium",
+      "rank": 0.3333333333333333,
+      "definitions": [
+        "func RenderJSON([]*FileNode, int) (string, error)"
+      ],
+      "imports": [
+        "encoding/json"
+      ],
+      "token_count": 0
+    },
+    {
+      "path": "internal/output/json_test.go",
+      "language": "go",
+      "importance": "medium",
+      "rank": 0.3333333333333333,
+      "definitions": [
+        "func TestRenderJSON(*testing.T)"
+      ],
+      "imports": [
+        "strings",
+        "testing"
+      ],
+      "token_count": 0
+    },
+    {
+      "path": "internal/output/planning_test.go",
+      "language": "go",
+      "importance": "medium",
+      "rank": 0.3333333333333333,
+      "definitions": [
+        "func TestFileNodePlanningSchema(*testing.T)",
+        "func contains(string, string) bool"
+      ],
+      "imports": [
+        "encoding/json",
+        "testing"
+      ],
+      "token_count": 0
+    },
+    {
+      "path": "pkg/cli/help.go",
+      "language": "go",
+      "importance": "low",
+      "rank": 0.16666666666666666,
+      "definitions": [
+        "func (*App) GenerateHelp() string"
+      ],
+      "imports": [
+        "bytes",
+        "flag",
+        "fmt"
+      ],
+      "token_count": 0
+    },
+    {
+      "path": "pkg/cli/flags_test.go",
+      "language": "go",
+      "importance": "low",
+      "rank": 0.16666666666666666,
+      "definitions": [
+        "func TestAddFlag(*testing.T)",
+        "func TestParse(*testing.T)",
+        "func TestSliceFlagDefaultReplacement(*testing.T)",
+        "func TestUnknownFlag(*testing.T)",
+        "func TestUnsupportedFlagType(*testing.T)"
+      ],
+      "imports": [
+        "reflect",
+        "testing"
+      ],
+      "token_count": 0
+    },
+    {
+      "path": "internal/graph/builder.go",
+      "language": "go",
+      "importance": "low",
+      "rank": 0.16666666666666666,
+      "definitions": [
+        "type Graph struct",
+        "type Node struct",
+        "type Builder struct",
+        "func NewBuilder() *Builder",
+        "func (*Builder) AddFile(string, []string)",
+        "func (*Builder) Build(string) *Graph"
+      ],
+      "imports": [
+        "strings",
+        "sync"
+      ],
+      "token_count": 0
+    },
+    {
+      "path": "internal/graph/builder_test.go",
+      "language": "go",
+      "importance": "low",
+      "rank": 0.16666666666666666,
+      "definitions": [
+        "func TestGraphBuilder(*testing.T)"
+      ],
+      "imports": [
+        "testing"
+      ],
+      "token_count": 0
+    },
+    {
+      "path": "pkg/auth/auth.go",
+      "language": "go",
+      "importance": "low",
+      "rank": 0.16666666666666666,
+      "definitions": [
+        "type OAuthConfig struct",
+        "type Token struct",
+        "type DeviceCode struct",
+        "func StartWebFlow(OAuthConfig) (string, string, chan string, func, error)",
+        "func ExchangeCode(context.Context, OAuthConfig, string, string) (*Token, error)",
+        "func RefreshToken(context.Context, OAuthConfig, string) (*Token, error)"
+      ],
+      "imports": [
+        "context",
+        "fmt",
+        "time"
+      ],
+      "token_count": 0
+    },
+    {
+      "path": "internal/graph/doc.go",
+      "language": "go",
+      "importance": "low",
+      "rank": 0.16666666666666666,
+      "definitions": null,
+      "token_count": 0
+    },
+    {
+      "path": "pkg/cli/cli.go",
+      "language": "go",
+      "importance": "low",
+      "rank": 0.16666666666666666,
+      "definitions": [
+        "type App struct",
+        "func NewApp(string, string) *App",
+        "func (*App) SetDescription(string) *App",
+        "func (*App) SetUsage(string) *App",
+        "func (*App) AddExample(string) *App"
+      ],
+      "imports": [
+        "flag",
+        "fmt",
+        "os"
+      ],
+      "token_count": 0
+    },
+    {
+      "path": "pkg/cli/cli_test.go",
+      "language": "go",
+      "importance": "low",
+      "rank": 0.16666666666666666,
+      "definitions": [
+        "func TestNewApp(*testing.T)",
+        "func TestAppMethods(*testing.T)"
+      ],
+      "imports": [
+        "testing"
+      ],
+      "token_count": 0
+    },
+    {
+      "path": "pkg/cli/flags.go",
+      "language": "go",
+      "importance": "low",
+      "rank": 0.16666666666666666,
+      "definitions": [
+        "type Flags struct",
+        "func (*Flags) GetValues() map[string]interface{}",
+        "func (*Flags) GetVisitedValues() map[string]interface{}",
+        "func (*App) AddFlag(string, string, interface{}) *App",
+        "func (*App) Parse([]string) (*Flags, error)",
+        "func (*Flags) GetString(string) string",
+        "func (*Flags) GetInt(string) int",
+        "func (*Flags) GetBool(string) bool",
+        "func (*Flags) GetStringSlice(string) []string",
+        "type stringSlice struct",
+        "func (*stringSlice) String() string",
+        "func (*stringSlice) Set(string) error"
+      ],
+      "imports": [
+        "flag",
+        "fmt",
+        "strings"
+      ],
+      "token_count": 0
+    },
+    {
+      "path": "pkg/cli/help_test.go",
+      "language": "go",
+      "importance": "low",
+      "rank": 0.16666666666666666,
+      "definitions": [
+        "func TestGenerateHelp(*testing.T)",
+        "func TestGenerateHelp_Minimal(*testing.T)"
+      ],
+      "imports": [
+        "strings",
+        "testing"
+      ],
+      "token_count": 0
+    },
+    {
+      "path": "internal/parsing/extractor_test.go",
+      "language": "go",
+      "importance": "low",
+      "rank": 0.1111111111111111,
+      "definitions": [
+        "func TestExtractDefinitions(*testing.T)"
+      ],
+      "imports": [
+        "os",
+        "path/filepath",
+        "testing"
+      ],
+      "token_count": 0
+    },
+    {
+      "path": "internal/parsing/generic_extractor.go",
+      "language": "go",
+      "importance": "low",
+      "rank": 0.1111111111111111,
+      "definitions": [
+        "type GenericExtractor struct",
+        "func (*GenericExtractor) ExtractImports(string) ([]string, error)",
+        "func (*GenericExtractor) ExtractDefinitions(string) ([]string, error)",
+        "func isComment(string) bool",
+        "func init()"
+      ],
+      "imports": [
+        "bufio",
+        "os",
+        "strings"
+      ],
+      "token_count": 0
+    },
+    {
+      "path": "internal/parsing/registry.go",
+      "language": "go",
+      "importance": "low",
+      "rank": 0.1111111111111111,
+      "definitions": [
+        "type Extractor interface",
+        "type Registry struct",
+        "func NewRegistry() *Registry",
+        "func (*Registry) Register(string, Extractor)",
+        "func (*Registry) Get(string) Extractor",
+        "func (*Registry) SupportedExtensions() []string"
+      ],
+      "imports": [
+        "path/filepath",
+        "strings"
+      ],
+      "token_count": 0
+    },
+    {
+      "path": "internal/parsing/extractor_extended_test.go",
+      "language": "go",
+      "importance": "low",
+      "rank": 0.1111111111111111,
+      "definitions": [
+        "func TestExtractDefinitionsComplexTypes(*testing.T)"
+      ],
+      "imports": [
+        "os",
+        "path/filepath",
+        "testing"
+      ],
+      "token_count": 0
+    },
+    {
+      "path": "internal/parsing/extractor.go",
+      "language": "go",
+      "importance": "low",
+      "rank": 0.1111111111111111,
+      "definitions": [
+        "type GoExtractor struct",
+        "func (*GoExtractor) ExtractDefinitions(string) ([]string, error)",
+        "func (*GoExtractor) ExtractImports(string) ([]string, error)",
+        "func init()",
+        "func ExtractGoImports(string) ([]string, error)",
+        "func ExtractGoDefinitions(string) ([]string, error)",
+        "func formatFuncDecl(*ast.FuncDecl) string",
+        "func formatTypeSpec(*ast.TypeSpec) string",
+        "func formatFieldList(*ast.FieldList) string",
+        "func formatType(ast.Expr) string"
+      ],
+      "imports": [
+        "fmt",
+        "go/ast",
+        "go/parser",
+        "go/token",
+        "strings"
+      ],
+      "token_count": 0
+    },
+    {
+      "path": "internal/parsing/doc.go",
+      "language": "go",
+      "importance": "low",
+      "rank": 0.1111111111111111,
+      "definitions": null,
+      "token_count": 0
+    },
+    {
+      "path": "internal/parsing/benchmark_test.go",
+      "language": "go",
+      "importance": "low",
+      "rank": 0.1111111111111111,
+      "definitions": [
+        "func BenchmarkExtractDefinitions(*testing.B)",
+        "func BenchmarkExtractImports(*testing.B)"
+      ],
+      "imports": [
+        "os",
+        "path/filepath",
+        "testing"
+      ],
+      "token_count": 0
+    },
+    {
+      "path": "pkg/providers/generic/stream.go",
+      "language": "go",
+      "importance": "low",
+      "rank": 0.1111111111111111,
+      "definitions": [
+        "func (*Provider) GenerateStream(string, []adapter.Attachment, chan string) error",
+        "func (*Provider) callAPIStream(context.Context, []Message, chan string) error"
+      ],
+      "imports": [
+        "bufio",
+        "bytes",
+        "context",
+        "encoding/json",
+        "fmt",
+        "io",
+        "net/http",
+        "github.com/spanexx/agents-cli/repomap/pkg/adapter"
+      ],
+      "token_count": 0
+    },
+    {
+      "path": "pkg/providers/generic/client.go",
+      "language": "go",
+      "importance": "low",
+      "rank": 0.1111111111111111,
+      "definitions": [
+        "type Provider struct",
+        "func New(string, string, string, string) *Provider",
+        "func (*Provider) Name() string",
+        "func (*Provider) SetModel(string)",
+        "func (*Provider) SetSystemPrompt(string)",
+        "type ChatRequest struct",
+        "type Message struct",
+        "type ContentPart struct",
+        "type ImageURL struct",
+        "type ToolCall struct",
+        "type FunctionCall struct",
+        "type Tool struct",
+        "type Function struct",
+        "type ChatResponse struct",
+        "type Choice struct",
+        "type Error struct",
+        "func (*Provider) Generate(string, []adapter.Attachment) (string, error)",
+        "func (*Provider) callAPI(context.Context, []Message, []Tool) (*ChatResponse, error)"
+      ],
+      "imports": [
+        "bytes",
+        "context",
+        "encoding/json",
+        "fmt",
+        "io",
+        "net/http",
+        "time",
+        "github.com/spanexx/agents-cli/repomap/pkg/adapter",
+        "github.com/spanexx/agents-cli/repomap/pkg/tools"
+      ],
+      "token_count": 0
+    },
+    {
+      "path": "pkg/output/output_test.go",
+      "language": "go",
+      "importance": "low",
+      "rank": 0.05555555555555555,
+      "definitions": [
+        "func TestNewWriter(*testing.T)"
+      ],
+      "imports": [
+        "testing"
+      ],
+      "token_count": 0
+    },
+    {
+      "path": "pkg/providers/gemini_cli/client.go",
+      "language": "go",
+      "importance": "low",
+      "rank": 0.05555555555555555,
+      "definitions": [
+        "type Provider struct",
+        "func New(context.Context) (*Provider, error)",
+        "func (*Provider) Init(context.Context) error",
+        "func (*Provider) Name() string",
+        "func (*Provider) SetModel(string)",
+        "func (*Provider) SetSystemPrompt(string)",
+        "func (*Provider) Generate(string, []adapter.Attachment) (string, error)",
+        "func (*Provider) GenerateStream(string, []adapter.Attachment, chan string) error",
+        "func (*Provider) buildPrompt(string, []adapter.Attachment) (string, error)"
+      ],
+      "imports": [
+        "bytes",
+        "context",
+        "encoding/json",
+        "fmt",
+        "os",
+        "os/exec",
+        "strings",
+        "time",
+        "github.com/spanexx/agents-cli/repomap/pkg/adapter"
+      ],
+      "token_count": 0
+    },
+    {
+      "path": "internal/session/manager.go",
+      "language": "go",
+      "importance": "low",
+      "rank": 0.05555555555555555,
+      "definitions": [
+        "type Message struct",
+        "type Session struct",
+        "type Manager struct",
+        "func NewManager(string) (*Manager, error)",
+        "func (*Manager) CreateSession() (*Session, error)",
+        "func (*Manager) CreateSessionWithID(string) error",
+        "func (*Manager) GetSession(string) (*Session, error)",
+        "func (*Manager) SaveSession(*Session) error",
+        "func (*Manager) AddMessage(string, string, string) error",
+        "func (*Manager) ClearSession(string) error",
+        "func (*Manager) FormatHistory(string) (string, error)"
+      ],
+      "imports": [
+        "encoding/json",
+        "fmt",
+        "os",
+        "path/filepath",
+        "sync",
+        "time",
+        "github.com/google/uuid"
+      ],
+      "token_count": 0
+    },
+    {
+      "path": "internal/ranking/ranker.go",
+      "language": "go",
+      "importance": "low",
+      "rank": 0.05555555555555555,
+      "definitions": [
+        "func Rank(*graph.Graph) map[string]float64",
+        "func AssignImportance(map[string]float64) map[string]string"
+      ],
+      "imports": [
+        "github.com/spanexx/agents-cli/repomap/internal/graph"
+      ],
+      "token_count": 0
+    },
+    {
+      "path": "internal/ranking/doc.go",
+      "language": "go",
+      "importance": "low",
+      "rank": 0.05555555555555555,
+      "definitions": null,
+      "token_count": 0
+    },
+    {
+      "path": "internal/planning/planner_test.go",
+      "language": "go",
+      "importance": "low",
+      "rank": 0.05555555555555555,
+      "definitions": [
+        "func TestPlanner_LoadPlan(*testing.T)",
+        "func TestPlanner_ApplyPlan(*testing.T)"
+      ],
+      "imports": [
+        "os",
+        "path/filepath",
+        "testing",
+        "github.com/spanexx/agents-cli/repomap/internal/output"
+      ],
+      "token_count": 0
+    },
+    {
+      "path": "internal/planning/planner.go",
+      "language": "go",
+      "importance": "low",
+      "rank": 0.05555555555555555,
+      "definitions": [
+        "type Planner struct",
+        "type Plan struct",
+        "type FileChange struct",
+        "func NewPlanner() *Planner",
+        "func (*Planner) LoadPlan(string) error",
+        "func (*Planner) ApplyPlan(*output.RepoMap) error"
+      ],
+      "imports": [
+        "encoding/json",
+        "fmt",
+        "os",
+        "github.com/spanexx/agents-cli/repomap/internal/output"
+      ],
+      "token_count": 0
+    },
+    {
+      "path": "internal/discovery/walker_test.go",
+      "language": "go",
+      "importance": "low",
+      "rank": 0.05555555555555555,
+      "definitions": [
+        "func TestWalk(*testing.T)"
+      ],
+      "imports": [
+        "os",
+        "path/filepath",
+        "testing"
+      ],
+      "token_count": 0
+    },
+    {
+      "path": "internal/discovery/walker.go",
+      "language": "go",
+      "importance": "low",
+      "rank": 0.05555555555555555,
+      "definitions": [
+        "func Walk(string) ([]string, error)"
+      ],
+      "imports": [
+        "os",
+        "path/filepath",
+        "strings",
+        "github.com/spanexx/agents-cli/repomap/internal/parsing"
+      ],
+      "token_count": 0
+    },
+    {
+      "path": "internal/discovery/gitignore_test.go",
+      "language": "go",
+      "importance": "low",
+      "rank": 0.05555555555555555,
+      "definitions": [
+        "func TestGitignore(*testing.T)"
+      ],
+      "imports": [
+        "os",
+        "path/filepath",
+        "testing"
+      ],
+      "token_count": 0
+    },
+    {
+      "path": "internal/discovery/gitignore.go",
+      "language": "go",
+      "importance": "low",
+      "rank": 0.05555555555555555,
+      "definitions": [
+        "type Gitignore struct",
+        "func ParseGitignore(string) (*Gitignore, error)",
+        "func (*Gitignore) Matches(string) bool"
+      ],
+      "imports": [
+        "bufio",
+        "os",
+        "path/filepath",
+        "strings"
+      ],
+      "token_count": 0
+    },
+    {
+      "path": "internal/discovery/doc.go",
+      "language": "go",
+      "importance": "low",
+      "rank": 0.05555555555555555,
+      "definitions": null,
+      "token_count": 0
+    },
+    {
+      "path": "pkg/config/config.go",
+      "language": "go",
+      "importance": "low",
+      "rank": 0.05555555555555555,
+      "definitions": [
+        "type Config struct",
+        "func LoadConfig([]string) (*Config, error)",
+        "func (*Config) GetString(string) string",
+        "func (*Config) GetBool(string) bool",
+        "func DefaultPaths(string) []string"
+      ],
+      "imports": [
+        "encoding/json",
+        "fmt",
+        "os",
+        "path/filepath"
+      ],
+      "token_count": 0
+    },
+    {
+      "path": "pkg/config/config_test.go",
+      "language": "go",
+      "importance": "low",
+      "rank": 0.05555555555555555,
+      "definitions": [
+        "func TestLoadConfig_JSON(*testing.T)",
+        "func TestLoadConfig_Missing(*testing.T)",
+        "func TestLoadConfig_InvalidJSON(*testing.T)",
+        "func TestConfig_Getters_Defaults(*testing.T)"
+      ],
+      "imports": [
+        "os",
+        "path/filepath",
+        "testing"
+      ],
+      "token_count": 0
+    },
+    {
+      "path": "pkg/config/env.go",
+      "language": "go",
+      "importance": "low",
+      "rank": 0.05555555555555555,
+      "definitions": [
+        "func GetEnv(string, string) string",
+        "func LoadEnv(string) map[string]string"
+      ],
+      "imports": [
+        "os",
+        "strings"
+      ],
+      "token_count": 0
+    },
+    {
+      "path": "pkg/config/env_test.go",
+      "language": "go",
+      "importance": "low",
+      "rank": 0.05555555555555555,
+      "definitions": [
+        "func TestGetEnv(*testing.T)",
+        "func TestLoadEnv(*testing.T)"
+      ],
+      "imports": [
+        "os",
+        "reflect",
+        "testing"
+      ],
+      "token_count": 0
+    },
+    {
+      "path": "pkg/config/hierarchy.go",
+      "language": "go",
+      "importance": "low",
+      "rank": 0.05555555555555555,
+      "definitions": [
+        "func MergeConfigs(map[string]interface{}, *Config, map[string]string, *cli.Flags) *Config"
+      ],
+      "imports": [
+        "fmt",
+        "github.com/spanexx/agents-cli/repomap/pkg/cli"
+      ],
+      "token_count": 0
+    },
+    {
+      "path": "pkg/config/hierarchy_test.go",
+      "language": "go",
+      "importance": "low",
+      "rank": 0.05555555555555555,
+      "definitions": [
+        "func TestMergeConfigs(*testing.T)"
+      ],
+      "imports": [
+        "testing",
+        "github.com/spanexx/agents-cli/repomap/pkg/cli"
+      ],
+      "token_count": 0
+    },
+    {
+      "path": "pkg/util/tokens_test.go",
+      "language": "go",
+      "importance": "low",
+      "rank": 0.05555555555555555,
+      "definitions": [
+        "func TestCountTokens(*testing.T)"
+      ],
+      "imports": [
+        "testing"
+      ],
+      "token_count": 0
+    },
+    {
+      "path": "pkg/util/tokens.go",
+      "language": "go",
+      "importance": "low",
+      "rank": 0.05555555555555555,
+      "definitions": [
+        "func CountTokens(string) int",
+        "func CountTokensRough(string) int"
+      ],
+      "token_count": 0
+    },
+    {
+      "path": "pkg/util/paths_test.go",
+      "language": "go",
+      "importance": "low",
+      "rank": 0.05555555555555555,
+      "definitions": [
+        "func TestNormalizePath(*testing.T)",
+        "func TestMakeRelative(*testing.T)",
+        "func TestHasExtension(*testing.T)"
+      ],
+      "imports": [
+        "path/filepath",
+        "testing"
+      ],
+      "token_count": 0
+    },
+    {
+      "path": "pkg/util/paths.go",
+      "language": "go",
+      "importance": "low",
+      "rank": 0.05555555555555555,
+      "definitions": [
+        "func NormalizePath(string) string",
+        "func IsAbsolutePath(string) bool",
+        "func MakeRelative(string, string) string",
+        "func HasExtension(string, []string) bool"
+      ],
+      "imports": [
+        "path/filepath",
+        "strings"
+      ],
+      "token_count": 0
+    },
+    {
+      "path": "internal/ranking/ranker_test.go",
+      "language": "go",
+      "importance": "low",
+      "rank": 0.05555555555555555,
+      "definitions": [
+        "func TestRank(*testing.T)",
+        "func TestRank_Empty(*testing.T)",
+        "func TestRank_ZeroEdges(*testing.T)",
+        "func TestAssignImportance(*testing.T)"
+      ],
+      "imports": [
+        "testing",
+        "github.com/spanexx/agents-cli/repomap/internal/graph"
+      ],
+      "token_count": 0
+    },
+    {
+      "path": "pkg/util/logging_test.go",
+      "language": "go",
+      "importance": "low",
+      "rank": 0.05555555555555555,
+      "definitions": [
+        "func TestStandardLogger_Info(*testing.T)",
+        "func TestStandardLogger_Debug(*testing.T)",
+        "func TestStandardLogger_Warn(*testing.T)",
+        "func TestStandardLogger_Error(*testing.T)",
+        "func TestNewLoggerHelpers(*testing.T)",
+        "func TestLoggerFormatting(*testing.T)"
+      ],
+      "imports": [
+        "bytes",
+        "strings",
+        "testing"
+      ],
+      "token_count": 0
+    },
+    {
+      "path": "pkg/util/logging.go",
+      "language": "go",
+      "importance": "low",
+      "rank": 0.05555555555555555,
+      "definitions": [
+        "type Logger interface",
+        "type StandardLogger struct",
+        "func NewLogger(io.Writer, io.Writer, bool) *StandardLogger",
+        "func (*StandardLogger) Info(string, ...interface{})",
+        "func (*StandardLogger) Debug(string, ...interface{})",
+        "func (*StandardLogger) Warn(string, ...interface{})",
+        "func (*StandardLogger) Error(string, ...interface{})",
+        "func (*StandardLogger) SetVerbose(bool)"
+      ],
+      "imports": [
+        "fmt",
+        "io",
+        "os"
+      ],
+      "token_count": 0
+    },
+    {
+      "path": "pkg/output/json.go",
+      "language": "go",
+      "importance": "low",
+      "rank": 0.05555555555555555,
+      "definitions": [
+        "type JSONWriter struct",
+        "func NewJSONWriter() Writer",
+        "func (*JSONWriter) Write(interface{}) error",
+        "func (*JSONWriter) WriteString(string) error"
+      ],
+      "imports": [
+        "encoding/json",
+        "fmt",
+        "os"
+      ],
+      "token_count": 0
+    },
+    {
+      "path": "pkg/output/json_test.go",
+      "language": "go",
+      "importance": "low",
+      "rank": 0.05555555555555555,
+      "definitions": [
+        "func TestNewJSONWriter(*testing.T)",
+        "func TestNewWriter_JSON(*testing.T)"
+      ],
+      "imports": [
+        "testing"
+      ],
+      "token_count": 0
+    },
+    {
+      "path": "pkg/output/output.go",
+      "language": "go",
+      "importance": "low",
+      "rank": 0.05555555555555555,
+      "definitions": [
+        "func NewWriter(string) (Writer, error)"
+      ],
+      "imports": [
+        "fmt"
+      ],
+      "token_count": 0
+    },
+    {
+      "path": "internal/analysis/validator_test.go",
+      "language": "go",
+      "importance": "low",
+      "rank": 0.05555555555555555,
+      "definitions": [
+        "func TestIntentValidator(*testing.T)",
+        "func TestCycleDetection(*testing.T)"
+      ],
+      "imports": [
+        "testing",
+        "github.com/spanexx/agents-cli/repomap/internal/output"
+      ],
+      "token_count": 0
+    },
+    {
+      "path": "pkg/output/text.go",
+      "language": "go",
+      "importance": "low",
+      "rank": 0.05555555555555555,
+      "definitions": [
+        "type TextWriter struct",
+        "func NewTextWriter() Writer",
+        "func (*TextWriter) Write(interface{}) error",
+        "func (*TextWriter) WriteString(string) error"
+      ],
+      "imports": [
+        "fmt",
+        "os"
+      ],
+      "token_count": 0
+    },
+    {
+      "path": "pkg/output/text_test.go",
+      "language": "go",
+      "importance": "low",
+      "rank": 0.05555555555555555,
+      "definitions": [
+        "func TestNewTextWriter(*testing.T)",
+        "func TestNewWriter_Text(*testing.T)"
+      ],
+      "imports": [
+        "testing"
+      ],
+      "token_count": 0
+    },
+    {
+      "path": "pkg/output/writer.go",
+      "language": "go",
+      "importance": "low",
+      "rank": 0.05555555555555555,
+      "definitions": [
+        "type Writer interface"
+      ],
+      "token_count": 0
+    },
+    {
+      "path": "pkg/output/xml.go",
+      "language": "go",
+      "importance": "low",
+      "rank": 0.05555555555555555,
+      "definitions": [
+        "type XMLWriter struct",
+        "func NewXMLWriter() Writer",
+        "func (*XMLWriter) Write(interface{}) error",
+        "func (*XMLWriter) WriteString(string) error"
+      ],
+      "imports": [
+        "encoding/xml",
+        "fmt",
+        "os"
+      ],
+      "token_count": 0
+    },
+    {
+      "path": "pkg/output/xml_test.go",
+      "language": "go",
+      "importance": "low",
+      "rank": 0.05555555555555555,
+      "definitions": [
+        "type TestStruct struct",
+        "func TestNewXMLWriter(*testing.T)",
+        "func TestNewWriter_XML(*testing.T)"
+      ],
+      "imports": [
+        "encoding/xml",
+        "testing"
+      ],
+      "token_count": 0
+    },
+    {
+      "path": "pkg/util/filter_test.go",
+      "language": "go",
+      "importance": "low",
+      "rank": 0.05555555555555555,
+      "definitions": [
+        "func TestFilterByExtension(*testing.T)",
+        "func TestExcludeByPattern(*testing.T)"
+      ],
+      "imports": [
+        "reflect",
+        "testing"
+      ],
+      "token_count": 0
+    },
+    {
+      "path": "pkg/util/filter.go",
+      "language": "go",
+      "importance": "low",
+      "rank": 0.05555555555555555,
+      "definitions": [
+        "func FilterByExtension([]string, []string) []string",
+        "func ExcludeByPattern([]string, []string) []string"
+      ],
+      "imports": [
+        "path/filepath",
+        "strings"
+      ],
+      "token_count": 0
+    },
+    {
+      "path": "internal/analysis/duplication.go",
+      "language": "go",
+      "importance": "low",
+      "rank": 0.05555555555555555,
+      "definitions": [
+        "type DuplicationDetector struct",
+        "func NewDuplicationDetector() *DuplicationDetector",
+        "func (*DuplicationDetector) Tokenize([]byte) ([]string, error)",
+        "func (*DuplicationDetector) Analyze(map[string][]byte) ([]output.Issue, error)"
+      ],
+      "imports": [
+        "crypto/sha256",
+        "encoding/hex",
+        "fmt",
+        "go/scanner",
+        "go/token",
+        "strings",
+        "github.com/spanexx/agents-cli/repomap/internal/output"
+      ],
+      "token_count": 0
+    },
+    {
+      "path": "pkg/server/server_test.go",
+      "language": "go",
+      "importance": "low",
+      "rank": 0.05555555555555555,
+      "definitions": [
+        "func TestNew(*testing.T)"
+      ],
+      "imports": [
+        "testing"
+      ],
+      "token_count": 0
+    },
+    {
+      "path": "pkg/server/server.go",
+      "language": "go",
+      "importance": "low",
+      "rank": 0.05555555555555555,
+      "definitions": [
+        "type Server struct",
+        "func New(string, string, interface{}) *Server",
+        "func (*Server) Start() error",
+        "func (*Server) handleRepoMap(http.ResponseWriter, *http.Request)",
+        "func (*Server) handlePlan(http.ResponseWriter, *http.Request)",
+        "type ChatRequest struct",
+        "func (*Server) handleChat(http.ResponseWriter, *http.Request)",
+        "func (*Server) handleConfig(http.ResponseWriter, *http.Request)"
+      ],
+      "imports": [
+        "context",
+        "encoding/json",
+        "fmt",
+        "io",
+        "net/http",
+        "os",
+        "path/filepath",
+        "strings",
+        "github.com/spanexx/agents-cli/repomap/internal/session",
+        "github.com/spanexx/agents-cli/repomap/pkg/adapter",
+        "github.com/spanexx/agents-cli/repomap/pkg/providers/gemini_cli",
+        "github.com/spanexx/agents-cli/repomap/pkg/providers/qodercli",
+        "github.com/spanexx/agents-cli/repomap/pkg/providers/qwen_cli"
+      ],
+      "token_count": 0
+    },
+    {
+      "path": "pkg/providers/qwen_cli/client.go",
+      "language": "go",
+      "importance": "low",
+      "rank": 0.05555555555555555,
+      "definitions": [
+        "type Provider struct",
+        "func New() *Provider",
+        "func (*Provider) Name() string",
+        "func (*Provider) SetModel(string)",
+        "func (*Provider) SetSystemPrompt(string)",
+        "func (*Provider) SetTimeout(time.Duration)",
+        "func (*Provider) Generate(string, []adapter.Attachment) (string, error)",
+        "func (*Provider) GenerateStream(string, []adapter.Attachment, chan string) error",
+        "func buildArgs(string, string, string) []string",
+        "func buildPrompt(string, []adapter.Attachment, string) (string, error)"
+      ],
+      "imports": [
+        "bytes",
+        "context",
+        "fmt",
+        "os",
+        "os/exec",
+        "strings",
+        "time",
+        "github.com/spanexx/agents-cli/repomap/pkg/adapter"
+      ],
+      "token_count": 0
+    },
+    {
+      "path": "pkg/providers/qodercli/client.go",
+      "language": "go",
+      "importance": "low",
+      "rank": 0.05555555555555555,
+      "definitions": [
+        "type Provider struct",
+        "func New() *Provider",
+        "func (*Provider) Name() string",
+        "func (*Provider) SetModel(string)",
+        "func (*Provider) SetSystemPrompt(string)",
+        "func (*Provider) SetTimeout(time.Duration)",
+        "func (*Provider) Generate(string, []adapter.Attachment) (string, error)",
+        "func (*Provider) GenerateStream(string, []adapter.Attachment, chan string) error",
+        "func buildPrompt(string, []adapter.Attachment, string) (string, error)"
+      ],
+      "imports": [
+        "bytes",
+        "context",
+        "fmt",
+        "os",
+        "os/exec",
+        "strings",
+        "time",
+        "github.com/spanexx/agents-cli/repomap/pkg/adapter"
+      ],
+      "token_count": 0
+    },
+    {
+      "path": "internal/analysis/duplication_test.go",
+      "language": "go",
+      "importance": "low",
+      "rank": 0.05555555555555555,
+      "definitions": [
+        "func TestDuplicationDetector(*testing.T)"
+      ],
+      "imports": [
+        "testing"
+      ],
+      "token_count": 0
+    },
+    {
+      "path": "internal/analysis/validator.go",
+      "language": "go",
+      "importance": "low",
+      "rank": 0.05555555555555555,
+      "definitions": [
+        "type DependencyGraph struct",
+        "func BuildGraph([]*output.FileNode, string) *DependencyGraph",
+        "func getDir(string) string",
+        "func (*DependencyGraph) DetectCycles() []output.Issue",
+        "type IntentValidator struct",
+        "func NewIntentValidator() *IntentValidator",
+        "func (*IntentValidator) Validate([]*output.FileNode) []output.Issue"
+      ],
+      "imports": [
+        "fmt",
+        "strings",
+        "github.com/spanexx/agents-cli/repomap/internal/output"
+      ],
+      "token_count": 0
+    },
+    {
+      "path": "pkg/errors/errors_test.go",
+      "language": "go",
+      "importance": "low",
+      "rank": 0,
+      "definitions": [
+        "func TestErrorCreation(*testing.T)",
+        "func TestErrorWrapping(*testing.T)",
+        "func TestSpecializedErrors(*testing.T)"
+      ],
+      "imports": [
+        "fmt",
+        "testing"
+      ],
+      "token_count": 0
+    },
+    {
+      "path": "pkg/providers/anthropic/client.go",
+      "language": "go",
+      "importance": "low",
+      "rank": 0,
+      "definitions": [
+        "type Provider struct",
+        "func New(context.Context, string) (*Provider, error)",
+        "func (*Provider) Name() string",
+        "func (*Provider) SetModel(string)",
+        "func (*Provider) SetSystemPrompt(string)",
+        "type MessagesRequest struct",
+        "type Message struct",
+        "type ImageSource struct",
+        "type ContentBlock struct",
+        "type Tool struct",
+        "type MessagesResponse struct",
+        "type Usage struct",
+        "type Error struct",
+        "func (*Provider) GenerateStream(string, []adapter.Attachment, chan string) error",
+        "func (*Provider) Generate(string, []adapter.Attachment) (string, error)",
+        "func (*Provider) callAPI(context.Context, []Message, []Tool) (*MessagesResponse, error)"
+      ],
+      "imports": [
+        "bytes",
+        "context",
+        "encoding/json",
+        "fmt",
+        "io",
+        "net/http",
+        "os",
+        "time",
+        "github.com/spanexx/agents-cli/repomap/pkg/adapter",
+        "github.com/spanexx/agents-cli/repomap/pkg/tools"
+      ],
+      "token_count": 0
+    },
+    {
+      "path": "pkg/providers/copilot/token.go",
+      "language": "go",
+      "importance": "low",
+      "rank": 0,
+      "definitions": [
+        "type CopilotToken struct",
+        "func (*Provider) tokenPath() string",
+        "func (*Provider) SaveTokenToFile(*CopilotToken) error",
+        "func (*Provider) LoadTokenFromFile() (*CopilotToken, error)"
+      ],
+      "imports": [
+        "encoding/json",
+        "os",
+        "path/filepath"
+      ],
+      "token_count": 0
+    },
+    {
+      "path": "pkg/providers/gemini/client.go",
+      "language": "go",
+      "importance": "low",
+      "rank": 0,
+      "definitions": [
+        "type Provider struct",
+        "func New(context.Context, string) (*Provider, error)",
+        "func (*Provider) Name() string",
+        "func (*Provider) SetModel(string)",
+        "func (*Provider) SetSystemPrompt(string)",
+        "func (*Provider) Generate(string, []adapter.Attachment) (string, error)",
+        "func (*Provider) GenerateStream(string, []adapter.Attachment, chan string) error"
+      ],
+      "imports": [
+        "context",
+        "fmt",
+        "strings",
+        "github.com/spanexx/agents-cli/repomap/pkg/adapter",
+        "github.com/spanexx/agents-cli/repomap/pkg/tools",
+        "google.golang.org/genai"
+      ],
+      "token_count": 0
+    },
+    {
+      "path": "pkg/providers/copilot/auth.go",
+      "language": "go",
+      "importance": "low",
+      "rank": 0,
+      "definitions": [
+        "type deviceCodeResponse struct",
+        "type gitHubTokenResponse struct",
+        "type copilotTokenResponse struct",
+        "func decodeClientID() string",
+        "func getURLs(string) (string, string, string)",
+        "func GetBaseURLFromToken(string) string",
+        "func (*Provider) Login(context.Context) (*auth.Token, error)",
+        "func (*Provider) StartAuth(context.Context) (*auth.DeviceCode, string, error)",
+        "func (*Provider) PollAuth(context.Context, string, string) (*auth.Token, error)",
+        "func (*Provider) RefreshToken(context.Context, string, string) (*auth.Token, error)",
+        "func (*Provider) startDeviceFlow(context.Context, string) (*deviceCodeResponse, error)",
+        "func (*Provider) pollForGitHubToken(context.Context, string, string, int, int) (string, error)",
+        "func (*Provider) getCopilotToken(context.Context, string, string, string) (*auth.Token, error)",
+        "func (*Provider) convertToAuthToken(*CopilotToken) *auth.Token",
+        "func (*Provider) convertFromAuthToken(*auth.Token) *CopilotToken"
+      ],
+      "imports": [
+        "context",
+        "encoding/base64",
+        "encoding/json",
+        "fmt",
+        "io",
+        "net/http",
+        "regexp",
+        "strings",
+        "time",
+        "github.com/spanexx/agents-cli/repomap/pkg/auth"
+      ],
+      "token_count": 0
+    },
+    {
+      "path": "pkg/providers/gemini_shell/client.go",
+      "language": "go",
+      "importance": "low",
+      "rank": 0,
+      "definitions": [
+        "type Provider struct",
+        "func New() *Provider",
+        "func (*Provider) Name() string",
+        "func (*Provider) SetModel(string)",
+        "func (*Provider) SetSystemPrompt(string)",
+        "func (*Provider) SetTimeout(time.Duration)",
+        "func (*Provider) Generate(string, []adapter.Attachment) (string, error)",
+        "func (*Provider) GenerateStream(string, []adapter.Attachment, chan string) error",
+        "func buildArgs(string, string, string) []string",
+        "func buildPrompt(string, []adapter.Attachment, string) (string, error)"
+      ],
+      "imports": [
+        "bytes",
+        "context",
+        "fmt",
+        "os",
+        "os/exec",
+        "strings",
+        "time",
+        "github.com/spanexx/agents-cli/repomap/pkg/adapter"
+      ],
+      "token_count": 0
+    },
+    {
+      "path": "pkg/providers/claude_cli/client.go",
+      "language": "go",
+      "importance": "low",
+      "rank": 0,
+      "definitions": [
+        "type Provider struct",
+        "func New() *Provider",
+        "func (*Provider) Name() string",
+        "func (*Provider) SetModel(string)",
+        "func (*Provider) SetSystemPrompt(string)",
+        "func (*Provider) SetTimeout(time.Duration)",
+        "func (*Provider) Generate(string, []adapter.Attachment) (string, error)",
+        "func (*Provider) GenerateStream(string, []adapter.Attachment, chan string) error",
+        "func buildPrompt(string, []adapter.Attachment, string) (string, error)"
+      ],
+      "imports": [
+        "bytes",
+        "context",
+        "fmt",
+        "os",
+        "os/exec",
+        "strings",
+        "time",
+        "github.com/spanexx/agents-cli/repomap/pkg/adapter"
+      ],
+      "token_count": 0
+    },
+    {
+      "path": "pkg/providers/capabilities.go",
+      "language": "go",
+      "importance": "low",
+      "rank": 0,
+      "definitions": [
+        "type Kind string",
+        "func NormalizeProviderName(string) string",
+        "func KindForProvider(string) Kind",
+        "func IsExternalCLIProvider(string) bool"
+      ],
+      "imports": [
+        "strings"
+      ],
+      "token_count": 0
+    },
+    {
+      "path": "pkg/providers/lmstudio/client.go",
+      "language": "go",
+      "importance": "low",
+      "rank": 0,
+      "definitions": [
+        "type Provider struct",
+        "func New(string, string) *Provider",
+        "func (*Provider) Name() string"
+      ],
+      "imports": [
+        "os",
+        "github.com/spanexx/agents-cli/repomap/pkg/providers/generic"
+      ],
+      "token_count": 0
+    },
+    {
+      "path": "pkg/providers/ollama/client.go",
+      "language": "go",
+      "importance": "low",
+      "rank": 0,
+      "definitions": [
+        "type Provider struct",
+        "func New(string, string) *Provider",
+        "func (*Provider) Name() string",
+        "func (*Provider) GenerateStream(string, []adapter.Attachment, chan string) error",
+        "func (*Provider) Generate(string, []adapter.Attachment) (string, error)",
+        "func (*Provider) SetSystemPrompt(string)"
+      ],
+      "imports": [
+        "os",
+        "github.com/spanexx/agents-cli/repomap/pkg/adapter",
+        "github.com/spanexx/agents-cli/repomap/pkg/providers/generic"
+      ],
+      "token_count": 0
+    },
+    {
+      "path": "pkg/providers/openai/client.go",
+      "language": "go",
+      "importance": "low",
+      "rank": 0,
+      "definitions": [
+        "type Provider struct",
+        "func New(context.Context, string) (*Provider, error)",
+        "func (*Provider) Name() string",
+        "func (*Provider) SetModel(string)",
+        "func (*Provider) SetSystemPrompt(string)",
+        "type ChatRequest struct",
+        "type Message struct",
+        "type ToolCall struct",
+        "type FunctionCall struct",
+        "type Tool struct",
+        "type Function struct",
+        "type ChatResponse struct",
+        "type Choice struct",
+        "type Usage struct",
+        "type Error struct",
+        "type ContentPart struct",
+        "type ImageURL struct",
+        "func (*Provider) GenerateStream(string, []adapter.Attachment, chan string) error",
+        "func (*Provider) Generate(string, []adapter.Attachment) (string, error)",
+        "func (*Provider) callAPI(context.Context, []Message, []Tool) (*ChatResponse, error)"
+      ],
+      "imports": [
+        "bytes",
+        "context",
+        "encoding/json",
+        "fmt",
+        "io",
+        "net/http",
+        "os",
+        "time",
+        "github.com/spanexx/agents-cli/repomap/pkg/adapter",
+        "github.com/spanexx/agents-cli/repomap/pkg/tools"
+      ],
+      "token_count": 0
+    },
+    {
+      "path": "pkg/providers/opencode_cli/client.go",
+      "language": "go",
+      "importance": "low",
+      "rank": 0,
+      "definitions": [
+        "type Provider struct",
+        "func New() *Provider",
+        "func (*Provider) Name() string",
+        "func (*Provider) SetModel(string)",
+        "func (*Provider) SetSystemPrompt(string)",
+        "func (*Provider) SetTimeout(time.Duration)",
+        "func (*Provider) Generate(string, []adapter.Attachment) (string, error)",
+        "func (*Provider) GenerateStream(string, []adapter.Attachment, chan string) error",
+        "func buildPrompt(string, []adapter.Attachment, string) (string, error)"
+      ],
+      "imports": [
+        "bytes",
+        "context",
+        "fmt",
+        "os",
+        "os/exec",
+        "strings",
+        "time",
+        "github.com/spanexx/agents-cli/repomap/pkg/adapter"
+      ],
+      "token_count": 0
+    },
+    {
+      "path": "pkg/providers/openrouter/client.go",
+      "language": "go",
+      "importance": "low",
+      "rank": 0,
+      "definitions": [
+        "type Provider struct",
+        "func New(context.Context, string) (*Provider, error)",
+        "func (*Provider) Name() string",
+        "func (*Provider) SetModel(string)",
+        "func (*Provider) SetSystemPrompt(string)",
+        "type ChatRequest struct",
+        "type Message struct",
+        "type ToolCall struct",
+        "type FunctionCall struct",
+        "type Tool struct",
+        "type Function struct",
+        "type ChatResponse struct",
+        "type Choice struct",
+        "type Usage struct",
+        "type Error struct",
+        "func (*Provider) GenerateStream(string, []adapter.Attachment, chan string) error",
+        "func (*Provider) Generate(string, []adapter.Attachment) (string, error)",
+        "func (*Provider) callAPI(context.Context, []Message, []Tool) (*ChatResponse, error)"
+      ],
+      "imports": [
+        "bytes",
+        "context",
+        "encoding/json",
+        "fmt",
+        "io",
+        "net/http",
+        "os",
+        "time",
+        "github.com/spanexx/agents-cli/repomap/pkg/adapter",
+        "github.com/spanexx/agents-cli/repomap/pkg/tools"
+      ],
+      "token_count": 0
+    },
+    {
+      "path": "pkg/providers/auditlog/auditlog.go",
+      "language": "go",
+      "importance": "low",
+      "rank": 0,
+      "definitions": [
+        "type ExecEvent struct",
+        "func LogExec(ExecEvent)"
+      ],
+      "imports": [
+        "fmt",
+        "log",
+        "time"
+      ],
+      "token_count": 0
+    },
+    {
+      "path": "pkg/providers/qwen/auth.go",
+      "language": "go",
+      "importance": "low",
+      "rank": 0,
+      "definitions": [
+        "type tokenResponse struct",
+        "func (*Provider) Login(context.Context) (*auth.Token, error)",
+        "func (*Provider) StartAuth(context.Context) (*auth.DeviceCode, string, error)",
+        "func (*Provider) PollAuth(context.Context, string, string) (*auth.Token, error)",
+        "func (*Provider) RefreshToken(context.Context, string) (*auth.Token, error)",
+        "func generatePKCE() (string, string, error)",
+        "func requestDeviceCode(context.Context, string) (*auth.DeviceCode, error)",
+        "func pollDeviceToken(context.Context, string, string) (*auth.Token, error)",
+        "func (*Provider) convertToAuthToken(*QwenToken) *auth.Token",
+        "func (*Provider) convertFromAuthToken(*auth.Token) *QwenToken"
+      ],
+      "imports": [
+        "context",
+        "crypto/rand",
+        "crypto/sha256",
+        "encoding/base64",
+        "encoding/json",
+        "fmt",
+        "io",
+        "net/http",
+        "net/url",
+        "os",
+        "strings",
+        "time",
+        "github.com/spanexx/agents-cli/repomap/pkg/auth"
+      ],
+      "token_count": 0
+    },
+    {
+      "path": "pkg/providers/qwen/client.go",
+      "language": "go",
+      "importance": "low",
+      "rank": 0,
+      "definitions": [
+        "type Provider struct",
+        "func New(string) *Provider",
+        "func (*Provider) Name() string",
+        "func (*Provider) SetModel(string)",
+        "func (*Provider) SetSystemPrompt(string)",
+        "func (*Provider) SetAccessToken(string)",
+        "type Message struct",
+        "type ContentPart struct",
+        "type ImageURL struct",
+        "type ToolCall struct",
+        "type Function struct",
+        "type reqBody struct",
+        "func (*Provider) Generate(string, []adapter.Attachment) (string, error)",
+        "func anySlice([]tools.ToolDefinition) []any"
+      ],
+      "imports": [
+        "bytes",
+        "context",
+        "encoding/json",
+        "fmt",
+        "io",
+        "net/http",
+        "os",
+        "github.com/spanexx/agents-cli/repomap/pkg/adapter",
+        "github.com/spanexx/agents-cli/repomap/pkg/tools"
+      ],
+      "token_count": 0
+    },
+    {
+      "path": "pkg/providers/qwen/stream.go",
+      "language": "go",
+      "importance": "low",
+      "rank": 0,
+      "definitions": [
+        "func (*Provider) GenerateStream(string, []adapter.Attachment, chan string) error"
+      ],
+      "imports": [
+        "bufio",
+        "bytes",
+        "context",
+        "encoding/json",
+        "fmt",
+        "io",
+        "net/http",
+        "os",
+        "github.com/spanexx/agents-cli/repomap/pkg/adapter",
+        "github.com/spanexx/agents-cli/repomap/pkg/tools"
+      ],
+      "token_count": 0
+    },
+    {
+      "path": "pkg/providers/qwen/token.go",
+      "language": "go",
+      "importance": "low",
+      "rank": 0,
+      "definitions": [
+        "type QwenToken struct",
+        "func (*Provider) getTokenFilePath() string",
+        "func (*Provider) SaveTokenToFile(*QwenToken) error",
+        "func (*Provider) LoadTokenFromFile() (*QwenToken, error)"
+      ],
+      "imports": [
+        "encoding/json",
+        "os",
+        "path/filepath",
+        "time"
+      ],
+      "token_count": 0
+    },
+    {
+      "path": "pkg/providers/antigravity/types.go",
+      "language": "go",
+      "importance": "low",
+      "rank": 0,
+      "definitions": [
+        "type CloudCodeAssistRequest struct",
+        "type GenerateContentRequest struct",
+        "type SystemInstruction struct",
+        "type GenerationConfig struct",
+        "type Part struct",
+        "type FunctionCall struct",
+        "type FunctionResponse struct",
+        "type Content struct",
+        "type FunctionDeclaration struct",
+        "type Tool struct",
+        "type CloudCodeAssistResponseChunk struct",
+        "type ResponseData struct",
+        "type Candidate struct",
+        "type UsageMetadata struct"
+      ],
+      "token_count": 0
+    },
+    {
+      "path": "pkg/providers/antigravity/token.go",
+      "language": "go",
+      "importance": "low",
+      "rank": 0,
+      "definitions": [
+        "type AntigravityToken struct",
+        "func (*Provider) getTokenFilePath() string",
+        "func (*Provider) SaveTokenToFile(*AntigravityToken) error",
+        "func (*Provider) LoadTokenFromFile() (*AntigravityToken, error)"
+      ],
+      "imports": [
+        "encoding/json",
+        "os",
+        "path/filepath",
+        "time"
+      ],
+      "token_count": 0
+    },
+    {
+      "path": "pkg/providers/antigravity/client.go",
+      "language": "go",
+      "importance": "low",
+      "rank": 0,
+      "definitions": [
+        "func getAntigravityHeaders() map[string]string",
+        "type Provider struct",
+        "func New(context.Context) (*Provider, error)",
+        "func (*Provider) SetAccessToken(string)",
+        "func (*Provider) SetProjectID(string)",
+        "func (*Provider) Init(context.Context) error",
+        "func (*Provider) Name() string",
+        "func (*Provider) SetModel(string)",
+        "func (*Provider) SetSystemPrompt(string)"
+      ],
+      "imports": [
+        "context",
+        "fmt",
+        "os"
+      ],
+      "token_count": 0
+    },
+    {
+      "path": "pkg/providers/antigravity/auth.go",
+      "language": "go",
+      "importance": "low",
+      "rank": 0,
+      "definitions": [
+        "func (*Provider) StartWebAuth() (string, string, chan string, func, error)",
+        "func (*Provider) ExchangeAndSave(string, string) (*AntigravityToken, error)",
+        "func (*Provider) InteractiveLogin(context.Context) (*AntigravityToken, error)",
+        "func (*Provider) Login(context.Context) (*AntigravityToken, error)",
+        "func (*Provider) RefreshToken(context.Context, string, string) (*AntigravityToken, error)",
+        "func (*Provider) convertToken(*auth.Token) *AntigravityToken",
+        "func (*Provider) getOAuthConfig() auth.OAuthConfig",
+        "func getOAuthCredentials() (string, string)",
+        "func (*Provider) getUserEmail(string) (string, error)",
+        "func (*Provider) discoverProject(string) (string, error)"
+      ],
+      "imports": [
+        "context",
+        "encoding/json",
+        "fmt",
+        "net/http",
+        "os",
+        "strings",
+        "time",
+        "github.com/spanexx/agents-cli/repomap/pkg/auth"
+      ],
+      "token_count": 0
+    },
+    {
+      "path": "pkg/providers/antigravity/api.go",
+      "language": "go",
+      "importance": "low",
+      "rank": 0,
+      "definitions": [
+        "func (*Provider) Generate(string, []adapter.Attachment) (string, error)",
+        "func (*Provider) GenerateStream(string, []adapter.Attachment, chan string) error",
+        "func (*Provider) parseAndStreamSSE(io.Reader, chan string) (*ResponseData, error)",
+        "func (*Provider) callAPI(context.Context, []Content, []FunctionDeclaration) (*ResponseData, error)",
+        "func (*Provider) parseSSEStream(io.Reader) (*ResponseData, error)"
+      ],
+      "imports": [
+        "bufio",
+        "bytes",
+        "context",
+        "encoding/json",
+        "fmt",
+        "io",
+        "net/http",
+        "strings",
+        "time",
+        "github.com/spanexx/agents-cli/repomap/pkg/adapter",
+        "github.com/spanexx/agents-cli/repomap/pkg/tools"
+      ],
+      "token_count": 0
+    },
+    {
+      "path": "pkg/providers/copilot/client.go",
+      "language": "go",
+      "importance": "low",
+      "rank": 0,
+      "definitions": [
+        "type Provider struct",
+        "func New(context.Context) (*Provider, error)",
+        "func (*Provider) SetAccessToken(string)",
+        "func (*Provider) Init(context.Context) error",
+        "func (*Provider) Name() string",
+        "func (*Provider) SetModel(string)",
+        "func (*Provider) SetSystemPrompt(string)",
+        "type ChatRequest struct",
+        "type Message struct",
+        "type ContentPart struct",
+        "type ToolCall struct",
+        "type FunctionCall struct",
+        "type Tool struct",
+        "type Function struct",
+        "type ChatResponse struct",
+        "type StreamChunk struct",
+        "type Choice struct",
+        "type StreamChoice struct",
+        "type Delta struct",
+        "type Usage struct",
+        "func (*Provider) GenerateStream(string, []adapter.Attachment, chan string) error",
+        "func (*Provider) Generate(string, []adapter.Attachment) (string, error)",
+        "func (*Provider) callAPI(context.Context, []Message, []Tool) (*ChatResponse, error)"
+      ],
+      "imports": [
+        "bytes",
+        "context",
+        "encoding/json",
+        "fmt",
+        "io",
+        "net/http",
+        "time",
+        "github.com/spanexx/agents-cli/repomap/pkg/adapter",
+        "github.com/spanexx/agents-cli/repomap/pkg/tools"
+      ],
+      "token_count": 0
+    },
+    {
+      "path": "pkg/errors/messages_test.go",
+      "language": "go",
+      "importance": "low",
+      "rank": 0,
+      "definitions": [
+        "func TestFormatMessage(*testing.T)"
+      ],
+      "imports": [
+        "testing"
+      ],
+      "token_count": 0
+    },
+    {
+      "path": "pkg/errors/messages.go",
+      "language": "go",
+      "importance": "low",
+      "rank": 0,
+      "definitions": [
+        "func FormatMessage(string, ...interface{}) string"
+      ],
+      "imports": [
+        "fmt"
+      ],
+      "token_count": 0
+    },
+    {
+      "path": "pkg/errors/errors.go",
+      "language": "go",
+      "importance": "low",
+      "rank": 0,
+      "definitions": [
+        "type Code int",
+        "type Error struct",
+        "func (*Error) Error() string",
+        "func (*Error) Unwrap() error",
+        "func New(Code, string) *Error",
+        "func Wrap(Code, string, error) *Error",
+        "func NewConfigError(string, error) *Error",
+        "func NewParseError(string, error) *Error",
+        "func NewExecutionError(string, error) *Error",
+        "func NewValidationError(string) *Error"
+      ],
+      "imports": [
+        "fmt"
+      ],
+      "token_count": 0
+    },
+    {
+      "path": "pkg/errors/codes.go",
+      "language": "go",
+      "importance": "low",
+      "rank": 0,
+      "definitions": null,
+      "token_count": 0
+    },
+    {
+      "path": "cmd/repomap/main.go",
+      "language": "go",
+      "importance": "low",
+      "rank": 0,
+      "definitions": [
+        "func main()",
+        "func filterFiles([]string, *cli.Flags) []string",
+        "func splitExts(string) []string",
+        "func contains([]string, string) bool",
+        "func findModuleName(string) string"
+      ],
+      "imports": [
+        "flag",
+        "fmt",
+        "os",
+        "path/filepath",
+        "sort",
+        "strings",
+        "time",
+        "github.com/spanexx/agents-cli/repomap/internal/analysis",
+        "github.com/spanexx/agents-cli/repomap/internal/discovery",
+        "github.com/spanexx/agents-cli/repomap/internal/graph",
+        "github.com/spanexx/agents-cli/repomap/internal/output",
+        "github.com/spanexx/agents-cli/repomap/internal/parsing",
+        "github.com/spanexx/agents-cli/repomap/internal/planning",
+        "github.com/spanexx/agents-cli/repomap/internal/ranking",
+        "github.com/spanexx/agents-cli/repomap/pkg/cli",
+        "github.com/spanexx/agents-cli/repomap/pkg/config",
+        "github.com/spanexx/agents-cli/repomap/pkg/output",
+        "github.com/spanexx/agents-cli/repomap/pkg/server",
+        "github.com/spanexx/agents-cli/repomap/pkg/util"
+      ],
+      "token_count": 0
+    },
+    {
+      "path": "bin/repomap.js",
+      "language": "js",
+      "importance": "low",
+      "rank": 0,
+      "definitions": [
+        "const { spawn } = require('child_process');",
+        "const path = require('path');",
+        "const os = require('os');",
+        "const platform = os.platform();",
+        "const arch = os.arch();",
+        "let binaryName = '';",
+        "const binPath = path.join(__dirname, '..', 'build', binaryName);",
+        "const args = process.argv.slice(2);",
+        "const child = spawn(binPath, args, {"
+      ],
+      "token_count": 0
+    },
+    {
+      "path": "repomap.go",
+      "language": "go",
+      "importance": "low",
+      "rank": 0,
+      "definitions": null,
+      "token_count": 0
+    },
+    {
+      "path": "tests/fixtures/simple/main.go",
+      "language": "go",
+      "importance": "low",
+      "rank": 0,
+      "definitions": [
+        "func main()"
+      ],
+      "imports": [
+        "fmt"
+      ],
+      "token_count": 0
+    },
+    {
+      "path": "tests/integration/integration_test.go",
+      "language": "go",
+      "importance": "low",
+      "rank": 0,
+      "definitions": [
+        "func TestIntegration_SimpleFixture(*testing.T)",
+        "func TestFramework_Flags(*testing.T)",
+        "func TestFramework_OutputFormats(*testing.T)",
+        "func buildBinary(*testing.T) string"
+      ],
+      "imports": [
+        "bytes",
+        "encoding/xml",
+        "os",
+        "os/exec",
+        "path/filepath",
+        "strings",
+        "testing"
+      ],
+      "token_count": 0
+    },
+    {
+      "path": "visualizer-ui/eslint.config.js",
+      "language": "js",
+      "importance": "low",
+      "rank": 0,
+      "definitions": [
+        "export default defineConfig(["
+      ],
+      "imports": [
+        "@eslint/js",
+        "globals",
+        "eslint-plugin-react-hooks",
+        "eslint-plugin-react-refresh",
+        "typescript-eslint",
+        "eslint/config"
+      ],
+      "token_count": 0
+    },
+    {
+      "path": "visualizer-ui/postcss.config.js",
+      "language": "js",
+      "importance": "low",
+      "rank": 0,
+      "definitions": [
+        "export default {"
+      ],
+      "token_count": 0
+    },
+    {
+      "path": "visualizer-ui/src/App.tsx",
+      "language": "tsx",
+      "importance": "low",
+      "rank": 0,
+      "definitions": [
+        "function App() {",
+        "const [data, setData] = useState\u003cRepoMapData | null\u003e(null);",
+        "const [mode, setMode] = useState\u003c'cluster' | 'flow' | 'rank' | 'radial' | 'organic'\u003e('cluster');",
+        "const [selectedFile, setSelectedFile] = useState\u003cFileNode | null\u003e(null);",
+        "const [isStoryPlaying, setIsStoryPlaying] = useState(false);",
+        "const [storyStep, setStoryStep] = useState(0);",
+        "const [storyProgress, setStoryProgress] = useState(0);",
+        "const [highlightedNodes, setHighlightedNodes] = useState\u003cstring[]\u003e([]);",
+        "const fetchData = async () =\u003e {",
+        "const mapRes = await fetch('/api/repomap');",
+        "const mapJson = await mapRes.json();",
+        "const handleUpload = useCallback((e: React.ChangeEvent\u003cHTMLInputElement\u003e) =\u003e {",
+        "const file = e.target.files?.[0];",
+        "const reader = new FileReader();",
+        "const json = JSON.parse(ev.target?.result as string);",
+        "const files = useMemo(() =\u003e data?.repomap?.files || data?.files || [], [data]);",
+        "const handleNodeSelect = useCallback((file: FileNode | null) =\u003e {",
+        "const handleStoryUpdate = useCallback((step: number, progress: number) =\u003e {",
+        "const handleStoryComplete = useCallback(() =\u003e {",
+        "const handleHighlight = useCallback((paths: string[]) =\u003e {",
+        "export default App;"
+      ],
+      "imports": [
+        "react",
+        "lucide-react",
+        "framer-motion",
+        "./components/Header",
+        "./components/Sidebar",
+        "./components/StoryOverlay",
+        "./components/Graph",
+        "./components/Chat",
+        "./types"
+      ],
+      "token_count": 0
+    },
+    {
+      "path": "visualizer-ui/src/components/Chat.tsx",
+      "language": "tsx",
+      "importance": "low",
+      "rank": 0,
+      "definitions": [
+        "interface Message {",
+        "interface ChatProps {",
+        "export const Chat: React.FC\u003cChatProps\u003e = ({ files = [], onHighlight }) =\u003e {",
+        "const [isOpen, setIsOpen] = useState(false);",
+        "const [input, setInput] = useState('');",
+        "const [messages, setMessages] = useState\u003cMessage[]\u003e([]);",
+        "const [isTyping, setIsTyping] = useState(false);",
+        "const scrollRef = useRef\u003cHTMLDivElement\u003e(null);",
+        "const [sessionId] = useState(() =\u003e {",
+        "const stored = localStorage.getItem('repomap_session_id');",
+        "const newId = crypto.randomUUID();",
+        "const lastMsg = messages[messages.length - 1];",
+        "const content = lastMsg.content.toLowerCase();",
+        "const matches: string[] = [];",
+        "const basename = f.path.split('/').pop()?.toLowerCase();",
+        "const fetchHistory = async () =\u003e {",
+        "const res = await fetch(`/api/chat?sessionId=${sessionId}`);",
+        "const history = await res.json();",
+        "const handleSend = async () =\u003e {",
+        "const userMsg: Message = { role: 'user', content: input };",
+        "const response = await fetch('/api/chat', {",
+        "const reader = response.body.getReader();",
+        "const decoder = new TextDecoder();",
+        "let assistantMsg = '';",
+        "const { value, done } = await reader.read();",
+        "const chunk = decoder.decode(value);",
+        "const lines = chunk.split('\\n');",
+        "const jsonStr = line.replace('data: ', '');",
+        "const data = JSON.parse(jsonStr);",
+        "const last = prev[prev.length - 1];",
+        "const newId = crypto.randomUUID();"
+      ],
+      "imports": [
+        "react",
+        "lucide-react",
+        "framer-motion",
+        "react-markdown",
+        "remark-gfm",
+        "../types"
+      ],
+      "token_count": 0
+    },
+    {
+      "path": "visualizer-ui/src/components/Graph.tsx",
+      "language": "tsx",
+      "importance": "low",
+      "rank": 0,
+      "definitions": [
+        "interface GraphProps {",
+        "interface GraphState {",
+        "export const Graph: React.FC\u003cGraphProps\u003e = ({",
+        "const containerRef = useRef\u003cHTMLDivElement\u003e(null);",
+        "const networkRef = useRef\u003cNetwork | null\u003e(null);",
+        "const graphState = useRef\u003cGraphState\u003e({",
+        "const clearGraph = () =\u003e {",
+        "const addFileNode = (f: FileNode, withEdges = true, isDimmed = false) =\u003e {",
+        "const dir = f.path.substring(0, f.path.lastIndexOf('/')) || \".\";",
+        "const pkgId = `pkg:${dir}`;",
+        "let color = COLORS.low;",
+        "const pkgNodes = graphState.current.nodes.get({ filter: (n: any) =\u003e n.group === 'package' });",
+        "const target = pkgNodes.find((n: any) =\u003e imp.endsWith(n.label));",
+        "const net = new Network(containerRef.current, {",
+        "const nodeId = params.nodes[0];",
+        "const file = files.find(f =\u003e f.path === nodeId);",
+        "const usePhysics = mode === 'cluster' || mode === 'organic';",
+        "const allNodeIds = graphState.current.nodes.getIds();",
+        "const updates: any[] = [];",
+        "const hasHighlight = highlightedNodes \u0026\u0026 highlightedNodes.length \u003e 0;",
+        "const nodeId = id as string;",
+        "const isPackage = nodeId.startsWith('pkg:');",
+        "const isHighlighted = highlightedNodes.includes(nodeId);",
+        "const file = files.find(f =\u003e f.path === nodeId);",
+        "let baseColor = COLORS.low;",
+        "const edgeUpdates: any[] = [];",
+        "const edge = graphState.current.edges.get(id);",
+        "const isRelatedToHighlight = hasHighlight \u0026\u0026 highlightedNodes.some(path =\u003e edge.from === path || edge.to === path);",
+        "let isActive = true;",
+        "const playStep = async (stepIdx: number) =\u003e {",
+        "const step = STORY_STEPS[stepIdx];",
+        "const batch = files.filter(step.filter);"
+      ],
+      "imports": [
+        "react",
+        "vis-network",
+        "vis-data",
+        "../types"
+      ],
+      "token_count": 0
+    },
+    {
+      "path": "visualizer-ui/src/components/Header.tsx",
+      "language": "tsx",
+      "importance": "low",
+      "rank": 0,
+      "definitions": [
+        "interface HeaderProps {",
+        "export const Header: React.FC\u003cHeaderProps\u003e = ({ mode, isStoryPlaying, onUpload, onSetMode, onToggleStory }) =\u003e ("
+      ],
+      "imports": [
+        "lucide-react"
+      ],
+      "token_count": 0
+    },
+    {
+      "path": "visualizer-ui/src/components/Sidebar.tsx",
+      "language": "tsx",
+      "importance": "low",
+      "rank": 0,
+      "definitions": [
+        "interface SidebarProps {",
+        "type TabType = 'overview' | 'code' | 'plan';",
+        "export const Sidebar: React.FC\u003cSidebarProps\u003e = ({ file, onClose }) =\u003e {",
+        "const [activeTab, setActiveTab] = useState\u003cTabType\u003e('overview');",
+        "const getColor = (f: FileNode) =\u003e {",
+        "const StatusBadge = ({ status }: { status?: string }) =\u003e {"
+      ],
+      "imports": [
+        "react",
+        "framer-motion",
+        "lucide-react",
+        "../types"
+      ],
+      "token_count": 0
+    },
+    {
+      "path": "visualizer-ui/src/components/StoryOverlay.tsx",
+      "language": "tsx",
+      "importance": "low",
+      "rank": 0,
+      "definitions": [
+        "interface StoryOverlayProps {",
+        "export const StoryOverlay: React.FC\u003cStoryOverlayProps\u003e = ({ stepIdx, progress }) =\u003e {"
+      ],
+      "imports": [
+        "framer-motion",
+        "../types"
+      ],
+      "token_count": 0
+    },
+    {
+      "path": "visualizer-ui/src/main.tsx",
+      "language": "tsx",
+      "importance": "low",
+      "rank": 0,
+      "definitions": null,
+      "imports": [
+        "react",
+        "react-dom/client",
+        "./index.css",
+        "./App.tsx"
+      ],
+      "token_count": 0
+    },
+    {
+      "path": "visualizer-ui/src/types.ts",
+      "language": "ts",
+      "importance": "low",
+      "rank": 0,
+      "definitions": [
+        "export interface FileNode {",
+        "export interface RepoMapData {",
+        "export interface StoryStep {",
+        "export const COLORS = {",
+        "export const STORY_STEPS: StoryStep[] = ["
+      ],
+      "token_count": 0
+    },
+    {
+      "path": "visualizer-ui/tailwind.config.js",
+      "language": "js",
+      "importance": "low",
+      "rank": 0,
+      "definitions": [
+        "export default {"
+      ],
+      "token_count": 0
+    },
+    {
+      "path": "visualizer-ui/vite.config.ts",
+      "language": "ts",
+      "importance": "low",
+      "rank": 0,
+      "definitions": [
+        "export default defineConfig({"
+      ],
+      "imports": [
+        "vite",
+        "@vitejs/plugin-react"
+      ],
+      "token_count": 0
+    }
+  ]
+}
+Completed in 86.245652ms

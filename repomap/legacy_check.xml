@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<repomap>
+  <file path="cli.go" language="go" importance="low" rank="0" token_count="0">
+    <definition>type App struct</definition>
+    <definition>func NewApp(string, string) *App</definition>
+    <definition>func (*App) SetDescription(string) *App</definition>
+    <definition>func (*App) SetUsage(string) *App</definition>
+    <definition>func (*App) AddExample(string) *App</definition>
+    <import>flag</import>
+    <import>fmt</import>
+    <import>os</import>
+  </file>
+  <file path="cli_test.go" language="go" importance="low" rank="0" token_count="0">
+    <definition>func TestNewApp(*testing.T)</definition>
+    <definition>func TestAppMethods(*testing.T)</definition>
+    <import>testing</import>
+  </file>
+  <file path="flags.go" language="go" importance="low" rank="0" token_count="0">
+    <definition>type Flags struct</definition>
+    <definition>func (*Flags) GetValues() map[string]interface{}</definition>
+    <definition>func (*Flags) GetVisitedValues() map[string]interface{}</definition>
+    <definition>func (*App) AddFlag(string, string, interface{}) *App</definition>
+    <definition>func (*App) Parse([]string) (*Flags, error)</definition>
+    <definition>func (*Flags) GetString(string) string</definition>
+    <definition>func (*Flags) GetInt(string) int</definition>
+    <definition>func (*Flags) GetBool(string) bool</definition>
+    <definition>func (*Flags) GetStringSlice(string) []string</definition>
+    <definition>type stringSlice struct</definition>
+    <definition>func (*stringSlice) String() string</definition>
+    <definition>func (*stringSlice) Set(string) error</definition>
+    <import>flag</import>
+    <import>fmt</import>
+    <import>strings</import>
+  </file>
+  <file path="flags_test.go" language="go" importance="low" rank="0" token_count="0">
+    <definition>func TestAddFlag(*testing.T)</definition>
+    <definition>func TestParse(*testing.T)</definition>
+    <definition>func TestSliceFlagDefaultReplacement(*testing.T)</definition>
+    <definition>func TestUnknownFlag(*testing.T)</definition>
+    <definition>func TestUnsupportedFlagType(*testing.T)</definition>
+    <import>reflect</import>
+    <import>testing</import>
+  </file>
+  <file path="help.go" language="go" importance="low" rank="0" token_count="0">
+    <definition>func (*App) GenerateHelp() string</definition>
+    <import>bytes</import>
+    <import>flag</import>
+    <import>fmt</import>
+  </file>
+  <file path="help_test.go" language="go" importance="low" rank="0" token_count="0">
+    <definition>func TestGenerateHelp(*testing.T)</definition>
+    <definition>func TestGenerateHelp_Minimal(*testing.T)</definition>
+    <import>strings</import>
+    <import>testing</import>
+  </file>
+</repomap>

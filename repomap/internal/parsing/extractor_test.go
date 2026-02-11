@@ -51,7 +51,7 @@ type MyInt int
 		t.Fatal(err)
 	}
 
-	defs, err := ExtractDefinitions(filePath)
+	defs, err := ExtractGoDefinitions(filePath)
 	if err != nil {
 		t.Fatalf("ExtractDefinitions failed: %v", err)
 	}

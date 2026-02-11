@@ -8,8 +8,42 @@ import (
 	"strings"
 )
 
-// ExtractDefinitions parses a Go file and returns a list of simplified definitions.
-func ExtractDefinitions(filePath string) ([]string, error) {
+// GoExtractor implements Extractor for Go source files.
+type GoExtractor struct{}
+
+func (e *GoExtractor) ExtractDefinitions(filePath string) ([]string, error) {
+	return ExtractGoDefinitions(filePath)
+}
+
+func (e *GoExtractor) ExtractImports(filePath string) ([]string, error) {
+	return ExtractGoImports(filePath)
+}
+
+func init() {
+	DefaultRegistry.Register(".go", &GoExtractor{})
+}
+
+// ExtractGoImports parses a Go file and returns a list of imported package paths.
+func ExtractGoImports(filePath string) ([]string, error) {
+	fset := token.NewFileSet()
+	node, err := parser.ParseFile(fset, filePath, nil, parser.ParseComments)
+	if err != nil {
+		return nil, err
+	}
+
+	var imports []string
+	for _, imp := range node.Imports {
+		// The import path is a BasicLit, e.g., `"fmt"`
+		// We need to remove the quotes.
+		path := strings.Trim(imp.Path.Value, `"`)
+		imports = append(imports, path)
+	}
+
+	return imports, nil
+}
+
+// ExtractGoDefinitions parses a Go file and returns a list of simplified definitions.
+func ExtractGoDefinitions(filePath string) ([]string, error) {
 	fset := token.NewFileSet()
 	node, err := parser.ParseFile(fset, filePath, nil, parser.ParseComments)
 	if err != nil {

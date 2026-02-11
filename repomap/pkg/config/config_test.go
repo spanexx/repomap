@@ -45,3 +45,30 @@ func TestLoadConfig_Missing(t *testing.T) {
 		t.Errorf("expected empty settings, got %v", cfg.Settings)
 	}
 }
+
+func TestLoadConfig_InvalidJSON(t *testing.T) {
+	tmpDir := t.TempDir()
+	configPath := filepath.Join(tmpDir, ".badrc")
+
+	content := `{invalid-json`
+	if err := os.WriteFile(configPath, []byte(content), 0644); err != nil {
+		t.Fatal(err)
+	}
+
+	_, err := LoadConfig([]string{configPath})
+	if err == nil {
+		t.Fatal("expected error for invalid JSON, got nil")
+	}
+}
+
+func TestConfig_Getters_Defaults(t *testing.T) {
+	cfg := &Config{Settings: make(map[string]interface{})}
+
+	if val := cfg.GetString("missing"); val != "" {
+		t.Errorf("expected empty string default, got %s", val)
+	}
+
+	if val := cfg.GetBool("missing"); val != false {
+		t.Errorf("expected false default, got %v", val)
+	}
+}

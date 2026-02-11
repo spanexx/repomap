@@ -4,6 +4,8 @@ import (
 	"os"
 	"path/filepath"
 	"strings"
+
+	"github.com/spanexx/agents-cli/repomap/internal/parsing"
 )
 
 // Walk traverses the directory tree rooted at root and returns a list of files
@@ -12,20 +14,21 @@ import (
 func Walk(root string) ([]string, error) {
 	var files []string
 
-	// Default extensions to include
-	includeExts := map[string]bool{
-		".go": true,
+	// Get supported extensions from the parsing registry
+	supportedExts := make(map[string]bool)
+	for _, ext := range parsing.DefaultRegistry.SupportedExtensions() {
+		supportedExts[ext] = true
 	}
 
 	// Binary extensions to exclude
 	excludeExts := map[string]bool{
-		".exe": true,
-		".o":   true,
-		".a":   true,
-		".so":  true,
+		".exe":   true,
+		".o":     true,
+		".a":     true,
+		".so":    true,
 		".dylib": true,
-		".dll": true,
-		".bin": true,
+		".dll":   true,
+		".bin":   true,
 	}
 
 	// Parse .gitignore if it exists
@@ -51,9 +54,10 @@ func Walk(root string) ([]string, error) {
 			return nil
 		}
 
-		// Skip hidden directories (starting with .)
+		// Skip hidden directories (starting with .) or node_modules
 		if d.IsDir() {
-			if strings.HasPrefix(d.Name(), ".") && d.Name() != "." {
+			name := d.Name()
+			if (strings.HasPrefix(name, ".") && name != ".") || name == "node_modules" || name == "vendor" || name == "dist" || name == "build" {
 				return filepath.SkipDir
 			}
 			return nil
@@ -71,8 +75,8 @@ func Walk(root string) ([]string, error) {
 			return nil
 		}
 
-		// Include only allowed extensions (default to .go)
-		if includeExts[ext] {
+		// Include only allowed extensions from the registry
+		if supportedExts[ext] {
 			files = append(files, path)
 		}
 

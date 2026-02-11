@@ -1,0 +1,32 @@
+{
+    "name": "@spanexx/repomap",
+    "version": "0.1.0",
+    "description": "Token-optimized repository mapper for AI agents",
+    "bin": {
+        "repomap": "bin/repomap.js"
+    },
+    "scripts": {
+        "prepack": "make release",
+        "test": "go test ./..."
+    },
+    "files": [
+        "bin/repomap.js",
+        "build/repomap-*",
+        "cmd",
+        "pkg",
+        "internal",
+        "go.mod",
+        "go.sum",
+        "README.md",
+        "USAGE.md"
+    ],
+    "author": "spanexx",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/spanexx/agents-cli.git"
+    },
+    "engines": {
+        "node": ">=16"
+    }
+}

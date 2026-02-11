@@ -21,6 +21,7 @@ export interface RepoMapData {
         files: FileNode[];
     };
     files?: FileNode[]; // Fallback
+    mode?: 'cluster' | 'flow' | 'rank' | 'radial' | 'organic';
 }
 
 export interface StoryStep {

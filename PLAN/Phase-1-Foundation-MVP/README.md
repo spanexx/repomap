@@ -79,6 +79,11 @@ Take the baseline tests from the previous milestones and scale them into an exha
 **Dependency:** Milestone 1.3 QA Complete
 Extend `repomap` to act as a proactive planning tool for AI agents. This includes features for architectural intent validation, static analysis for duplicate logic/DRY violations, and the ability to ingest/visualize planned architectural changes before implementation. It transforms `repomap` from a passive observer to an active planner.
 
+### [Milestone 1.5: Visualizer UI Optimization](Milestone-1.5-Visualizer-UI-Optimization/)
+**Status:** UI/UX Polish
+**Dependency:** Milestone 1.4 Complete
+Focus on optimizing the `visualizer-ui` components. This includes modularizing elements like `Sidebar` and `Chat`, implementing custom hooks for logic extraction, and polishing the overall UI/UX and responsiveness to enhance user interaction.
+
 ---
 
 ## Success Criteria

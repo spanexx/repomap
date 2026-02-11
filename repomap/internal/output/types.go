@@ -12,7 +12,23 @@ type FileNode struct {
 	Rank        float64  `json:"rank" xml:"rank,attr"`
 	Definitions []string `json:"definitions" xml:"definition"`
 	Imports     []string `json:"imports,omitempty" xml:"import,omitempty"`
-	TokenCount  int      `json:"token_count" xml:"token_count,attr"`
+	TokenCount  int       `json:"token_count" xml:"token_count,attr"`
+	// Planning Features
+	Status   string    `json:"status,omitempty" xml:"status,attr,omitempty"`
+	Intent   string    `json:"intent,omitempty" xml:"intent,omitempty"`
+	Issues   []Issue   `json:"issues,omitempty" xml:"issue,omitempty"`
+	Comments []Comment `json:"comments,omitempty" xml:"comment,omitempty"`
+}
+
+type Issue struct {
+	Type        string `json:"type" xml:"type,attr"`
+	Description string `json:"description" xml:"description"`
+	Severity    string `json:"severity" xml:"severity,attr"`
+}
+
+type Comment struct {
+	User string `json:"user" xml:"user,attr"`
+	Text string `json:"text" xml:"text"`
 }
 
 // RepoMap represents the complete repository map output.

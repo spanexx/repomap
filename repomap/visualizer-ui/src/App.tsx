@@ -1,5 +1,9 @@
+/**
+ * Code Map: App – Main application component, now refactored to compose custom hooks.
+ * CID: 1.5.3-App
+ */
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Layers } from 'lucide-react';
 import { AnimatePresence } from 'framer-motion';
 
@@ -8,63 +12,38 @@ import { Sidebar } from './components/Sidebar';
 import { StoryOverlay } from './components/StoryOverlay';
 import { Graph } from './components/Graph';
 import { Chat } from './components/Chat';
-import { type RepoMapData, type FileNode } from './types';
+import { TableView } from './components/TableView';
+
+import { useRepoData } from './hooks/useRepoData';
+import { useStoryController } from './hooks/useStoryController';
+import { useSelection } from './hooks/useSelection';
 
 function App() {
-  const [data, setData] = useState<RepoMapData | null>(null);
-  const [mode, setMode] = useState<'cluster' | 'flow' | 'rank'>('cluster');
-  const [selectedFile, setSelectedFile] = useState<FileNode | null>(null);
-  const [isStoryPlaying, setIsStoryPlaying] = useState(false);
-  const [storyStep, setStoryStep] = useState(0);
-  const [storyProgress, setStoryProgress] = useState(0);
+  const [mode, setMode] = useState<'cluster' | 'flow' | 'simple' | 'table'>('cluster');
+  const [colorMode, setColorMode] = useState<'importance' | 'intent'>('importance');
 
-  // --- Effects ---
-  useEffect(() => {
-    // Fetch initial plan from backend
-    const fetchPlan = async () => {
-      try {
-        const response = await fetch('/api/plan');
-        if (response.ok) {
-          const json = await response.json();
-          setData(json);
-        }
-      } catch (err) {
-        console.warn('Backend not available or plan missing');
-      }
-    };
-    fetchPlan();
-  }, []);
+  const { data, files, handleUpload } = useRepoData();
 
-  // --- Handlers ---
-  const handleUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    if (!file) return;
-    const reader = new FileReader();
-    reader.onload = (ev) => {
-      try {
-        const json = JSON.parse(ev.target?.result as string);
-        setData(json);
-      } catch (err) {
-        alert("Invalid JSON");
-      }
-    };
-    reader.readAsText(file);
-  };
+  const {
+    isStoryPlaying,
+    storyStep,
+    storyProgress,
+    isStoryPaused,
+    toggleStory,
+    onStoryUpdate,
+    onStoryComplete,
+    togglePause,
+    nextStep,
+    stopStory
+  } = useStoryController();
 
-  const getFiles = () => (data?.repomap?.files || data?.files || []);
-
-  const handleNodeSelect = (file: FileNode | null) => {
-    setSelectedFile(file);
-  };
-
-  const handleStoryUpdate = (step: number, progress: number) => {
-    setStoryStep(step);
-    setStoryProgress(progress);
-  };
-
-  const handleStoryComplete = () => {
-    setIsStoryPlaying(false);
-  };
+  const {
+    selectedFile,
+    setSelectedFile,
+    highlightedNodes,
+    setHighlightedNodes,
+    toggleHighlight
+  } = useSelection();
 
   return (
     <div className="w-full h-full relative bg-[#0d1117] text-[#c9d1d9] overflow-hidden font-sans">
@@ -73,18 +52,30 @@ function App() {
         mode={mode}
         isStoryPlaying={isStoryPlaying}
         onUpload={handleUpload}
-        onSetMode={setMode}
-        onToggleStory={() => setIsStoryPlaying(!isStoryPlaying)}
+        onSetMode={(m) => setMode(m as any)}
+        onToggleStory={toggleStory}
+        colorMode={colorMode}
+        onSetColorMode={setColorMode}
       />
 
-      <Graph
-        files={getFiles()}
-        mode={mode}
-        isStoryPlaying={isStoryPlaying}
-        onNodeSelect={handleNodeSelect}
-        onStoryUpdate={handleStoryUpdate}
-        onStoryComplete={handleStoryComplete}
-      />
+      {mode === 'table' ? (
+        <TableView
+          files={files}
+          onFileSelect={setSelectedFile}
+        />
+      ) : (
+        <Graph
+          files={files}
+          mode={mode as any}
+          isStoryPlaying={isStoryPlaying}
+          isPaused={isStoryPaused}
+          highlightedNodes={highlightedNodes}
+          onNodeSelect={setSelectedFile}
+          onStoryUpdate={onStoryUpdate}
+          onStoryComplete={onStoryComplete}
+          colorMode={colorMode}
+        />
+      )}
 
       {/* Loader / Empty State */}
       {!data && !isStoryPlaying && (
@@ -99,18 +90,35 @@ function App() {
       {/* Story Overlay */}
       <AnimatePresence>
         {isStoryPlaying && (
-          <StoryOverlay stepIdx={storyStep} progress={storyProgress} />
+          <StoryOverlay
+            stepIdx={storyStep}
+            progress={storyProgress}
+            isPaused={isStoryPaused}
+            onTogglePause={togglePause}
+            onNext={nextStep}
+            onExit={stopStory}
+          />
         )}
       </AnimatePresence>
 
       {/* Sidebar */}
       <AnimatePresence>
         {selectedFile && (
-          <Sidebar file={selectedFile} onClose={() => setSelectedFile(null)} />
+          <Sidebar
+            file={selectedFile}
+            onClose={() => setSelectedFile(null)}
+            isHighlighted={highlightedNodes.includes(selectedFile.path)}
+            onToggleHighlight={() => toggleHighlight(selectedFile.path)}
+          />
         )}
       </AnimatePresence>
 
-      <Chat />
+      <Chat
+        files={files}
+        onHighlight={setHighlightedNodes}
+        selectedNode={selectedFile?.path || ''}
+        viewMode={mode}
+      />
     </div>
   );
 }

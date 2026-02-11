@@ -47,7 +47,7 @@ type Interface interface {
 
 	b.ResetTimer()
 	for i := 0; i < b.N; i++ {
-		_, err := ExtractDefinitions(filePath)
+		_, err := ExtractGoDefinitions(filePath)
 		if err != nil {
 			b.Fatal(err)
 		}

@@ -1,0 +1,72 @@
+{
+    "title": "Visualizer UI Optimization",
+    "phase": "Phase-1-Foundation-MVP",
+    "objective": "Refactor the Visualizer UI to use modular components, improved state management, and premium aesthetics.",
+    "status": "todo",
+    "timeline": {
+        "start_date": "TBD",
+        "end_date": "TBD"
+    },
+    "tasks": [
+        {
+            "id": "1.5.1",
+            "title": "Refactor Sidebar",
+            "description": "Modularize Sidebar.tsx into smaller, focused components (Header, Stats, Dependencies).",
+            "status": "done",
+            "passes": true
+        },
+        {
+            "id": "1.5.2",
+            "title": "Refactor Chat",
+            "description": "Extract logic to useChat hook and split UI into MessageList/Input.",
+            "status": "done",
+            "passes": true
+        },
+        {
+            "id": "1.5.3",
+            "title": "Refactor App & State",
+            "description": "Clean up App.tsx by moving data fetching and state to custom hooks (useRepoData, useSelection, useStoryController).",
+            "status": "done",
+            "passes": true
+        },
+        {
+            "id": "1.5.4",
+            "title": "Context-Aware Chat",
+            "description": "Enhance /api/chat to accept UI state (selected node, view mode) and inject it into the prompt.",
+            "status": "done",
+            "passes": true
+        },
+        {
+            "id": "1.5.5",
+            "title": "Persistent Chat History",
+            "description": "Maintain chat history in the backend or accept it from the frontend to support multi-turn conversations.",
+            "status": "done",
+            "passes": true
+        },
+        {
+            "id": "1.5.6",
+            "title": "Responsive Layout",
+            "description": "Ensure UI works seamlessly on different screen sizes.",
+            "status": "todo",
+            "passes": false
+        }
+    ],
+    "affected_files": [
+        "repomap/visualizer-ui/src/App.tsx",
+        "repomap/visualizer-ui/src/components/Sidebar.tsx",
+        "repomap/visualizer-ui/src/components/sidebar/FileHeader.tsx",
+        "repomap/visualizer-ui/src/components/sidebar/FileStats.tsx",
+        "repomap/visualizer-ui/src/components/sidebar/DependencyList.tsx",
+        "repomap/visualizer-ui/src/components/sidebar/PlanView.tsx",
+        "repomap/visualizer-ui/src/components/sidebar/index.ts",
+        "repomap/visualizer-ui/src/components/Chat.tsx",
+        "repomap/visualizer-ui/src/components/chat/MessageList.tsx",
+        "repomap/visualizer-ui/src/components/chat/MessageInput.tsx",
+        "repomap/visualizer-ui/src/components/chat/index.ts",
+        "repomap/visualizer-ui/src/hooks/useChat.ts",
+        "repomap/visualizer-ui/src/hooks/useRepoData.ts",
+        "repomap/visualizer-ui/src/hooks/useStoryController.ts",
+        "repomap/visualizer-ui/src/hooks/useSelection.ts",
+        "repomap/pkg/server/server.go"
+    ]
+}

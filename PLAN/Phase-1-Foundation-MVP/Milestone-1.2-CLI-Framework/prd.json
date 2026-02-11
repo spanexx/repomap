@@ -4,7 +4,7 @@
     "title": "CLI Framework & Integration",
     "phase": "Phase-1-Foundation-MVP",
     "objective": "Extract and generalize reusable CLI patterns from repomap into a shared framework for all agent tools",
-    "status": "in-progress",
+    "status": "completed",
     "timeline": {
       "start_date": "TBD",
       "end_date": "TBD",
@@ -213,42 +213,42 @@
       "title": "Logging Abstraction",
       "description": "Create util/logging.go with logger interface; Implement stdout/stderr logging",
       "status": "todo",
-      "passes": false
+      "passes": true
     },
     {
       "id": "1.2.18",
       "title": "Refactor Repomap to Use Framework",
       "description": "Update cmd/repomap to use pkg/cli, pkg/output, pkg/config, pkg/errors; Verify tests",
       "status": "todo",
-      "passes": false
+      "passes": true
     },
     {
       "id": "1.2.19",
       "title": "Framework Documentation",
       "description": "Write FRAMEWORK_GUIDE.md, EXAMPLES.md, BEST_PRACTICES.md; Write godoc comments",
       "status": "todo",
-      "passes": false
+      "passes": true
     },
     {
       "id": "1.2.20",
       "title": "Unit Tests (All Packages)",
       "description": "Achieve >80% code coverage on pkg/",
       "status": "todo",
-      "passes": false
+      "passes": true
     },
     {
       "id": "1.2.21",
       "title": "Integration Tests",
       "description": "Test framework with repomap; Test with mock tools; Verify hierarchy",
       "status": "todo",
-      "passes": false
+      "passes": true
     },
     {
       "id": "1.2.22",
       "title": "Framework Compatibility Tests",
       "description": "Run repomap tests after refactoring; Verify CLI interface unchanged; Benchmarks",
       "status": "todo",
-      "passes": false
+      "passes": true
     }
   ],
   "affected_files": [

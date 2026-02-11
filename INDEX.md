@@ -1,134 +1,68 @@
 # Repomap
 
-### 1. The Architecture
+Repomap is a CLI tool that generates a token-optimized “map” of a repository for use as LLM context. It focuses on **high-signal structure** (top-level definitions + imports), and then ranks files so the output stays useful even with a strict token budget.
 
-The tool needs to act as a funnel: taking a massive file system and reducing it to a high-density "map."
+Start here:
 
-**Pipeline:**
+- [`README.md`](./README.md) for install + quick usage
+- `repomap/USAGE.md` for detailed flags and examples
 
-1. **Discovery:** Walk the directory tree (fast).
-2. **Filtering:** Apply `.gitignore` and exclude binary/irrelevant files.
-3. **Parsing:** Use **Tree-sitter** (via Go bindings) to extract definitions (functions, classes, structs) without reading the whole file body.
-4. **Ranking:** Score files based on "centrality" (how many other files import them).
-5. **rendering:** Generate the output tree, cutting off details once the `max-tokens` budget is reached.
+## What Repomap outputs
 
----
+Repomap emits a structured representation of your repo:
 
-### 2. Recommended Go Libraries
+- **XML** (default): best for pasting into prompts
+- **JSON**: best for programmatic consumption
+- **Text**: quick human skim
 
-Don't reinvent the wheel. These libraries are industry standards for this stack:
+The output includes:
 
-* **File Walking:** `github.com/karrick/godirwalk` (Much faster than `filepath.WalkDir` for massive repos).
-* **Git Ignore:** `github.com/monochromegane/go-gitignore` (Crucial for not mapping `node_modules` or `vendor`).
-* **Parsing (The Core):** `github.com/smacker/go-tree-sitter` (Go bindings for Tree-sitter. This is how you get robust parsing for Python, JS, Go, Rust, etc., without writing regexes).
-* **Token Counting:** `github.com/pkoukk/tiktoken-go` (To accurately stick to the `--max-tokens` budget).
+- file paths
+- extracted definitions (functions/types/classes)
+- extracted imports
+- importance/rank metadata
 
----
+## Why this is useful
 
-### 3. The Data Structure (Go)
+Large repos don’t fit into a prompt. Repomap acts as a funnel:
 
-You need a struct that represents the "Skeleton" of a file.
+- it **reduces** the codebase into a compact, structured summary
+- it preserves the “shape” of the system (entry points, core packages, dependencies)
+- it allows an agent to navigate and ask targeted follow-up questions
 
-```go
-type FileNode struct {
-	Path        string
-	Language    string
-	Imports     []string // List of other files this file depends on
-	Definitions []string // e.g., "func NewServer()", "type Config struct"
-	Rank        float64  // Calculated importance score
-	TokenCount  int      // How expensive this node is to print
-}
+## High-level pipeline
 
-type RepoMap struct {
-	Nodes map[string]*FileNode
-	Graph *simple.DirectedGraph // To calculate PageRank/Centrality
-}
+1. **Discovery**
+   - walk the directory tree
+2. **Filtering**
+   - respect `.gitignore`
+   - drop binaries / irrelevant files
+3. **Parsing**
+   - extract top-level definitions + imports
+4. **Ranking**
+   - score files by centrality (dependency structure)
+5. **Rendering**
+   - emit XML/JSON/text
+   - apply `--max-tokens` budget
 
-```
+## Typical workflow
 
----
-
-### 4. The Logic Flow
-
-#### Phase A: The "Skeletons" (Parsing)
-
-Instead of reading the file content, you only want the *signatures*.
-
-* **Input (Go file):**
-```go
-func (s *Server) HandleRequest(w http.ResponseWriter, r *http.Request) {
-    // ... 50 lines of logic ...
-}
-
-```
-
-
-* **Repomap Extraction:**
-```go
-"func (s *Server) HandleRequest(w, r)"
-
-```
-
-
-* *Why:* This saves ~95% of tokens but keeps the context of "what this file does."
-
-#### Phase B: The "Ranking" (Context Optimization)
-
-If you have 1000 files but only 2000 tokens of budget, which files do you show?
-
-* **Heuristic:** Files that are imported by many others (e.g., `utils.go`, `types.go`) or lie at the root of the AST are likely more important for context.
-* **Implementation:** Build a simple directed graph where `A imports B` creates an edge `A -> B`. Calculate the "In-Degree" (number of incoming edges) for each file.
-* **Sort:** Sort `FileNodes` by `Rank` descending.
-
-#### Phase C: The Output (XML/JSON)
-
-LLMs are excellent at parsing XML tags for structure.
-
-```xml
-<repomap>
-  <file path="main.go" importance="high">
-    func main()
-    func initDB()
-  </file>
-  <file path="pkg/auth/login.go" importance="medium">
-    struct LoginRequest
-    func Authenticate(user, pass)
-  </file>
-  <file path="pkg/utils/logger.go" importance="low">
-    </file>
-</repomap>
-
-```
-
----
-
-### 5. CLI Usage Design
-
-Design the flags for the Agent, not for a human.
+1. Run Repomap and save output:
 
 ```bash
-# Basic usage
-repomap --root ./src --json
+repomap --root . --output xml --max-tokens 8000 > repomap.xml
+```
 
-# Strict budget for a small context window
-repomap --max-tokens 1000 --output xml
+2. Paste `repomap.xml` into your agent prompt, and then ask for specific files to be opened.
 
-# Focus on specific languages
-repomap --include-ext .go,.js --ignore-tests
+3. (Optional) Run in server mode for a UI/API:
+
+```bash
+REPOMAP_PROVIDER=qodercli repomap --serve --port 8080
+REPOMAP_PROVIDER=gemini-shell repomap --serve --port 8080
+REPOMAP_PROVIDER=qwen-cli repomap --serve --port 8080
+REPOMAP_PROVIDER=claude-cli repomap --serve --port 8080
 
 ```
 
-### 6. Implementation Strategy: "The MVP"
-
-Don't try to support every language immediately. Start with **Go** mapping **Go**.
-
-1. **Step 1:** Create a walker that lists all `.go` files and respects `.gitignore`.
-2. **Step 2:** Use `go/ast` (standard library) instead of Tree-sitter for the MVP. It's built-in and easier to start with for Go files.
-* *Note:* Switch to Tree-sitter later when you want to support Python/JS.
-
-
-3. **Step 3:** Print a tree showing only `struct` names and `func` signatures.
-
-### Next Step
-
-Would you like me to write the **Go code for "Step 2"** (using `go/ast` to extract function signatures from a file and return a simplified string)?
+Open `http://localhost:8080`.

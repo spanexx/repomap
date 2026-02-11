@@ -73,7 +73,7 @@ import (
 
 	b.ResetTimer()
 	for i := 0; i < b.N; i++ {
-		_, err := ExtractImports(filePath)
+		_, err := ExtractGoImports(filePath)
 		if err != nil {
 			b.Fatal(err)
 		}

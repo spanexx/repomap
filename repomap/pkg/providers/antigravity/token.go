@@ -18,8 +18,7 @@ const (
 	TOKEN_URL    = "https://oauth2.googleapis.com/token"
 
 	// Antigravity OAuth credentials (different from Gemini CLI)
-	DEFAULT_CLIENT_ID     = "1071006060591-tmhssin2h21lcre235vtolojh4g403ep.apps.googleusercontent.com"
-	DEFAULT_CLIENT_SECRET = "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"
+	DEFAULT_CLIENT_ID = "1071006060591-tmhssin2h21lcre235vtolojh4g403ep.apps.googleusercontent.com"
 
 	// Fallback project ID when discovery fails
 	DEFAULT_PROJECT_ID = "rising-fact-p41fc"

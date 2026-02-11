@@ -87,10 +87,18 @@ func main() {
 	// In a real implementation of Task 1.2.11, we would merge these.
 	// Here we just use flags directly as the priority.
 
+	visited := flags.GetVisitedValues()
+
 	// 1. Validation
 	rootDir := flags.GetString("root")
-	if cfg.GetString("root") != "" && rootDir == "." {
-		rootDir = cfg.GetString("root")
+	if cfg.GetString("root") != "" {
+		if _, ok := visited["root"]; !ok {
+			// Only use config when the flag wasn't explicitly set.
+			// This prevents config from overriding a user's explicit `--root .`.
+			if rootDir == "." {
+				rootDir = cfg.GetString("root")
+			}
+		}
 	}
 
 	absRoot, err := filepath.Abs(rootDir)
@@ -100,7 +108,6 @@ func main() {
 	}
 
 	outputFmt := flags.GetString("output")
-	visited := flags.GetVisitedValues()
 	if cfg.GetString("output") != "" {
 		if _, ok := visited["output"]; !ok {
 			// Use config if flag wasn't explicitly set
@@ -223,18 +230,6 @@ func main() {
 
 	// 6. Output
 	logger.Debug("Phase E: Rendering output...")
-
-	// Here we bridge the old internal Output structs to the new Writer interface.
-	// The new Writer interface expects interface{}, but our internal output.RenderX functions return strings.
-	// We should update the internal output package to work with the new Writer, OR for this step, just use the Writer string method.
-	// Wait, internal/output/render.go returns string.
-	// pkg/output/writer.go likely has Write(interface{}) or WriteString(string).
-	// Let's check pkg/output/writer.go again... I viewed output.go before.
-	// output.go has NewWriter, but didn't show the interface definition.
-	// I'll assume standard Writer interface or check it now.
-	// Actually, easier: I'll stick to the existing internal renderers for now and just write the string result using the new Writer if applicable,
-	// OR better: use the new Writer's formatting capabilities if they are implemented.
-	// Task 1.2.5/6 implemented XML/JSON Formatters. Let's assume they can take the slice of FileNodes.
 
 	// Wrap in RepoMap for proper root element in XML/JSON
 	result := &output.RepoMap{

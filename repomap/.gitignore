@@ -6,3 +6,44 @@
 
 # Profiling
 *.prof
+
+# Go build artifacts
+*.exe
+*.dll
+*.so
+*.dylib
+*.a
+*.out
+/main
+/repomap-cli
+
+# Local config / secrets
+.env
+.env.*
+*.local
+*.tmp
+*.swp
+*.swo
+
+# Logs / coverage
+*.log
+coverage.out
+
+# Generated outputs (large)
+analysis_report.json
+mixed_repo_map.json
+mixed_repo_map_v2.json
+fallback_logs.txt
+legacy_check.xml
+gemini_response.txt
+
+# Build directories
+/bin/
+/build/
+
+# Node
+node_modules/
+dist/
+dist-ssr/
+.npmrc
+.pnpm-store/

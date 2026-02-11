@@ -23,13 +23,20 @@ import (
 // StartWebAuth starts the local callback server and returns the auth URL, verifier, channel for code, and cleanup.
 // CID: ANTIGRAVITY_AUTH_WEB_START
 func (p *Provider) StartWebAuth() (string, string, <-chan string, func(), error) {
-	return auth.StartWebFlow(p.getOAuthConfig())
+	config, err := p.getOAuthConfig()
+	if err != nil {
+		return "", "", nil, func() {}, err
+	}
+	return auth.StartWebFlow(config)
 }
 
 // ExchangeAndSave exchanges the code for a token and saves it.
 // CID: ANTIGRAVITY_AUTH_EXCHANGE
 func (p *Provider) ExchangeAndSave(code, verifier string) (*AntigravityToken, error) {
-	config := p.getOAuthConfig()
+	config, err := p.getOAuthConfig()
+	if err != nil {
+		return nil, err
+	}
 	authToken, err := auth.ExchangeCode(context.Background(), config, code, verifier)
 	if err != nil {
 		return nil, err
@@ -76,7 +83,10 @@ func (p *Provider) InteractiveLogin(ctx context.Context) (*AntigravityToken, err
 	}
 
 	// 2. Start interactive flow
-	config := p.getOAuthConfig()
+	config, err := p.getOAuthConfig()
+	if err != nil {
+		return nil, err
+	}
 	authURL, verifier, codeChan, cleanup, err := auth.StartWebFlow(config)
 	if err != nil {
 		return nil, fmt.Errorf("failed to start auth flow: %w", err)
@@ -146,8 +156,6 @@ func (p *Provider) Login(ctx context.Context) (*AntigravityToken, error) {
 
 	// 3. Refresh if needed
 	fmt.Println("🔄 Token expired, refreshing...")
-	// Pass project ID as context if API supports strict project binding with refresh?
-	// The original refresh logic didn't use project ID for the refresh call itself but preserved it.
 	newToken, err := p.RefreshToken(ctx, token.Refresh, token.ProjectID)
 	if err != nil {
 		return nil, fmt.Errorf("refresh failed: %w", err)
@@ -177,7 +185,10 @@ func (p *Provider) Login(ctx context.Context) (*AntigravityToken, error) {
 // RefreshToken exchanges a refresh token for a new access token.
 // CID: ANTIGRAVITY_AUTH_REFRESH
 func (p *Provider) RefreshToken(ctx context.Context, refreshToken string, projectID string) (*AntigravityToken, error) {
-	config := p.getOAuthConfig()
+	config, err := p.getOAuthConfig()
+	if err != nil {
+		return nil, err
+	}
 	authToken, err := auth.RefreshToken(ctx, config, refreshToken)
 	if err != nil {
 		return nil, err
@@ -198,8 +209,11 @@ func (p *Provider) convertToken(t *auth.Token) *AntigravityToken {
 	}
 }
 
-func (p *Provider) getOAuthConfig() auth.OAuthConfig {
-	clientId, clientSecret := getOAuthCredentials()
+func (p *Provider) getOAuthConfig() (auth.OAuthConfig, error) {
+	clientId, clientSecret, err := getOAuthCredentials()
+	if err != nil {
+		return auth.OAuthConfig{}, err
+	}
 	return auth.OAuthConfig{
 		ClientID:     clientId,
 		ClientSecret: clientSecret,
@@ -209,10 +223,10 @@ func (p *Provider) getOAuthConfig() auth.OAuthConfig {
 		Scopes:       SCOPES,
 		CallbackPort: 51121,
 		CallbackPath: "/oauth-callback",
-	}
+	}, nil
 }
 
-func getOAuthCredentials() (string, string) {
+func getOAuthCredentials() (string, string, error) {
 	clientId := os.Getenv("ANTIGRAVITY_OAUTH_CLIENT_ID")
 	clientSecret := os.Getenv("ANTIGRAVITY_OAUTH_CLIENT_SECRET")
 
@@ -220,9 +234,9 @@ func getOAuthCredentials() (string, string) {
 		clientId = DEFAULT_CLIENT_ID
 	}
 	if clientSecret == "" {
-		clientSecret = DEFAULT_CLIENT_SECRET
+		return "", "", fmt.Errorf("ANTIGRAVITY_OAUTH_CLIENT_SECRET environment variable not set")
 	}
-	return clientId, clientSecret
+	return clientId, clientSecret, nil
 }
 
 // getUserEmail logic retained
